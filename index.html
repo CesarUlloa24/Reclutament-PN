@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Ingreso - Policía Nacional</title>
+
+    <!-- Enlace a Bootstrap 5 para el diseño de rejilla y componentes -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Enlace a tu archivo CSS personalizado -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="bg-light">
+
+    <div class="container-fluid py-4">
+
+        <!-- PÁGINA 1: DATOS GENERALES, DIRECCIÓN Y FAMILIA -->
+        <div id="page-1" class="form-page shadow-lg bg-white p-4 mx-auto" style="max-width: 900px;">
+            <!-- ENCABEZADO -->
+            <table class="header-table w-100 mb-3">
+                <tr>
+                    <td class="header-text fw-bold" style="font-size: 0.8rem; line-height: 1.2;">
+                        REPÚBLICA DE PANAMÁ<br>
+                        MINISTERIO DE SEGURIDAD PÚBLICA<br>
+                        POLICÍA NACIONAL<br>
+                        DIRECCIÓN NACIONAL DE RECURSOS HUMANOS<br>
+                        DEPARTAMENTO DE RECLUTAMIENTO Y SELECCIÓN
+                    </td>
+                    <td class="logo-box text-center" style="width: 150px;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Escudo_de_la_Polic%C3%ADa_Nacional_de_Panam%C3%A1.png/150px-Escudo_de_la_Polic%C3%ADa_Nacional_de_Panam%C3%A1.png" alt="Logo PN" style="width: 70px;">
+                        <div class="border border-dark mt-1 mx-auto" style="width: 80px; height: 100px; font-size: 0.7rem; display: flex; align-items: center; justify-content: center;">FOTO</div>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- FECHA Y POSTULACION -->
+            <div class="row g-2 align-items-end mb-3">
+                <div class="col-md-4">
+                    <label class="label-sm fw-bold">Fecha</label>
+                    <input type="date" class="form-control border-black">
+                </div>
+                <div class="col-md-8">
+                    <label class="label-sm fw-bold">Postulará para:</label>
+                    <input type="text" class="form-control border-black">
+                </div>
+            </div>
+
+            <!-- CUADROS DE ADVERTENCIA -->
+            <div class="instruction-box border border-dark p-2 mb-2 bg-light" style="font-size: 0.8rem;">
+                <strong>LEA DETENIDAMENTE:</strong> toda la Información suministrada a la siguiente solicitud será considerada como prueba aclaratoria de su historial personal, en caso de descubrir falsedad será causal o motivo para solicitar su baja o el no ingreso a la Institución. Este documento será considerado de uso confidencial.
+            </div>
+            <div class="instruction-box border border-dark p-2 mb-4 bg-light" style="font-size: 0.8rem;">
+                <strong>INSTRUCCIONES:</strong> llene la siguiente solicitud con toda la Información que se le requiera, letra legible (imprenta). no borre ni tache este documento.
+            </div>
+
+            <!-- SECCIÓN I: DATOS GENERALES -->
+            <div class="box-title bg-dark text-white p-1 px-3 fw-bold">I.- DATOS GENERALES</div>
+            <div class="border-section border border-dark p-3 mb-4">
+                <div class="row g-2 mb-2">
+                    <div class="col-md-3"><label class="label-sm">1er. Apellido</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">2do. Apellido</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">1er. Nombre</label><input type="text" id="inputNombre" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">2do. Nombre</label><input type="text" class="form-control border-black"></div>
+                </div>
+                <div class="row g-2 mb-2">
+                    <div class="col-md-4"><label class="label-sm">Cédula</label><input type="text" id="inputCedula" class="form-control border-black" placeholder="0-000-0000"></div>
+                    <div class="col-md-4"><label class="label-sm">Apodo</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Religión</label><input type="text" class="form-control border-black"></div>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md-4"><label class="label-sm">Fecha de Nacimiento</label><input type="date" id="txtFechaNac" class="form-control border-black"></div>
+                    <div class="col-md-2"><label class="label-sm">Edad</label><input type="number" id="txtEdad" class="form-control border-black" readonly></div>
+                    <div class="col-md-2"><label class="label-sm">Tipaje</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-2">
+                        <label class="label-sm">Estado Civil</label>
+                        <select class="form-select border-black">
+                            <option value="soltero">SOLTERO</option>
+                            <option value="casado">CASADO</option>
+                            <option value="divorciado">DIVORCIADO</option>
+                            <option value="otro">OTROS</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2"><label class="label-sm">Idioma</label><input type="text" class="form-control border-black"></div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN II: DIRECCIÓN RESIDENCIAL -->
+            <div class="box-title bg-dark text-white p-1 px-3 fw-bold">II.- DIRECCIÓN RESIDENCIAL</div>
+            <div class="border-section border border-dark p-3 mb-4">
+                <div class="row g-2 mb-2">
+                    <div class="col-md-6"><label class="label-sm">A- Provincia</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-6"><label class="label-sm">Distrito</label><input type="text" class="form-control border-black"></div>
+                </div>
+                <div class="row g-2 mb-2">
+                    <div class="col-md-12"><label class="label-sm">Corregimiento y Sector</label><input type="text" class="form-control border-black"></div>
+                </div>
+                <div class="row g-2 mb-2">
+                    <div class="col-md-4"><label class="label-sm">N° Casa y Color</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Desde / A (Años)</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Teléfonos</label><input type="text" class="form-control border-black"></div>
+                </div>
+                <div class="row g-2">
+                    <div class="col-12"><label class="label-sm">B- Anterior</label><input type="text" class="form-control border-black"></div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN III: DATOS FAMILIARES -->
+            <div class="box-title bg-dark text-white p-1 px-3 fw-bold">III.- DATOS FAMILIARES</div>
+            <div class="border-section border border-dark p-3 mb-4">
+                <!-- Padre -->
+                <div class="row g-2 mb-2 border-bottom border-dark pb-2">
+                    <div class="col-md-8"><label class="label-sm">Nombre de Padre</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Profesión</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-8"><label class="label-sm">Dirección</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Teléfono</label><input type="text" class="form-control border-black"></div>
+                </div>
+                <!-- Madre -->
+                <div class="row g-2 mb-2 border-bottom border-dark pb-2">
+                    <div class="col-md-8"><label class="label-sm">Nombre de la Madre</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Profesión</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-8"><label class="label-sm">Dirección</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Teléfono</label><input type="text" class="form-control border-black"></div>
+                </div>
+                <!-- Otros familiares -->
+                <div class="row g-2 mb-2">
+                    <div class="col-md-3">
+                        <label class="label-sm">Vive con ambos padres</label>
+                        <select id="selVivePadres" class="form-select border-black">
+                            <option value="si">SÍ</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </div>
+                    <div id="divConQuien" class="col-md-9 d-none">
+                        <label class="label-sm">Con quien indique</label>
+                        <input type="text" class="form-control border-black">
+                    </div>
+                </div>
+                <div class="row g-2 mb-2">
+                    <div class="col-md-6"><label class="label-sm">Nombre del Padrastro</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-6"><label class="label-sm">Nombre de la Madrastra</label><input type="text" class="form-control border-black"></div>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md-6"><label class="label-sm">En caso de emergencia llamar a</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">Teléfono</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">Ingreso Familiar</label><input type="text" class="form-control border-black"></div>
+                </div>
+            </div>
+
+            <div class="text-end mt-4">
+                <button type="button" class="btn btn-primary btn-lg" onclick="validarYPasar(2)">Siguiente Página →</button>
+            </div>
+        </div>
+
+<!-- PÁGINA 2: DESCRIPCIÓN FÍSICA, ESTUDIOS, REFERENCIAS Y SALUD COMPLETA -->
+        <div id="page-2" class="form-page shadow-lg bg-white p-4 mx-auto d-none" style="max-width: 950px;">
+            
+            <!-- SECCIÓN IV: DESCRIPCIÓN FÍSICA -->
+            <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">IV.- DESCRIPCIÓN FÍSICA</div>
+            <div class="border-section border border-dark p-3 mb-4">
+                <div class="row g-2 mb-2">
+                    <div class="col-md-3"><label class="label-sm">Estatura (Mts)</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">Camisa</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">Pantalón</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">Zapatos</label><input type="text" class="form-control border-black"></div>
+                </div>
+                <div class="row g-2 mb-2">
+                    <div class="col-md-3"><label class="label-sm">Peso (Lbs)</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">Clase Cabello</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">Color Cabello</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">Color Ojos</label><input type="text" class="form-control border-black"></div>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md-4"><label class="label-sm">Tez de Piel</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-8"><label class="label-sm">Señas Particulares (Cicatrices, Tatuajes, Pie Plano, etc.)</label><input type="text" class="form-control border-black"></div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN V: ESTUDIOS (CORREGIDA ALINEACIÓN) -->
+            <div class="border-section border border-dark mb-4 p-0">
+    <table class="table-oficial mb-0 border-dark">
+        <thead>
+            <tr class="text-center align-middle">
+                <th style="width: 20%;" class="label-sm">NIVEL</th>
+                <th style="width: 40%;" class="label-sm">CENTRO DE ESTUDIO / NOMBRE</th>
+                <th style="width: 40%;" class="label-sm">TÍTULO OBTENIDO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td class="p-2 fw-bold small">INICIAL</td><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td></tr>
+            <tr><td class="p-2 fw-bold small">PRE-MEDIA</td><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td></tr>
+            <tr><td class="p-2 fw-bold small">MEDIA</td><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td></tr>
+            <tr><td class="p-2 fw-bold small">SUPERIOR</td><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td></tr>
+            <tr><td class="p-2 fw-bold small">POST-SUPERIOR</td><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td></tr>
+            <tr><td class="p-2 fw-bold small">OTROS</td><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td></tr>
+        </tbody>
+    </table>
+</div>
+
+            <!-- SECCIÓN VI: REFERENCIAS PERSONALES -->
+          <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">VI.- REFERENCIAS PERSONALES</div>
+<div class="border-section border border-dark mb-4 p-0">
+    <table class="table-oficial mb-0">
+        <thead>
+            <tr class="text-center">
+                <th style="width: 33.3%;" class="label-sm">Nombre</th>
+                <th style="width: 33.3%;" class="label-sm">Lugar de Trabajo</th>
+                <th style="width: 33.3%;" class="label-sm">Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td></tr>
+            <tr><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td></tr>
+        </tbody>
+    </table>
+</div>
+
+            <!-- SECCIÓN VII, VIII, IX: DESCENDENCIA, HABILIDADES Y DEPORTES -->
+            <div class="row g-0 mb-4">
+                <div class="col-md-6">
+                    <div class="box-title mt-0">VII.- DESCENDENCIA</div>
+                    <div class="border-section" style="min-height: 120px;">
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <label class="label-sm">¿Tiene Hijos?</label>
+                                <select class="form-select border-black"><option>NO</option><option>SÍ</option></select>
+                            </div>
+                            <div class="col-6"><label class="label-sm">N° Hermanos</label><input type="number" class="form-control border-black"></div>
+                            <div class="col-12 mt-2"><label class="label-sm">N° Personas que viven con usted</label><input type="number" class="form-control border-black"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box-title mt-0">VIII.- INSTRUMENTOS</div>
+                    <div class="border-section" style="min-height: 120px;">
+                        <label class="label-sm">Habilidades</label>
+                        <textarea class="form-control border-black" rows="3" placeholder="Instrumentos..."></textarea>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box-title mt-0">IX.- DEPORTES</div>
+                    <div class="border-section" style="min-height: 120px;">
+                        <label class="label-sm">¿Qué practica?</label>
+                        <textarea class="form-control border-black" rows="3" placeholder="Deportes..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN X: ANTECEDENTES CLÍNICOS (FAMILIARES) -->
+ <!-- SECCIÓN X: ANTECEDENTES CLÍNICOS (FAMILIARES) -->
+<div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">X.- ANTECEDENTES CLÍNICOS (FAMILIARES)</div>
+<div class="border-section border border-dark mb-4">
+    <p class="small text-muted mb-2">Marque la enfermedad e indique el parentesco del familiar:</p>
+    <div class="row g-3">
+        <!-- Columna 1 -->
+        <div class="col-md-4">
+            <div class="mb-3 p-1">
+                <input class="form-check-input border-dark check-salud-fam" type="checkbox" data-target="wrap-fam-1"> 
+                <label class="small fw-bold">Tuberculosis</label>
+                <div id="wrap-fam-1" class="d-none mt-1">
+                    <select class="form-select form-select-sm border-black">
+                        <option value="">¿Quién?</option>
+                        <option value="Padre">Padre</option>
+                        <option value="Madre">Madre</option>
+                        <option value="Hermano/a">Hermano(a)</option>
+                        <option value="Hijo/a">Hijo(a)</option>
+                        <option value="Abuelo/a">Abuelo(a)</option>
+                        <option value="Tio/a">Tío(a)</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-3 p-1">
+                <input class="form-check-input border-dark check-salud-fam" type="checkbox" data-target="wrap-fam-2"> 
+                <label class="small fw-bold">Sífilis</label>
+                <div id="wrap-fam-2" class="d-none mt-1">
+                    <select class="form-select form-select-sm border-black">
+                        <option value="">¿Quién?</option>
+                        <option value="Padre">Padre</option>
+                        <option value="Madre">Madre</option>
+                        <option value="Hermano/a">Hermano(a)</option>
+                        <option value="Hijo/a">Hijo(a)</option>
+                        <option value="Abuelo/a">Abuelo(a)</option>
+                        <option value="Tio/a">Tío(a)</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-3 p-1">
+                <input class="form-check-input border-dark check-salud-fam" type="checkbox" data-target="wrap-fam-3"> 
+                <label class="small fw-bold">Diabetes</label>
+                <div id="wrap-fam-3" class="d-none mt-1">
+                    <select class="form-select form-select-sm border-black">
+                        <option value="">¿Quién?</option>
+                        <option value="Padre">Padre</option>
+                        <option value="Madre">Madre</option>
+                        <option value="Hermano/a">Hermano(a)</option>
+                        <option value="Hijo/a">Hijo(a)</option>
+                        <option value="Abuelo/a">Abuelo(a)</option>
+                        <option value="Tio/a">Tío(a)</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Columna 2 -->
+        <div class="col-md-4">
+            <div class="mb-3 p-1">
+                <input class="form-check-input border-dark check-salud-fam" type="checkbox" data-target="wrap-fam-4"> 
+                <label class="small fw-bold">Cáncer</label>
+                <div id="wrap-fam-4" class="d-none mt-1">
+                    <select class="form-select form-select-sm border-black">
+                        <option value="">¿Quién?</option>
+                        <option value="Padre">Padre</option>
+                        <option value="Madre">Madre</option>
+                        <option value="Hermano/a">Hermano(a)</option>
+                        <option value="Hijo/a">Hijo(a)</option>
+                        <option value="Abuelo/a">Abuelo(a)</option>
+                        <option value="Tio/a">Tío(a)</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-3 p-1">
+                <input class="form-check-input border-dark check-salud-fam" type="checkbox" data-target="wrap-fam-5"> 
+                <label class="small fw-bold">Enf. Riñón / Corazón</label>
+                <div id="wrap-fam-5" class="d-none mt-1">
+                    <select class="form-select form-select-sm border-black">
+                        <option value="">¿Quién?</option>
+                        <option value="Padre">Padre</option>
+                        <option value="Madre">Madre</option>
+                        <option value="Hermano/a">Hermano(a)</option>
+                        <option value="Hijo/a">Hijo(a)</option>
+                        <option value="Abuelo/a">Abuelo(a)</option>
+                        <option value="Tio/a">Tío(a)</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-3 p-1">
+                <input class="form-check-input border-dark check-salud-fam" type="checkbox" data-target="wrap-fam-6"> 
+                <label class="small fw-bold">Asma / Alergias</label>
+                <div id="wrap-fam-6" class="d-none mt-1">
+                    <select class="form-select form-select-sm border-black">
+                        <option value="">¿Quién?</option>
+                        <option value="Padre">Padre</option>
+                        <option value="Madre">Madre</option>
+                        <option value="Hermano/a">Hermano(a)</option>
+                        <option value="Hijo/a">Hijo(a)</option>
+                        <option value="Abuelo/a">Abuelo(a)</option>
+                        <option value="Tio/a">Tío(a)</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Columna 3 -->
+        <div class="col-md-4">
+            <div class="mb-3 p-1">
+                <input class="form-check-input border-dark check-salud-fam" type="checkbox" data-target="wrap-fam-7"> 
+                <label class="small fw-bold">Epilepsia</label>
+                <div id="wrap-fam-7" class="d-none mt-1">
+                    <select class="form-select form-select-sm border-black">
+                        <option value="">¿Quién?</option>
+                        <option value="Padre">Padre</option>
+                        <option value="Madre">Madre</option>
+                        <option value="Hermano/a">Hermano(a)</option>
+                        <option value="Hijo/a">Hijo(a)</option>
+                        <option value="Abuelo/a">Abuelo(a)</option>
+                        <option value="Tio/a">Tío(a)</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-3 p-1">
+                <input class="form-check-input border-dark check-salud-fam" type="checkbox" data-target="wrap-fam-8"> 
+                <label class="small fw-bold">Enf. Mental / Depresión</label>
+                <div id="wrap-fam-8" class="d-none mt-1">
+                    <select class="form-select form-select-sm border-black">
+                        <option value="">¿Quién?</option>
+                        <option value="Padre">Padre</option>
+                        <option value="Madre">Madre</option>
+                        <option value="Hermano/a">Hermano(a)</option>
+                        <option value="Hijo/a">Hijo(a)</option>
+                        <option value="Abuelo/a">Abuelo(a)</option>
+                        <option value="Tio/a">Tío(a)</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- SECCIÓN XI: ANTECEDENTES PERSONALES -->
+            <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">XI.- ¿HA TENIDO O TIENE ALGUNA DE ESTAS ENFERMEDADES?</div>
+            <div class="border-section border border-dark p-3 mb-4">
+                <div class="row">
+                    <div class="col-md-6 border-end border-dark">
+                        <!-- Repetir este bloque para cada enfermedad que desees -->
+                        <div class="health-item-row"><span class="small">Padecimiento Crónico</span><select class="form-select sel-salud" data-target="expl-1"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+                        <input type="text" id="expl-1" class="form-control border-black mt-1 d-none" placeholder="Explique...">
+                        
+                        <div class="health-item-row"><span class="small">Dolor de cabeza frecuente</span><select class="form-select sel-salud" data-target="expl-2"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+                        <input type="text" id="expl-2" class="form-control border-black mt-1 d-none" placeholder="Explique...">
+
+                        <div class="health-item-row"><span class="small">Asma</span><select class="form-select sel-salud" data-target="expl-4"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+                        <input type="text" id="expl-4" class="form-control border-black mt-1 d-none" placeholder="Explique...">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="health-item-row"><span class="small">Hernia</span><select class="form-select sel-salud" data-target="expl-8"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+                        <input type="text" id="expl-8" class="form-control border-black mt-1 d-none" placeholder="Explique...">
+
+                        <div class="health-item-row"><span class="small">Adicción Drogas / Alcohol</span><select class="form-select sel-salud" data-target="expl-11"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+                        <input type="text" id="expl-11" class="form-control border-black mt-1 d-none" placeholder="Explique...">
+
+                        <div class="health-item-row"><span class="small">Dificultades para hablar</span><select class="form-select sel-salud" data-target="expl-13"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+                        <input type="text" id="expl-13" class="form-control border-black mt-1 d-none" placeholder="Explique...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTONES DE NAVEGACIÓN -->
+            <div class="d-flex justify-content-between mt-4">
+                <button type="button" class="btn btn-secondary btn-lg" onclick="cambiarPagina(1)">← Volver Atrás</button>
+                <button type="button" class="btn btn-success btn-lg">Finalizar Registro</button>
+            </div>
+        </div>
+
+    <!-- Scripts de Bootstrap (Necesarios para el funcionamiento visual) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Enlace a tu archivo JavaScript personalizado -->
+    <script src="js/script.js"></script>
+</body>
+</html>
