@@ -184,3 +184,22 @@ body {
     .logo-box { width: 100px; }
     .logo-box img { max-width: 60px; }
 }
+
+@media print {
+    body { background: white !important; padding: 0; }
+    .form-page { 
+        box-shadow: none !important; 
+        border: none !important; 
+        margin: 0 !important; 
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .no-print, .btn { display: none !important; }
+    .d-none { display: none !important; }
+    /* Fuerza que cada página de ID page-1, page-2 sea una hoja física */
+    #page-1, #page-2, #page-3 { 
+        display: block !important; 
+        page-break-after: always; 
+    }
+}
