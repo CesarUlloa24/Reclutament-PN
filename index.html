@@ -591,17 +591,44 @@
         </div>
     </div>
 
-    <!-- BOTONES DE NAVEGACIÓN -->
+<!-- BOTONES DE NAVEGACIÓN PÁGINA 3 -->
     <div class="d-flex justify-content-between mt-5 no-print">
         <button type="button" class="btn btn-secondary btn-lg" onclick="cambiarPagina(2)">← Volver a Página 2</button>
-        <button type="button" class="btn btn-primary btn-lg" onclick="window.print()">Imprimir Formulario completo</button>
+        <!-- BOTÓN FINALIZAR -->
+        <button type="button" class="btn btn-success btn-lg px-5 shadow-sm" onclick="finalizarFormulario()">
+            ¡Finalizar Registro! 🚀
+        </button>
     </div>
-</div>
+</div> <!-- Aquí cierra el page-3 -->
 
-    <!-- Scripts de Bootstrap (Necesarios para el funcionamiento visual) -->
+        <!-- PANTALLA DE ÉXITO -->
+        <div id="success-screen" class="form-page shadow-lg bg-white p-5 mx-auto d-none text-center" style="max-width: 700px; margin-top: 50px;">
+            <div class="success-icon">✓</div>
+            <h1 class="display-4 fw-bold text-success">¡Excelente!</h1>
+            <p class="lead">Información procesada para el sistema de la Policía Nacional.</p>
+            <button class="btn btn-outline-primary mt-4" onclick="location.reload()">Nuevo Registro</button>
+        </div>
+
+    </div>
+
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCbXARLgDlgt7lqU42LZ1jyrnnSFNM7SWw",
+        authDomain: "reclutamientopn.firebaseapp.com",
+        projectId: "reclutamientopn",
+        storageBucket: "reclutamientopn.firebasestorage.app",
+        messagingSenderId: "1035340937890",
+        appId: "1:1035340937890:web:c19627022f2effadd575fb",
+        measurementId: "G-JF1SMG7FC6"
+      };
+      firebase.initializeApp(firebaseConfig);
+      window.db = firebase.firestore();
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Enlace a tu archivo JavaScript personalizado -->
     <script src="js/script.js"></script>
 </body>
 </html>
