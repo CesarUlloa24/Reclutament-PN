@@ -38,11 +38,11 @@
             <div class="row g-2 align-items-end mb-3">
                 <div class="col-md-4">
                     <label class="label-sm fw-bold">Fecha</label>
-                    <input type="date" class="form-control border-black">
+                    <input type="date" id="fechaPostulacion" class="form-control border-black">
                 </div>
                 <div class="col-md-8">
                     <label class="label-sm fw-bold">Postulará para:</label>
-                    <input type="text" class="form-control border-black">
+                    <input type="text" id="postulacionCargo" class="form-control border-black">
                 </div>
             </div>
 
@@ -58,30 +58,30 @@
             <div class="box-title bg-dark text-white p-1 px-3 fw-bold">I.- DATOS GENERALES</div>
             <div class="border-section border border-dark p-3 mb-4">
                 <div class="row g-2 mb-2">
-                    <div class="col-md-3"><label class="label-sm">1er. Apellido</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-3"><label class="label-sm">2do. Apellido</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">1er. Apellido</label><input type="text" id="apellido1" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">2do. Apellido</label><input type="text" id="apellido2" class="form-control border-black"></div>
                     <div class="col-md-3"><label class="label-sm">1er. Nombre</label><input type="text" id="inputNombre" class="form-control border-black"></div>
-                    <div class="col-md-3"><label class="label-sm">2do. Nombre</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">2do. Nombre</label><input type="text" id="nombre2" class="form-control border-black"></div>
                 </div>
                 <div class="row g-2 mb-2">
                     <div class="col-md-4"><label class="label-sm">Cédula</label><input type="text" id="inputCedula" class="form-control border-black" placeholder="0-000-0000"></div>
-                    <div class="col-md-4"><label class="label-sm">Apodo</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-4"><label class="label-sm">Religión</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Apodo</label><input type="text" id="inputApodo" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Religión</label><input type="text" id="inputReligion" class="form-control border-black"></div>
                 </div>
                 <div class="row g-2">
                     <div class="col-md-4"><label class="label-sm">Fecha de Nacimiento</label><input type="date" id="txtFechaNac" class="form-control border-black"></div>
                     <div class="col-md-2"><label class="label-sm">Edad</label><input type="number" id="txtEdad" class="form-control border-black" readonly></div>
-                    <div class="col-md-2"><label class="label-sm">Tipaje</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-2"><label class="label-sm">Tipaje</label><input type="text" id="inputTipaje" class="form-control border-black"></div>
                     <div class="col-md-2">
                         <label class="label-sm">Estado Civil</label>
-                        <select class="form-select border-black">
+                        <select id="selEstadoCivil" class="form-select border-black">
                             <option value="soltero">SOLTERO</option>
                             <option value="casado">CASADO</option>
                             <option value="divorciado">DIVORCIADO</option>
                             <option value="otro">OTROS</option>
                         </select>
                     </div>
-                    <div class="col-md-2"><label class="label-sm">Idioma</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-2"><label class="label-sm">Idioma</label><input type="text" id="inputIdioma" class="form-control border-black"></div>
                 </div>
             </div>
 
@@ -89,19 +89,19 @@
             <div class="box-title bg-dark text-white p-1 px-3 fw-bold">II.- DIRECCIÓN RESIDENCIAL</div>
             <div class="border-section border border-dark p-3 mb-4">
                 <div class="row g-2 mb-2">
-                    <div class="col-md-6"><label class="label-sm">A- Provincia</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-6"><label class="label-sm">Distrito</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-6"><label class="label-sm">A- Provincia</label><input type="text" id="resProvincia" class="form-control border-black"></div>
+                    <div class="col-md-6"><label class="label-sm">Distrito</label><input type="text" id="resDistrito" class="form-control border-black"></div>
                 </div>
                 <div class="row g-2 mb-2">
-                    <div class="col-md-12"><label class="label-sm">Corregimiento y Sector</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-12"><label class="label-sm">Corregimiento y Sector</label><input type="text" id="resCorregimiento" class="form-control border-black"></div>
                 </div>
                 <div class="row g-2 mb-2">
-                    <div class="col-md-4"><label class="label-sm">N° Casa y Color</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-4"><label class="label-sm">Desde / A (Años)</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-4"><label class="label-sm">Teléfonos</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">N° Casa y Color</label><input type="text" id="resCasaColor" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Desde / A (Años)</label><input type="text" id="resTiempoResidencia" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Teléfonos</label><input type="text" id="resTelefonos" class="form-control border-black"></div>
                 </div>
                 <div class="row g-2">
-                    <div class="col-12"><label class="label-sm">B- Anterior</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-12"><label class="label-sm">B- Anterior</label><input type="text" id="resDireccionAnterior" class="form-control border-black"></div>
                 </div>
             </div>
 
@@ -110,17 +110,17 @@
             <div class="border-section border border-dark p-3 mb-4">
                 <!-- Padre -->
                 <div class="row g-2 mb-2 border-bottom border-dark pb-2">
-                    <div class="col-md-8"><label class="label-sm">Nombre de Padre</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-4"><label class="label-sm">Profesión</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-8"><label class="label-sm">Dirección</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-4"><label class="label-sm">Teléfono</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-8"><label class="label-sm">Nombre de Padre</label><input type="text" id="padreNombre" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Profesión</label><input type="text" id="padreProfesion" class="form-control border-black"></div>
+                    <div class="col-md-8"><label class="label-sm">Dirección</label><input type="text" id="padreDireccion" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Teléfono</label><input type="text" id="padreTelefono" class="form-control border-black"></div>
                 </div>
                 <!-- Madre -->
                 <div class="row g-2 mb-2 border-bottom border-dark pb-2">
-                    <div class="col-md-8"><label class="label-sm">Nombre de la Madre</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-4"><label class="label-sm">Profesión</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-8"><label class="label-sm">Dirección</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-4"><label class="label-sm">Teléfono</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-8"><label class="label-sm">Nombre de la Madre</label><input type="text" id="madreNombre" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Profesión</label><input type="text" id="madreProfesion" class="form-control border-black"></div>
+                    <div class="col-md-8"><label class="label-sm">Dirección</label><input type="text" id="madreDireccion" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Teléfono</label><input type="text" id="madreTelefono" class="form-control border-black"></div>
                 </div>
                 <!-- Otros familiares -->
                 <div class="row g-2 mb-2">
@@ -133,17 +133,17 @@
                     </div>
                     <div id="divConQuien" class="col-md-9 d-none">
                         <label class="label-sm">Con quien indique</label>
-                        <input type="text" class="form-control border-black">
+                        <input type="text" id="inputConQuien" class="form-control border-black">
                     </div>
                 </div>
                 <div class="row g-2 mb-2">
-                    <div class="col-md-6"><label class="label-sm">Nombre del Padrastro</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-6"><label class="label-sm">Nombre de la Madrastra</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-6"><label class="label-sm">Nombre del Padrastro</label><input type="text" id="padrastroNombre" class="form-control border-black"></div>
+                    <div class="col-md-6"><label class="label-sm">Nombre de la Madrastra</label><input type="text" id="madrastraNombre" class="form-control border-black"></div>
                 </div>
                 <div class="row g-2">
-                    <div class="col-md-6"><label class="label-sm">En caso de emergencia llamar a</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-3"><label class="label-sm">Teléfono</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-3"><label class="label-sm">Ingreso Familiar</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-6"><label class="label-sm">En caso de emergencia llamar a</label><input type="text" id="emergenciaNombre" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">Teléfono</label><input type="text" id="emergenciaTelefono" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">Ingreso Familiar</label><input type="text" id="ingresoFamiliar" class="form-control border-black"></div>
                 </div>
             </div>
 
@@ -610,23 +610,6 @@
         </div>
 
     </div>
-
-    <!-- FIREBASE -->
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
-    <script>
-      const firebaseConfig = {
-        apiKey: "AIzaSyCbXARLgDlgt7lqU42LZ1jyrnnSFNM7SWw",
-        authDomain: "reclutamientopn.firebaseapp.com",
-        projectId: "reclutamientopn",
-        storageBucket: "reclutamientopn.firebasestorage.app",
-        messagingSenderId: "1035340937890",
-        appId: "1:1035340937890:web:c19627022f2effadd575fb",
-        measurementId: "G-JF1SMG7FC6"
-      };
-      firebase.initializeApp(firebaseConfig);
-      window.db = firebase.firestore();
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>

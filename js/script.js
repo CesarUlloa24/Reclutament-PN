@@ -124,48 +124,81 @@ function validarYPasar(n) {
 // --- 6. FUNCIÓN FINALIZAR Y GUARDAR EN FIREBASE ---
 
 function finalizarFormulario() {
-    console.log(">>> Intentando guardar datos en Firebase...");
 
-    // Verificamos que la base de datos esté lista
-    if (typeof db === 'undefined') {
-        alert("Error: No se pudo conectar con la base de datos. Verifique su conexión.");
-        return;
-    }
+        // 1. Identificar el botón que lanzó el evento
+    // Buscamos el botón de finalizar por su texto o clase para deshabilitarlo
+    const btnFinalizar = document.querySelector('button[onclick="finalizarFormulario()"]');
 
-    // Capturamos los datos básicos
-    const nombre = document.getElementById('inputNombre').value;
-    const cedula = document.getElementById('inputCedula').value;
+    // 2. Si el botón ya está deshabilitado, salimos de la función (evita el doble clic)
+    if (btnFinalizar.disabled) return;
 
-    if (!nombre || !cedula) {
-        alert("⚠️ Faltan datos críticos. Por favor revise la Página 1.");
-        cambiarPagina(1);
-        return;
-    }
+    console.log("Iniciando captura de datos...");
+    const urlScript = "https://script.google.com/macros/s/AKfycbzVpJ1Z6j9eI0-o9WMJ44Gw1HD1D_iXmnBaZdoDv59fBaKXwJaUiqEF-1JFcrF60EBF/exec"; 
 
-    // Creamos el objeto con la información a guardar
-    const datosPostulante = {
-        nombre: nombre,
-        cedula: cedula,
-        fechaRegistro: new Date().toLocaleString(),
-        estado: "Pendiente"
+    // 3. Deshabilitar el botón y mostrar estado de carga
+    btnFinalizar.disabled = true;
+    btnFinalizar.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enviando datos...';
+
+    // Función auxiliar para obtener valor sin errores
+    const v = (id) => {
+        const el = document.getElementById(id);
+        if (!el) {
+            console.warn("⚠️ No se encontró el ID: " + id);
+            return ""; 
+        }
+        return el.value;
     };
 
-    // Guardamos en la colección "postulantes" de Firestore
-    db.collection("postulantes").add(datosPostulante)
-    .then((docRef) => {
-        console.log("¡Registro guardado con éxito! ID:", docRef.id);
-        
-        // Ocultamos la página actual y mostramos la pantalla de éxito
-        const p3 = document.getElementById('page-3');
-        const successScreen = document.getElementById('success-screen');
-        
-        if (p3) p3.classList.add('d-none');
-        if (successScreen) successScreen.classList.remove('d-none');
-        
+    const datos = {
+        fechaPostulacion: v('fechaPostulacion'),
+        postulacionCargo: v('postulacionCargo'),
+        apellido1: v('apellido1'),
+        apellido2: v('apellido2'),
+        nombre1: v('inputNombre'),
+        nombre2: v('nombre2'),
+        cedula: v('inputCedula'),
+        apodo: v('inputApodo'),
+        religion: v('inputReligion'),
+        fechaNac: v('txtFechaNac'),
+        edad: v('txtEdad'),
+        tipaje: v('inputTipaje'),
+        estadoCivil: v('selEstadoCivil'),
+        idioma: v('inputIdioma'),
+        provincia: v('resProvincia'),
+        distrito: v('resDistrito'),
+        corregimiento: v('resCorregimiento'),
+        casaColor: v('resCasaColor'),
+        tiempoResidencia: v('resTiempoResidencia'),
+        telefonos: v('resTelefonos'),
+        direccionAnterior: v('resDireccionAnterior'),
+        padreNombre: v('padreNombre'),
+        padreProfesion: v('padreProfesion'),
+        padreDireccion: v('padreDireccion'),
+        padreTelefono: v('padreTelefono'),
+        madreNombre: v('madreNombre'),
+        madreProfesion: v('madreProfesion'),
+        madreDireccion: v('madreDireccion'),
+        madreTelefono: v('madreTelefono'),
+        padrastroNombre: v('padrastroNombre'),
+        madrastraNombre: v('madrastraNombre'),
+        viveConPadres: v('selVivePadres'),
+        emergenciaNombre: v('emergenciaNombre'),
+        emergenciaTelefono: v('emergenciaTelefono'),
+        ingresoFamiliar: v('ingresoFamiliar')
+    };
+
+    console.log("Datos capturados listos para enviar:", datos);
+
+    fetch(urlScript, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(datos)
+    })
+    .then(() => {
+        document.getElementById('page-3').classList.add('d-none');
+        document.getElementById('success-screen').classList.remove('d-none');
         window.scrollTo(0, 0);
     })
-    .catch((error) => {
-        console.error("Error al guardar:", error);
-        alert("Hubo un error al enviar el formulario: " + error.message);
-    });
-}
+    .catch(error => console.error("Error al enviar:", error));
+ }
