@@ -133,7 +133,7 @@ function finalizarFormulario() {
     if (btnFinalizar.disabled) return;
 
     console.log("Iniciando captura de datos...");
-    const urlScript = "https://script.google.com/macros/s/AKfycbzVpJ1Z6j9eI0-o9WMJ44Gw1HD1D_iXmnBaZdoDv59fBaKXwJaUiqEF-1JFcrF60EBF/exec"; 
+    const urlScript = "https://script.google.com/macros/s/AKfycbz4M6SJdHYejVRJ0eBaARuheamzQZcC9dsE-OhGKlL91lN75rkKiILqhBuHQF3lzA8/exec"; 
 
     // 3. Deshabilitar el botón y mostrar estado de carga
     btnFinalizar.disabled = true;
@@ -184,7 +184,56 @@ function finalizarFormulario() {
         viveConPadres: v('selVivePadres'),
         emergenciaNombre: v('emergenciaNombre'),
         emergenciaTelefono: v('emergenciaTelefono'),
-        ingresoFamiliar: v('ingresoFamiliar')
+        ingresoFamiliar: v('ingresoFamiliar'),
+
+            // PÁGINA 2
+        estatura: v('descEstatura'), 
+        camisa: v('descCamisa'), 
+        pantalon: v('descPantalon'), 
+        zapatos: v('descZapatos'), 
+        peso: v('descPeso'),
+        claseCabello: v('descClaseCabello'), 
+        colorCabello: v('descColorCabello'), 
+        colorOjos: v('descColorOjos'), 
+        tez: v('descTez'), 
+        senas: v('descSenas'),
+        estIniC: v('estIniC'), 
+        estIniT: v('estIniT'), 
+        estPreC: v('estPreC'), 
+        estPreT: v('estPreT'), 
+        estMedC: v('estMedC'), 
+        estMedT: v('estMedT'), 
+        estSupC: v('estSupC'), 
+        estSupT: v('estSupT'), 
+        estPosC: v('estPosC'), 
+        estPosT: v('estPosT'), 
+        estOtrC: v('estOtrC'), 
+        estOtrT: v('estOtrT'),
+        ref1N: v('ref1N'), 
+        ref1L: v('ref1L'), 
+        ref1T: v('ref1T'), 
+        ref2N: v('ref2N'), 
+        ref2L: v('ref2L'), 
+        ref2T: v('ref2T'),
+        hijos: v('extraHijos'), 
+        hermanos: v('extraHermanos'), 
+        viveConN: v('extraViveCon'), 
+        habilidades: v('extraInstru'), 
+        deportes: v('extraDeporte'),
+
+        // SALUD FAMILIAR
+        fam_tbc: v('saludFamTBC'), 
+        fam_sif: v('saludFamSIF'), 
+        fam_dia: v('saludFamDIA'), 
+        fam_can: v('saludFamCAN'), 
+        fam_rc: v('saludFamRC'), 
+        fam_asm: v('saludFamASM'), 
+        fam_epi: v('saludFamEPI'), 
+        fam_men: v('saludFamMEN'),
+
+        // SALUD PERSONAL (22 items)
+        p1R: v('saludPers1'), p1E: v('expl-1'), p2R: v('saludPers2'), p2E: v('expl-2'), p3R: v('saludPers3'), p3E: v('expl-3'), p4R: v('saludPers4'), p4E: v('expl-4'), p5R: v('saludPers5'), p5E: v('expl-5'), p6R: v('saludPers6'), p6E: v('expl-6'), p7R: v('saludPers7'), p7E: v('expl-7'), p8R: v('saludPers8'), p8E: v('expl-8'), p9R: v('saludPers9'), p9E: v('expl-9'), p10R: v('saludPers10'), p10E: v('expl-10'),
+        p11R: v('saludPers11'), p11E: v('expl-11'), p12R: v('saludPers12'), p12E: v('expl-12'), p13R: v('saludPers13'), p13E: v('expl-13'), p14R: v('saludPers14'), p14E: v('expl-14'), p15R: v('saludPers15'), p15E: v('expl-15'), p16R: v('saludPers16'), p16E: v('expl-16'), p17R: v('saludPers17'), p17E: v('expl-17'), p18R: v('saludPers18'), p18E: v('expl-18'), p19R: v('saludPers19'), p19E: v('expl-19'), p20R: v('saludPers20'), p20E: v('expl-20'), p21R: v('saludPers21'), p21E: v('expl-21'), p22R: v('saludPers22'), p22E: v('expl-22')
     };
 
     console.log("Datos capturados listos para enviar:", datos);

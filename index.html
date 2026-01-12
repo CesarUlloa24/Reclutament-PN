@@ -159,20 +159,18 @@
             <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">IV.- DESCRIPCIÓN FÍSICA</div>
             <div class="border-section border border-dark p-3 mb-4">
                 <div class="row g-2 mb-2">
-                    <div class="col-md-3"><label class="label-sm">Estatura (Mts)</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-3"><label class="label-sm">Camisa</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-3"><label class="label-sm">Pantalón</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-3"><label class="label-sm">Zapatos</label><input type="text" class="form-control border-black"></div>
-                </div>
-                <div class="row g-2 mb-2">
-                    <div class="col-md-3"><label class="label-sm">Peso (Lbs)</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-3"><label class="label-sm">Clase Cabello</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-3"><label class="label-sm">Color Cabello</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-3"><label class="label-sm">Color Ojos</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">Estatura</label><input type="text" id="descEstatura" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">Camisa</label><input type="text" id="descCamisa" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">Pantalón</label><input type="text" id="descPantalon" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">Zapatos</label><input type="text" id="descZapatos" class="form-control border-black"></div>
                 </div>
                 <div class="row g-2">
-                    <div class="col-md-4"><label class="label-sm">Tez de Piel</label><input type="text" class="form-control border-black"></div>
-                    <div class="col-md-8"><label class="label-sm">Señas Particulares (Cicatrices, Tatuajes, Pie Plano, etc.)</label><input type="text" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">Peso (Lbs)</label><input type="text" id="descPeso" class="form-control border-black"></div>
+                    <div class="col-md-2"><label class="label-sm">Clase Cabello</label><input type="text" id="descClaseCabello" class="form-control border-black"></div>
+                    <div class="col-md-2"><label class="label-sm">Color Cabello</label><input type="text" id="descColorCabello" class="form-control border-black"></div>
+                    <div class="col-md-2"><label class="label-sm">Color Ojos</label><input type="text" id="descColorOjos" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">Tez</label><input type="text" id="descTez" class="form-control border-black"></div>
+                    <div class="col-12 mt-2"><label class="label-sm">Señas Particulares</label><input type="text" id="descSenas" class="form-control border-black"></div>
                 </div>
             </div>
 
@@ -187,12 +185,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td class="p-2 fw-bold small">INICIAL</td><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td></tr>
-            <tr><td class="p-2 fw-bold small">PRE-MEDIA</td><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td></tr>
-            <tr><td class="p-2 fw-bold small">MEDIA</td><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td></tr>
-            <tr><td class="p-2 fw-bold small">SUPERIOR</td><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td></tr>
-            <tr><td class="p-2 fw-bold small">POST-SUPERIOR</td><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td></tr>
-            <tr><td class="p-2 fw-bold small">OTROS</td><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td></tr>
+            <tr><td class="p-2 fw-bold small">INICIAL</td><td><input type="text" id="estIniC" class="form-control-clean"></td><td><input type="text" id="estIniT" class="form-control-clean"></td></tr>
+            <tr><td class="p-2 fw-bold small">PRE-MEDIA</td><td><input type="text" id="estPreC" class="form-control-clean"></td><td><input type="text" id="estPreT" class="form-control-clean"></td></tr>
+            <tr><td class="p-2 fw-bold small">MEDIA</td><td><input type="text" id="estMedC" class="form-control-clean"></td><td><input type="text" id="estMedT" class="form-control-clean"></td></tr>
+            <tr><td class="p-2 fw-bold small">SUPERIOR</td><td><input type="text" id="estSupC" class="form-control-clean"></td><td><input type="text" id="estSupT" class="form-control-clean"></td></tr>
+            <tr><td class="p-2 fw-bold small">POST-SUP</td><td><input type="text" id="estPosC" class="form-control-clean"></td><td><input type="text" id="estPosT" class="form-control-clean"></td></tr>
+            <tr><td class="p-2 fw-bold small">OTROS</td><td><input type="text" id="estOtrC" class="form-control-clean"></td><td><input type="text" id="estOtrT" class="form-control-clean"></td></tr>
         </tbody>
     </table>
 </div>
@@ -209,45 +207,54 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td></tr>
-            <tr><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td><td class="p-0"><input type="text" class="form-control-clean"></td></tr>
+            <tr><td><input type="text" id="ref1N" class="form-control-clean"></td><td class="p-0"><input type="text" id="ref1L" class="form-control-clean"></td><td class="p-0"><input type="text" id="ref1T" class="form-control-clean"></td></tr>
+            <tr><td><input type="text" id="ref2N" class="form-control-clean"></td><td class="p-0"><input type="text" id="ref2L" class="form-control-clean"></td><td class="p-0"><input type="text" id="ref2T" class="form-control-clean"></td></tr>
         </tbody>
     </table>
 </div>
 
             <!-- SECCIÓN VII, VIII, IX: DESCENDENCIA, HABILIDADES Y DEPORTES -->
-            <div class="row g-0 mb-4">
-                <div class="col-md-6">
-                    <div class="box-title mt-0">VII.- DESCENDENCIA</div>
-                    <div class="border-section" style="min-height: 120px;">
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <label class="label-sm">¿Tiene Hijos?</label>
-                                <select class="form-select border-black"><option>NO</option><option>SÍ</option></select>
-                            </div>
-                            <div class="col-6"><label class="label-sm">N° Hermanos</label><input type="number" class="form-control border-black"></div>
-                            <div class="col-12 mt-2"><label class="label-sm">N° Personas que viven con usted</label><input type="number" class="form-control border-black"></div>
-                        </div>
-                    </div>
+<div class="row g-0 mb-4">
+    <div class="col-md-6">
+        <div class="box-title mt-0">VII.- DESCENDENCIA</div>
+        <div class="border-section" style="min-height: 120px;">
+            <div class="row g-2">
+                <div class="col-6">
+                    <label class="label-sm">¿Tiene Hijos?</label>
+                    <select id="extraHijos" class="form-select border-black">
+                        <option value="no">NO</option>
+                        <option value="si">SÍ</option>
+                    </select>
                 </div>
-                <div class="col-md-3">
-                    <div class="box-title mt-0">VIII.- INSTRUMENTOS</div>
-                    <div class="border-section" style="min-height: 120px;">
-                        <label class="label-sm">Habilidades</label>
-                        <textarea class="form-control border-black" rows="3" placeholder="Instrumentos..."></textarea>
-                    </div>
+                <div class="col-6">
+                    <label class="label-sm">N° Hermanos</label>
+                    <input type="number" id="extraHermanos" class="form-control border-black">
                 </div>
-                <div class="col-md-3">
-                    <div class="box-title mt-0">IX.- DEPORTES</div>
-                    <div class="border-section" style="min-height: 120px;">
-                        <label class="label-sm">¿Qué practica?</label>
-                        <textarea class="form-control border-black" rows="3" placeholder="Deportes..."></textarea>
-                    </div>
+                <div class="col-12 mt-2">
+                    <label class="label-sm">N° Personas que viven con usted</label>
+                    <input type="number" id="extraViveCon" class="form-control border-black">
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="box-title mt-0">VIII.- INSTRUMENTOS</div>
+        <div class="border-section" style="min-height: 120px;">
+            <label class="label-sm">Habilidades</label>
+            <textarea id="extraInstru" class="form-control border-black" rows="3" placeholder="Instrumentos..."></textarea>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="box-title mt-0">IX.- DEPORTES</div>
+        <div class="border-section" style="min-height: 120px;">
+            <label class="label-sm">¿Qué practica?</label>
+            <textarea id="extraDeporte" class="form-control border-black" rows="3" placeholder="Deportes..."></textarea>
+        </div>
+    </div>
+</div>
 
-            <!-- SECCIÓN X: ANTECEDENTES CLÍNICOS (FAMILIARES) -->
- <!-- SECCIÓN X: ANTECEDENTES CLÍNICOS (FAMILIARES) -->
+  <!-- SECCIÓN X: ANTECEDENTES CLÍNICOS (FAMILIARES) -->
+  <!-- SECCIÓN X: ANTECEDENTES CLÍNICOS (FAMILIARES) -->
 <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">X.- ANTECEDENTES CLÍNICOS (FAMILIARES)</div>
 <div class="border-section border border-dark mb-4">
     <p class="small text-muted mb-2">Marque la enfermedad e indique el parentesco del familiar:</p>
@@ -258,7 +265,7 @@
                 <input class="form-check-input border-dark check-salud-fam" type="checkbox" data-target="wrap-fam-1"> 
                 <label class="small fw-bold">Tuberculosis</label>
                 <div id="wrap-fam-1" class="d-none mt-1">
-                    <select class="form-select form-select-sm border-black">
+                    <select id="saludFamTBC" class="form-select form-select-sm border-black">
                         <option value="">¿Quién?</option>
                         <option value="Padre">Padre</option>
                         <option value="Madre">Madre</option>
@@ -274,7 +281,7 @@
                 <input class="form-check-input border-dark check-salud-fam" type="checkbox" data-target="wrap-fam-2"> 
                 <label class="small fw-bold">Sífilis</label>
                 <div id="wrap-fam-2" class="d-none mt-1">
-                    <select class="form-select form-select-sm border-black">
+                    <select id="saludFamSIF" class="form-select form-select-sm border-black">
                         <option value="">¿Quién?</option>
                         <option value="Padre">Padre</option>
                         <option value="Madre">Madre</option>
@@ -290,7 +297,7 @@
                 <input class="form-check-input border-dark check-salud-fam" type="checkbox" data-target="wrap-fam-3"> 
                 <label class="small fw-bold">Diabetes</label>
                 <div id="wrap-fam-3" class="d-none mt-1">
-                    <select class="form-select form-select-sm border-black">
+                    <select id="saludFamDIA" class="form-select form-select-sm border-black">
                         <option value="">¿Quién?</option>
                         <option value="Padre">Padre</option>
                         <option value="Madre">Madre</option>
@@ -310,7 +317,7 @@
                 <input class="form-check-input border-dark check-salud-fam" type="checkbox" data-target="wrap-fam-4"> 
                 <label class="small fw-bold">Cáncer</label>
                 <div id="wrap-fam-4" class="d-none mt-1">
-                    <select class="form-select form-select-sm border-black">
+                    <select id="saludFamCAN" class="form-select form-select-sm border-black">
                         <option value="">¿Quién?</option>
                         <option value="Padre">Padre</option>
                         <option value="Madre">Madre</option>
@@ -326,7 +333,7 @@
                 <input class="form-check-input border-dark check-salud-fam" type="checkbox" data-target="wrap-fam-5"> 
                 <label class="small fw-bold">Enf. Riñón / Corazón</label>
                 <div id="wrap-fam-5" class="d-none mt-1">
-                    <select class="form-select form-select-sm border-black">
+                    <select id="saludFamRC" class="form-select form-select-sm border-black">
                         <option value="">¿Quién?</option>
                         <option value="Padre">Padre</option>
                         <option value="Madre">Madre</option>
@@ -342,7 +349,7 @@
                 <input class="form-check-input border-dark check-salud-fam" type="checkbox" data-target="wrap-fam-6"> 
                 <label class="small fw-bold">Asma / Alergias</label>
                 <div id="wrap-fam-6" class="d-none mt-1">
-                    <select class="form-select form-select-sm border-black">
+                    <select id="saludFamASM" class="form-select form-select-sm border-black">
                         <option value="">¿Quién?</option>
                         <option value="Padre">Padre</option>
                         <option value="Madre">Madre</option>
@@ -362,7 +369,7 @@
                 <input class="form-check-input border-dark check-salud-fam" type="checkbox" data-target="wrap-fam-7"> 
                 <label class="small fw-bold">Epilepsia</label>
                 <div id="wrap-fam-7" class="d-none mt-1">
-                    <select class="form-select form-select-sm border-black">
+                    <select id="saludFamEPI" class="form-select form-select-sm border-black">
                         <option value="">¿Quién?</option>
                         <option value="Padre">Padre</option>
                         <option value="Madre">Madre</option>
@@ -378,7 +385,7 @@
                 <input class="form-check-input border-dark check-salud-fam" type="checkbox" data-target="wrap-fam-8"> 
                 <label class="small fw-bold">Enf. Mental / Depresión</label>
                 <div id="wrap-fam-8" class="d-none mt-1">
-                    <select class="form-select form-select-sm border-black">
+                    <select id="saludFamMEN" class="form-select form-select-sm border-black">
                         <option value="">¿Quién?</option>
                         <option value="Padre">Padre</option>
                         <option value="Madre">Madre</option>
@@ -393,80 +400,81 @@
         </div>
     </div>
 </div>
+
+
             <!-- SECCIÓN XI: ANTECEDENTES PERSONALES -->
-            <!-- SECCIÓN XI: ANTECEDENTES PERSONALES (LISTA COMPLETA SEGÚN IMÁGENES) -->
 <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">XI.- ¿HA TENIDO O TIENE? (MARQUE CON UNA X EN LA CASILLA RESPECTIVA)</div>
 <div class="border-section border border-dark p-3 mb-4">
     <div class="row">
         <!-- COLUMNA 1 (Ítems 1 al 11) -->
         <div class="col-md-6 border-end border-dark">
-            <div class="health-item-row"><span>Algún padecimiento crónico</span><select class="form-select sel-salud" data-target="expl-1"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Algún padecimiento crónico</span><select id="saludPers1" class="form-select sel-salud" data-target="expl-1"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-1" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Dolor de cabeza frecuente</span><select class="form-select sel-salud" data-target="expl-2"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Dolor de cabeza frecuente</span><select id="saludPers2" class="form-select sel-salud" data-target="expl-2"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-2" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Bocio</span><select class="form-select sel-salud" data-target="expl-3"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Bocio</span><select id="saludPers3" class="form-select sel-salud" data-target="expl-3"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-3" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Asma</span><select class="form-select sel-salud" data-target="expl-4"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Asma</span><select id="saludPers4" class="form-select sel-salud" data-target="expl-4"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-4" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Presión sanguínea alta / baja</span><select class="form-select sel-salud" data-target="expl-5"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Presión sanguínea alta / baja</span><select id="saludPers5" class="form-select sel-salud" data-target="expl-5"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-5" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Reacción alérgica</span><select class="form-select sel-salud" data-target="expl-6"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Reacción alérgica</span><select id="saludPers6" class="form-select sel-salud" data-target="expl-6"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-6" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Tumor, quiste, cáncer</span><select class="form-select sel-salud" data-target="expl-7"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Tumor, quiste, cáncer</span><select id="saludPers7" class="form-select sel-salud" data-target="expl-7"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-7" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Hernia</span><select class="form-select sel-salud" data-target="expl-8"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Hernia</span><select id="saludPers8" class="form-select sel-salud" data-target="expl-8"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-8" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Enfermedades venéreas</span><select class="form-select sel-salud" data-target="expl-9"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Enfermedades venéreas</span><select id="saludPers9" class="form-select sel-salud" data-target="expl-9"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-9" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Epilepsia u ataques</span><select class="form-select sel-salud" data-target="expl-10"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Epilepsia u ataques</span><select id="saludPers10" class="form-select sel-salud" data-target="expl-10"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-10" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Adicción a las drogas</span><select class="form-select sel-salud" data-target="expl-11"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Adicción a las drogas</span><select id="saludPers11" class="form-select sel-salud" data-target="expl-11"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-11" class="form-control border-black mt-1 d-none" placeholder="Explique...">
         </div>
 
         <!-- COLUMNA 2 (Ítems 12 al 22) -->
-        <div class="col-md-6">
-            <div class="health-item-row"><span>Trastornos nerviosos</span><select class="form-select sel-salud" data-target="expl-12"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+ <div class="col-md-6">
+            <div class="health-item-row"><span>Trastornos nerviosos</span><select id="saludPers12" class="form-select sel-salud" data-target="expl-12"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-12" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Dificultades para hablar</span><select class="form-select sel-salud" data-target="expl-13"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Dificultades para hablar</span><select id="saludPers13" class="form-select sel-salud" data-target="expl-13"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-13" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Intento de autolítico (Suicidio)</span><select class="form-select sel-salud" data-target="expl-14"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Intento de autolítico (Suicidio)</span><select id="saludPers14" class="form-select sel-salud" data-target="expl-14"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-14" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Problemas neurológicos</span><select class="form-select sel-salud" data-target="expl-15"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Problemas neurológicos</span><select id="saludPers15" class="form-select sel-salud" data-target="expl-15"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-15" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Incapacidad motora</span><select class="form-select sel-salud" data-target="expl-16"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Incapacidad motora</span><select id="saludPers16" class="form-select sel-salud" data-target="expl-16"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-16" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Lesiones mayores por accidentes</span><select class="form-select sel-salud" data-target="expl-17"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Lesiones mayores por accidentes</span><select id="saludPers17" class="form-select sel-salud" data-target="expl-17"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-17" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Dificultad para obtener trabajo por causa médica</span><select class="form-select sel-salud" data-target="expl-18"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Dificultad para obtener trabajo por causa médica</span><select id="saludPers18" class="form-select sel-salud" data-target="expl-18"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-18" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Operación quirúrgica reciente o por realizar</span><select class="form-select sel-salud" data-target="expl-19"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Operación quirúrgica reciente o por realizar</span><select id="saludPers19" class="form-select sel-salud" data-target="expl-19"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-19" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Dificultad con sus estudios escolares</span><select class="form-select sel-salud" data-target="expl-20"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Dificultad con sus estudios escolares</span><select id="saludPers20" class="form-select sel-salud" data-target="expl-20"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-20" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Otra lesión distinta a las ya mencionadas</span><select class="form-select sel-salud" data-target="expl-21"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Otra lesión distinta a las ya mencionadas</span><select id="saludPers21" class="form-select sel-salud" data-target="expl-21"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-21" class="form-control border-black mt-1 d-none" placeholder="Explique...">
 
-            <div class="health-item-row"><span>Últimos 3 meses ha sentido tristeza, depresión, p. dormir</span><select class="form-select sel-salud" data-target="expl-22"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+            <div class="health-item-row"><span>Últimos 3 meses ha sentido tristeza, depresión, p. dormir</span><select id="saludPers22" class="form-select sel-salud" data-target="expl-22"><option value="no">NO</option><option value="si">SÍ</option></select></div>
             <input type="text" id="expl-22" class="form-control border-black mt-1 d-none" placeholder="Explique...">
         </div>
     </div>
