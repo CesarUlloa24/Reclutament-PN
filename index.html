@@ -13,41 +13,44 @@
 </head>
 <body class="bg-light">
 
-    <div class="container-fluid py-4">
+    <!-- Contenedor principal que centra todo en PC -->
+    <div class="container py-4">
 
         <!-- PÁGINA 1: DATOS GENERALES, DIRECCIÓN Y FAMILIA -->
-        <div id="page-1" class="form-page shadow-lg bg-white p-4 mx-auto" style="max-width: 900px;">
-<table class="header-table w-100 mb-3">
-    <tr>
-      <!-- IZQUIERDA: LOGO PN -->
-    <td style="width: 150px; text-align: left; vertical-align: middle;">
-    <img src="img/Logo_policia.png" alt="Logo PN" style="width: 90px; height: auto;">
-    </td>
+        <div id="page-1" class="form-page shadow-lg bg-white">
+            
+            <!-- ENCABEZADO RESPONSIVO (Logo, Texto y Foto) -->
+            <div class="row align-items-center mb-4 g-2">
+                <!-- IZQUIERDA: LOGO -->
+                <div class="col-3 col-md-2 text-start">
+                    <img src="img/Logo_policia.png" alt="Logo PN" class="img-fluid" style="max-width: 80px;">
+                </div>
 
-        <!-- CENTRO: TEXTO INSTITUCIONAL -->
-        <td class="header-text fw-bold text-center" style="font-size: 0.85rem; line-height: 1.4;">
+    <!-- CENTRO: TEXTO INSTITUCIONAL -->
+    <div class="col-6 col-md-8 text-center">
+        <h6 class="fw-bold institutional-text m-0">
             REPÚBLICA DE PANAMÁ<br>
             MINISTERIO DE SEGURIDAD PÚBLICA<br>
             POLICÍA NACIONAL<br>
             DIRECCIÓN NACIONAL DE RECURSOS HUMANOS<br>
             DEPARTAMENTO DE RECLUTAMIENTO Y SELECCIÓN
-        </td>
+        </h6>
+    </div>
 
-        <!-- DERECHA: RECUADRO DE FOTO INTERACTIVO -->
-        <td style="width: 150px; text-align: right; vertical-align: middle;">
-            <div class="photo-container mx-auto" onclick="document.getElementById('inputFoto').click();">
-                <input type="file" id="inputFoto" accept="image/*" capture="user" style="display: none;" onchange="previsualizarFoto(this)">
-                <div id="photo-preview" class="photo-preview">
-                    <!-- Icono de silueta de usuario recomendado -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-fill text-secondary" viewBox="0 0 16 16">
-                      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                    </svg>
-                    <small class="d-block text-secondary" style="font-size: 10px;">TOMAR / SUBIR FOTO</small>
-                </div>
-            </div>
-        </td>
-    </tr>
-</table>
+  <!-- DERECHA: RECUADRO DE FOTO INTERACTIVO -->
+<div class="col-3 col-md-2 text-end">
+    <!-- Añadimos d-flex, flex-column, align-items-center y justify-content-center -->
+    <div class="photo-container ms-auto d-flex flex-column align-items-center justify-content-center" onclick="document.getElementById('inputFoto').click();">
+        <input type="file" id="inputFoto" accept="image/*" capture="user" style="display: none;" onchange="previsualizarFoto(this)">
+        
+        <div id="photo-preview" class="photo-preview text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-fill text-secondary" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+            </svg>
+            <small class="d-block text-secondary" style="font-size: 8px; line-height: 1.2; margin-top: 5px;">TOMAR / SUBIR FOTO</small>
+        </div>
+    </div>
+</div>
 
             <!-- FECHA Y POSTULACION -->
             <div class="row g-2 align-items-end mb-3">
