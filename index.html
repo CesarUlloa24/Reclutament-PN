@@ -17,22 +17,37 @@
 
         <!-- PÁGINA 1: DATOS GENERALES, DIRECCIÓN Y FAMILIA -->
         <div id="page-1" class="form-page shadow-lg bg-white p-4 mx-auto" style="max-width: 900px;">
-            <!-- ENCABEZADO -->
-            <table class="header-table w-100 mb-3">
-                <tr>
-                    <td class="header-text fw-bold" style="font-size: 0.8rem; line-height: 1.2;">
-                        REPÚBLICA DE PANAMÁ<br>
-                        MINISTERIO DE SEGURIDAD PÚBLICA<br>
-                        POLICÍA NACIONAL<br>
-                        DIRECCIÓN NACIONAL DE RECURSOS HUMANOS<br>
-                        DEPARTAMENTO DE RECLUTAMIENTO Y SELECCIÓN
-                    </td>
-                    <td class="logo-box text-center" style="width: 150px;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Escudo_de_la_Polic%C3%ADa_Nacional_de_Panam%C3%A1.png/150px-Escudo_de_la_Polic%C3%ADa_Nacional_de_Panam%C3%A1.png" alt="Logo PN" style="width: 70px;">
-                        <div class="border border-dark mt-1 mx-auto" style="width: 80px; height: 100px; font-size: 0.7rem; display: flex; align-items: center; justify-content: center;">FOTO</div>
-                    </td>
-                </tr>
-            </table>
+<table class="header-table w-100 mb-3">
+    <tr>
+      <!-- IZQUIERDA: LOGO PN -->
+    <td style="width: 150px; text-align: left; vertical-align: middle;">
+    <img src="img/Logo_policia.png" alt="Logo PN" style="width: 90px; height: auto;">
+    </td>
+
+        <!-- CENTRO: TEXTO INSTITUCIONAL -->
+        <td class="header-text fw-bold text-center" style="font-size: 0.85rem; line-height: 1.4;">
+            REPÚBLICA DE PANAMÁ<br>
+            MINISTERIO DE SEGURIDAD PÚBLICA<br>
+            POLICÍA NACIONAL<br>
+            DIRECCIÓN NACIONAL DE RECURSOS HUMANOS<br>
+            DEPARTAMENTO DE RECLUTAMIENTO Y SELECCIÓN
+        </td>
+
+        <!-- DERECHA: RECUADRO DE FOTO INTERACTIVO -->
+        <td style="width: 150px; text-align: right; vertical-align: middle;">
+            <div class="photo-container mx-auto" onclick="document.getElementById('inputFoto').click();">
+                <input type="file" id="inputFoto" accept="image/*" capture="user" style="display: none;" onchange="previsualizarFoto(this)">
+                <div id="photo-preview" class="photo-preview">
+                    <!-- Icono de silueta de usuario recomendado -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-fill text-secondary" viewBox="0 0 16 16">
+                      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                    </svg>
+                    <small class="d-block text-secondary" style="font-size: 10px;">TOMAR / SUBIR FOTO</small>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
 
             <!-- FECHA Y POSTULACION -->
             <div class="row g-2 align-items-end mb-3">
@@ -489,23 +504,70 @@
 
 </div> <!-- ESTE CIERRE ES VITAL. Es el que termina el <div id="page-2"> -->
 
-<!-- PÁGINA 3: HÁBITOS, JUDICIALES, SITUACIÓN ACTUAL Y MOTIVACIONES -->
+
+    <!-- PÁGINA 3: CONTINUACIÓN SALUD, HÁBITOS, JUDICIALES Y MOTIVACIONES -->
 <div id="page-3" class="form-page shadow-lg bg-white p-4 mx-auto d-none" style="max-width: 950px;">
     
-    <!-- SECCIÓN XII: HÁBITOS -->
-    <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">XII.- HÁBITOS</div>
+    <!-- SECCIÓN XI: ANTECEDENTES PERSONALES (CONTINUACIÓN) -->
+    <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">XI.- ANTECEDENTES PERSONALES (CONTINUACIÓN)</div>
+    <div class="border-section border border-dark p-3 mb-4">
+        <div class="row">
+            <div class="col-12">
+                <!-- Item 23 -->
+                <div class="health-item-row"><span>Intento de autolítico (Suicidio)</span><select id="saludPers23" class="form-select sel-salud" data-target="expl-23"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+                <input type="text" id="expl-23" class="form-control border-black mt-1 d-none" placeholder="Explique...">
+
+                <!-- Item 24 -->
+                <div class="health-item-row"><span>Problemas neurológicos</span><select id="saludPers24" class="form-select sel-salud" data-target="expl-24"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+                <input type="text" id="expl-24" class="form-control border-black mt-1 d-none" placeholder="Explique...">
+
+                <!-- Item 25 -->
+                <div class="health-item-row"><span>Incapacidad motora</span><select id="saludPers25" class="form-select sel-salud" data-target="expl-25"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+                <input type="text" id="expl-25" class="form-control border-black mt-1 d-none" placeholder="Explique...">
+
+                <!-- Item 26 -->
+                <div class="health-item-row"><span>Lesiones mayores por accidentes</span><select id="saludPers26" class="form-select sel-salud" data-target="expl-26"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+                <input type="text" id="expl-26" class="form-control border-black mt-1 d-none" placeholder="Explique...">
+
+                <!-- Item 27 -->
+                <div class="health-item-row"><span>Dificultad para obtener trabajo, por causa médica</span><select id="saludPers27" class="form-select sel-salud" data-target="expl-27"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+                <input type="text" id="expl-27" class="form-control border-black mt-1 d-none" placeholder="Explique...">
+
+                <!-- Item 28 -->
+                <div class="health-item-row"><span>Operación quirúrgica reciente o por realizar</span><select id="saludPers28" class="form-select sel-salud" data-target="expl-28"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+                <input type="text" id="expl-28" class="form-control border-black mt-1 d-none" placeholder="Explique...">
+
+                <!-- Item 29 -->
+                <div class="health-item-row"><span>Dificultad con sus estudios escolares</span><select id="saludPers29" class="form-select sel-salud" data-target="expl-29"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+                <input type="text" id="expl-29" class="form-control border-black mt-1 d-none" placeholder="Explique...">
+
+                <!-- Item 30 -->
+                <div class="health-item-row"><span>Otra lesión distinta a las ya mencionadas</span><select id="saludPers30" class="form-select sel-salud" data-target="expl-30"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+                <input type="text" id="expl-30" class="form-control border-black mt-1 d-none" placeholder="Explique...">
+
+                <!-- Item 31 -->
+                <div class="health-item-row"><span>Últimos 3 meses ha sentido tristeza, depresión, p. dormir</span><select id="saludPers31" class="form-select sel-salud" data-target="expl-31"><option value="no">NO</option><option value="si">SÍ</option></select></div>
+                <input type="text" id="expl-31" class="form-control border-black mt-1 d-none" placeholder="Explique...">
+            </div>
+        </div>
+    </div>
+
+
+
+       <!-- SECCIÓN XII: HÁBITOS -->
+    <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">XII.- HÁBITOS (GRADO APROXIMADO DE ACUERDO A LA PREGUNTA)</div>
     <div class="border-section border border-dark p-3 mb-4">
         <div class="row align-items-center">
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <span class="fw-bold small">¿HA CONSUMIDO DROGAS ALGUNA VEZ?</span>
-                <select class="form-select sel-salud d-inline-block ms-2" style="width: 80px;" data-target="expl-habitos">
+                <select id="habitosDrogas" class="form-select sel-salud d-inline-block ms-2" style="width: 80px;" data-target="expl-habitos">
                     <option value="no">NO</option>
                     <option value="si">SÍ</option>
                 </select>
             </div>
             <div id="expl-habitos" class="col-12 d-none mt-2">
                 <label class="label-sm">EN CASO DE SER SÍ, EXPLIQUE (TIPO DE DROGAS, FRECUENCIA, ETC.):</label>
-                <textarea class="form-control border-black" rows="2"></textarea>
+                <textarea id="habitosExpl" class="form-control border-black" rows="2"></textarea>
             </div>
         </div>
     </div>
@@ -513,8 +575,8 @@
     <!-- SECCIÓN XIII: ANTECEDENTES JUDICIALES -->
     <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">XIII.- ANTECEDENTES JUDICIALES</div>
     <div class="border-section border border-dark p-3 mb-4">
-        <p class="small fw-bold mb-1 text-uppercase">Indique si ha tenido alguna situación judicial o detención. Especifique tipo, hora, lugar, fecha exacta y resultados de los procesos:</p>
-        <textarea class="form-control border-black" rows="4"></textarea>
+        <p class="small fw-bold mb-1 text-uppercase">Indique si ha tenido alguna situación judicial o detención:</p>
+        <textarea id="judicExpl" class="form-control border-black" rows="4" placeholder="Especifique tipo, hora, lugar, fecha exacta y resultados de los procesos..."></textarea>
     </div>
 
     <!-- SECCIÓN XIV: SITUACIÓN ACTUAL DEL ASPIRANTE -->
@@ -523,61 +585,42 @@
         <div class="row g-3 mb-3">
             <div class="col-md-6 d-flex justify-content-between align-items-center border-bottom pb-1">
                 <span class="small fw-bold">LABORA:</span>
-                <select class="form-select border-black w-auto py-0"><option>NO</option><option>SÍ</option></select>
+                <select id="actualLabora" class="form-select border-black w-auto py-0"><option value="no">NO</option><option value="si">SÍ</option></select>
             </div>
             <div class="col-md-6 d-flex justify-content-between align-items-center border-bottom pb-1">
                 <span class="small fw-bold">ESTUDIA:</span>
-                <select class="form-select border-black w-auto py-0"><option>NO</option><option>SÍ</option></select>
+                <select id="actualEstudia" class="form-select border-black w-auto py-0"><option value="no">NO</option><option value="si">SÍ</option></select>
             </div>
             <div class="col-md-12 d-flex justify-content-between align-items-center border-bottom pb-1">
                 <span class="small fw-bold">PERTENECE O HA PERTENECIDO A ALGÚN PARTIDO POLÍTICO:</span>
-                <select class="form-select border-black w-auto py-0"><option>NO</option><option>SÍ</option></select>
+                <select id="actualPartido" class="form-select border-black w-auto py-0"><option value="no">NO</option><option value="si">SÍ</option></select>
             </div>
             <div class="col-md-12 d-flex justify-content-between align-items-center border-bottom pb-1">
                 <span class="small fw-bold">¿HA PERTENECIDO O APLICADO EN OTRO ESTAMENTO DE SEGURIDAD PÚBLICA?</span>
-                <select class="form-select border-black w-auto py-0"><option>NO</option><option>SÍ</option></select>
+                <select id="actualEstamento" class="form-select border-black w-auto py-0"><option value="no">NO</option><option value="si">SÍ</option></select>
             </div>
         </div>
         <label class="label-sm">EXPLIQUE:</label>
-        <textarea class="form-control border-black" rows="2"></textarea>
+        <textarea id="actualExpl" class="form-control border-black" rows="2"></textarea>
     </div>
 
     <!-- SECCIÓN XV: MOTIVACIONES -->
     <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">XV.- MOTIVACIONES</div>
     <div class="border-section border border-dark p-3 mb-4">
-        <div class="mb-3">
-            <label class="label-sm">1.- ¿QUÉ LO MOTIVÓ INGRESAR A LA POLICÍA NACIONAL? (EXPLIQUE)</label>
-            <textarea class="form-control border-black" rows="2"></textarea>
-        </div>
-        <div class="mb-3">
-            <label class="label-sm">2.- ¿CÓMO SE ENTERÓ DEL PROCESO DE RECLUTAMIENTO Y SELECCIÓN DE LA POLICÍA?</label>
-            <textarea class="form-control border-black" rows="2"></textarea>
-        </div>
-        <div class="mb-3">
-            <label class="label-sm">3.- ¿CONOCE SOBRE LAS ACTIVIDADES QUE SE REALIZAN DENTRO DEL CENTRO DE FORMACIÓN POLICIAL?</label>
-            <textarea class="form-control border-black" rows="2"></textarea>
-        </div>
-        <div class="mb-3">
-            <label class="label-sm">4.- ¿QUÉ ES LO QUE MÁS LE GUSTA DE LA CARRERA POLICIAL Y CUÁNTOS AÑOS PIENSA SERVIR?</label>
-            <textarea class="form-control border-black" rows="2"></textarea>
-        </div>
-        <div class="mb-3">
-            <label class="label-sm">5.- ¿ESTÁ DISPUESTO(A) A BRINDAR SU VIDA EN EL CUMPLIMIENTO DEL DEBER? (EXPLIQUE)</label>
-            <textarea class="form-control border-black" rows="2"></textarea>
-        </div>
-        <div class="mb-3">
-            <label class="label-sm">6.- ¿AL GRADUARSE ESTÁ DISPUESTO A LABORAR EN CUALQUIER PARTE DE LA REPÚBLICA DE PANAMÁ?</label>
-            <textarea class="form-control border-black" rows="2"></textarea>
-        </div>
+        <div class="mb-3"><label class="label-sm">1.- ¿QUÉ LO MOTIVÓ INGRESAR A LA POLICÍA NACIONAL EXPLIQUE?</label><textarea id="motivo1" class="form-control border-black" rows="2"></textarea></div>
+        <div class="mb-3"><label class="label-sm">2.- ¿CÓMO SE ENTERÓ DEL PROCESO DE RECLUTAMIENTO Y SELECCIÓN DE LA POLICIA?</label><textarea id="motivo2" class="form-control border-black" rows="2"></textarea></div>
+        <div class="mb-3"><label class="label-sm">3.- ¿CONOCE SOBRE LAS ACTIVIDADES DEL CENTRO DE FORMACIÓN DE LA POLICIA NACIONAL?</label><textarea id="motivo3" class="form-control border-black" rows="2"></textarea></div>
+        <div class="mb-3"><label class="label-sm">4.- ¿QUÉ ES LO QUE MAS LE GUSTA DE LA CARRERA POLICIAL Y CUÁNTOS AÑOS PIENSA SERVIR?</label><textarea id="motivo4" class="form-control border-black" rows="2"></textarea></div>
+        <div class="mb-3"><label class="label-sm">5.- ¿ESTÁ DISPUESTO(A) A BRINDAR SU VIDA EN EL CUMPLIMIENTO DEL DEBER?</label><textarea id="motivo5" class="form-control border-black" rows="2"></textarea></div>
+        <div class="mb-3"><label class="label-sm">6.- ¿DISPUESTO A LABORAR EN CUALQUIER PARTE DE LA REPÚBLICA DE PANAMÁ?</label><textarea id="motivo6" class="form-control border-black" rows="2"></textarea></div>
         <div class="mb-3">
             <div class="d-flex justify-content-between align-items-start">
-                <label class="label-sm me-2">7.- ¿HA TENIDO USTED ALGÚN INCIDENTE EN SU VIDA QUE NO HAYA DESCRITO O MENCIONADO, Y QUE REQUIERA EXPLICACIÓN ADICIONAL?</label>
-                <select class="form-select sel-salud border-black w-auto" data-target="expl-incidente">
-                    <option value="no">NO</option>
-                    <option value="si">SÍ</option>
+                <label class="label-sm me-2">7.- ¿HA TENIDO ALGÚN INCIDENTE NO MENCIONADO QUE REQUIERA EXPLICACIÓN?</label>
+                <select id="motivo7" class="form-select sel-salud border-black w-auto" data-target="expl-incidente">
+                    <option value="no">NO</option><option value="si">SÍ</option>
                 </select>
             </div>
-            <textarea id="expl-incidente" class="form-control border-black d-none mt-2" rows="3" placeholder="EN CASO DE SÍ, EXPLIQUE..."></textarea>
+            <textarea id="expl-incidente" class="form-control border-black d-none mt-2" rows="3" placeholder="EXPLIQUE..."></textarea>
         </div>
     </div>
 
