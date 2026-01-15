@@ -3,6 +3,8 @@
  * Versión Final con Conexión a Firebase
  */
 
+let fotoBase64Global = ""; //variable global
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. CÁLCULO AUTOMÁTICO DE EDAD ---
@@ -138,6 +140,18 @@ function previsualizarFoto(input) {
     }
 }
 
+function previsualizarFoto(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            fotoBase64Global = e.target.result; // Aquí llenamos la variable global
+            const preview = document.getElementById('photo-preview');
+            preview.innerHTML = `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:cover;">`;
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
 // --- 6. FUNCIÓN FINALIZAR 
 
 function finalizarFormulario() {
@@ -150,7 +164,7 @@ function finalizarFormulario() {
     if (btnFinalizar.disabled) return;
 
     console.log("Iniciando captura de datos...");
-    const urlScript = "https://script.google.com/macros/s/AKfycbyAEdXOzvS7LhqRmWlFdKh7FjXOrHdX6utpMvPIdRPTFMO6mRFg0FySAW5vLL_n7TYz/exec"; 
+    const urlScript = "https://script.google.com/macros/s/AKfycbwYavE5fEi_jNhVzSBHXBmzT08DZKDSlnr_MRm69OH33juMnDYvySvoHIOVNJhLn7mc/exec"; 
 
     // 3. Deshabilitar el botón y mostrar estado de carga
     btnFinalizar.disabled = true;
@@ -286,7 +300,9 @@ function finalizarFormulario() {
         motivo5: v('motivo5'),
         motivo6: v('motivo6'),
         motivo7R: v('motivo7'),
-        motivo7E: v('expl-incidente')
+        motivo7E: v('expl-incidente'),
+
+        fotoBase64: fotoBase64Global   // <--- LA FOTO AL FINAL
     };
 
     console.log("Datos capturados listos para enviar:", datos);
@@ -303,4 +319,6 @@ function finalizarFormulario() {
         window.scrollTo(0, 0);
     })
     .catch(error => console.error("Error al enviar:", error));
+
+    
  }
