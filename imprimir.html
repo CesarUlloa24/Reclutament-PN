@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FICHA DE IMPRESIÓN - RECLUTAMIENTO PN</title>
+    <title>Ficha de Impresión - Policía Nacional</title>
 
     <!-- Enlace a Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -12,42 +12,47 @@
     <link rel="stylesheet" href="css/estilos.css">
 
     <style>
-        /* CONFIGURACIÓN EXCLUSIVA PARA IMPRESIÓN 8.5 x 11 */
+        /* CONFIGURACIÓN PARA IMPRESIÓN PROFESIONAL 8.5 x 11 */
         @media print {
-            body { background: white !important; margin: 0; padding: 0; }
+            body { background: white !important; padding: 0; margin: 0; }
             .container { width: 100% !important; max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
             
-            /* Cada página de tu formulario será una hoja de papel física */
             .form-page {
-                width: 215.9mm !important; /* Ancho Carta */
-                height: 279.4mm !important; /* Alto Carta */
-                padding: 10mm !important;
+                width: 215.9mm !important; /* 8.5 pulgadas */
+                height: 279.4mm !important; /* 11 pulgadas */
+                padding: 15mm !important;
                 margin: 0 auto !important;
                 border: 1px solid #000 !important;
                 box-shadow: none !important;
-                display: block !important; /* Asegura que sean visibles */
-                page-break-after: always; /* SALTO DE PÁGINA OBLIGATORIO */
+                display: block !important; /* Asegura que todas sean visibles */
+                page-break-after: always; /* Cada ID page es una hoja nueva */
                 overflow: hidden;
             }
 
-            /* Ocultar cualquier cosa que no deba imprimirse */
-            .no-print, .btn, .success-icon { display: none !important; }
+            .no-print, .btn, #success-screen { display: none !important; }
             
-            /* Ajuste para que los inputs se vean como texto normal en el PDF */
+            /* Ajuste para que los campos parezcan texto impreso */
             input, select, textarea {
                 border: none !important;
                 background: transparent !important;
                 padding: 0 !important;
+                font-weight: bold !important;
             }
+        }
+        
+        /* Vista previa en pantalla similar a la impresión */
+        .form-page {
+            display: block !important; /* Quita el d-none en esta página */
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body class="bg-white">
 
-    <div class="container">
+    <div class="container py-4">
 
-        <!-- PÁGINA 1: DATOS GENERALES -->
-        <div id="page-1" class="form-page bg-white">
+        <!-- PÁGINA 1 -->
+        <div id="page-1" class="form-page shadow-none bg-white p-4 mx-auto">
             <div class="row align-items-center mb-4 g-2">
                 <div class="col-3 col-md-2 text-start">
                     <img src="img/Logo_policia.png" alt="Logo PN" class="img-fluid" style="max-width: 80px;">
@@ -57,70 +62,87 @@
                         REPÚBLICA DE PANAMÁ<br>
                         MINISTERIO DE SEGURIDAD PÚBLICA<br>
                         POLICÍA NACIONAL<br>
-                        DIRECCIÓN NACIONAL DE RECURSOS HUMANOS
+                        DIRECCIÓN NACIONAL DE RECURSOS HUMANOS<br>
+                        DEPARTAMENTO DE RECLUTAMIENTO Y SELECCIÓN
                     </h6>
                 </div>
                 <div class="col-3 col-md-2 text-end">
-                    <div id="photo-preview" class="photo-container ms-auto border border-dark" style="width: 85px; height: 110px;">
-                        <!-- Aquí se cargará la foto del recluta -->
+                    <div id="photo-preview" class="photo-container ms-auto d-flex flex-column align-items-center justify-content-center border border-dark">
+                        <small class="text-muted">FOTO</small>
                     </div>
                 </div>
             </div>
 
-            <div class="row g-2 mb-3">
-                <div class="col-4"><label class="label-sm">Fecha</label><input type="text" id="fechaPostulacion" class="form-control border-bottom"></div>
-                <div class="col-8"><label class="label-sm">Postulará para:</label><input type="text" id="postulacionCargo" class="form-control border-bottom"></div>
+            <div class="row g-2 align-items-end mb-3">
+                <div class="col-md-4">
+                    <label class="label-sm fw-bold">Fecha</label>
+                    <input type="text" id="fechaPostulacion" class="form-control border-black">
+                </div>
+                <div class="col-md-8">
+                    <label class="label-sm fw-bold">Postulará para:</label>
+                    <input type="text" id="postulacionCargo" class="form-control border-black">
+                </div>
             </div>
 
             <div class="box-title bg-dark text-white p-1 px-3 fw-bold">I.- DATOS GENERALES</div>
             <div class="border-section border border-dark p-3 mb-4">
                 <div class="row g-2 mb-2">
-                    <div class="col-3"><label class="label-sm">1er. Apellido</label><input type="text" id="apellido1" class="form-control"></div>
-                    <div class="col-3"><label class="label-sm">2do. Apellido</label><input type="text" id="apellido2" class="form-control"></div>
-                    <div class="col-3"><label class="label-sm">1er. Nombre</label><input type="text" id="inputNombre" class="form-control"></div>
-                    <div class="col-3"><label class="label-sm">2do. Nombre</label><input type="text" id="nombre2" class="form-control"></div>
+                    <div class="col-md-3"><label class="label-sm">1er. Apellido</label><input type="text" id="apellido1" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">2do. Apellido</label><input type="text" id="apellido2" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">1er. Nombre</label><input type="text" id="inputNombre" class="form-control border-black"></div>
+                    <div class="col-md-3"><label class="label-sm">2do. Nombre</label><input type="text" id="nombre2" class="form-control border-black"></div>
                 </div>
                 <div class="row g-2">
-                    <div class="col-4"><label class="label-sm">Cédula</label><input type="text" id="inputCedula" class="form-control"></div>
-                    <div class="col-4"><label class="label-sm">Fecha Nac.</label><input type="text" id="txtFechaNac" class="form-control"></div>
-                    <div class="col-4"><label class="label-sm">Edad</label><input type="text" id="txtEdad" class="form-control"></div>
+                    <div class="col-md-4"><label class="label-sm">Cédula</label><input type="text" id="inputCedula" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Apodo</label><input type="text" id="inputApodo" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Religión</label><input type="text" id="inputReligion" class="form-control border-black"></div>
+                </div>
+                <div class="row g-2 mt-2">
+                    <div class="col-md-4"><label class="label-sm">Fecha Nacimiento</label><input type="text" id="txtFechaNac" class="form-control border-black"></div>
+                    <div class="col-md-2"><label class="label-sm">Edad</label><input type="text" id="txtEdad" class="form-control border-black"></div>
+                    <div class="col-md-2"><label class="label-sm">Tipaje</label><input type="text" id="inputTipaje" class="form-control border-black"></div>
+                    <div class="col-md-2"><label class="label-sm">Estado Civil</label><input type="text" id="selEstadoCivil" class="form-control border-black"></div>
+                    <div class="col-md-2"><label class="label-sm">Idioma</label><input type="text" id="inputIdioma" class="form-control border-black"></div>
                 </div>
             </div>
 
             <div class="box-title bg-dark text-white p-1 px-3 fw-bold">II.- DIRECCIÓN RESIDENCIAL</div>
             <div class="border-section border border-dark p-3 mb-4">
                 <div class="row g-2">
-                    <div class="col-6"><label class="label-sm">Provincia</label><input type="text" id="resProvincia" class="form-control"></div>
-                    <div class="col-6"><label class="label-sm">Distrito</label><input type="text" id="resDistrito" class="form-control"></div>
-                    <div class="col-12"><label class="label-sm">Corregimiento</label><input type="text" id="resCorregimiento" class="form-control"></div>
+                    <div class="col-md-6"><label class="label-sm">Provincia</label><input type="text" id="resProvincia" class="form-control border-black"></div>
+                    <div class="col-md-6"><label class="label-sm">Distrito</label><input type="text" id="resDistrito" class="form-control border-black"></div>
+                    <div class="col-md-12 mt-2"><label class="label-sm">Corregimiento</label><input type="text" id="resCorregimiento" class="form-control border-black"></div>
                 </div>
             </div>
-            
+
             <div class="box-title bg-dark text-white p-1 px-3 fw-bold">III.- DATOS FAMILIARES</div>
             <div class="border-section border border-dark p-3">
                 <div class="row g-2 border-bottom pb-2">
-                    <div class="col-8"><label class="label-sm">Nombre Padre</label><input type="text" id="padreNombre" class="form-control"></div>
-                    <div class="col-4"><label class="label-sm">Teléfono</label><input type="text" id="padreTelefono" class="form-control"></div>
+                    <div class="col-md-8"><label class="label-sm">Nombre Padre</label><input type="text" id="padreNombre" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Teléfono</label><input type="text" id="padreTelefono" class="form-control border-black"></div>
                 </div>
-                <div class="row g-2">
-                    <div class="col-8"><label class="label-sm">Nombre Madre</label><input type="text" id="madreNombre" class="form-control"></div>
-                    <div class="col-4"><label class="label-sm">Teléfono</label><input type="text" id="madreTelefono" class="form-control"></div>
+                <div class="row g-2 mt-2">
+                    <div class="col-md-8"><label class="label-sm">Nombre Madre</label><input type="text" id="madreNombre" class="form-control border-black"></div>
+                    <div class="col-md-4"><label class="label-sm">Teléfono</label><input type="text" id="madreTelefono" class="form-control border-black"></div>
                 </div>
             </div>
         </div>
 
-        <!-- PÁGINA 2: ESTUDIOS Y SALUD -->
-        <div id="page-2" class="form-page bg-white">
-            <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">V.- ESTUDIOS</div>
-            <div class="border-section border border-dark mb-4 p-0">
-                <table class="table table-bordered mb-0 border-dark">
-                    <thead>
-                        <tr class="text-center align-middle bg-light">
-                            <th style="width: 20%;">NIVEL</th>
-                            <th style="width: 40%;">CENTRO DE ESTUDIO</th>
-                            <th style="width: 40%;">TÍTULO OBTENIDO</th>
-                        </tr>
-                    </thead>
+        <!-- PÁGINA 2 -->
+        <div id="page-2" class="form-page bg-white p-4 mx-auto">
+            <div class="box-title mt-0">IV.- DESCRIPCIÓN FÍSICA</div>
+            <div class="border-section border border-dark p-3 mb-4">
+                <div class="row g-2">
+                    <div class="col-md-3"><label class="label-sm">Estatura</label><input type="text" id="descEstatura" class="form-control"></div>
+                    <div class="col-md-3"><label class="label-sm">Peso</label><input type="text" id="descPeso" class="form-control"></div>
+                    <div class="col-md-6"><label class="label-sm">Señas</label><input type="text" id="descSenas" class="form-control"></div>
+                </div>
+            </div>
+
+            <div class="box-title">V.- ESTUDIOS</div>
+            <div class="border-section border border-dark p-0 mb-4">
+                <table class="table-oficial mb-0 border-dark">
+                    <thead><tr><th style="width: 20%;">NIVEL</th><th>CENTRO</th><th>TÍTULO</th></tr></thead>
                     <tbody>
                         <tr><td>INICIAL</td><td><input type="text" id="estIniC" class="form-control-clean"></td><td><input type="text" id="estIniT" class="form-control-clean"></td></tr>
                         <tr><td>MEDIA</td><td><input type="text" id="estMedC" class="form-control-clean"></td><td><input type="text" id="estMedT" class="form-control-clean"></td></tr>
@@ -129,74 +151,83 @@
                 </table>
             </div>
 
-            <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">XI.- ANTECEDENTES PERSONALES</div>
+            <div class="box-title">XI.- ANTECEDENTES PERSONALES</div>
             <div class="border-section border border-dark p-3">
-                <div id="contenedor-salud-impresion">
-                    <!-- Aquí el script llenará la lista de salud -->
+                <div class="row" id="contenedor-salud-personal">
+                    <!-- Aquí se llenarán las respuestas -->
                 </div>
             </div>
         </div>
 
-        <!-- PÁGINA 3: MOTIVACIONES Y FIRMAS -->
-        <div id="page-3" class="form-page bg-white">
-            <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">XV.- MOTIVACIONES</div>
+        <!-- PÁGINA 3 -->
+        <div id="page-3" class="form-page bg-white p-4 mx-auto">
+            <div class="box-title mt-0">XV.- MOTIVACIONES</div>
             <div class="border-section border border-dark p-3 mb-4">
-                <p class="small fw-bold">¿QUÉ LO MOTIVÓ INGRESAR A LA POLICÍA NACIONAL?</p>
-                <div id="p-motivo1" class="border-bottom mb-3" style="min-height: 40px;"></div>
+                <p class="small fw-bold">1.- ¿POR QUÉ DESEA INGRESAR?</p>
+                <div id="p-motivo1" class="border-bottom pb-2 mb-3"></div>
                 
-                <p class="small fw-bold">¿ESTÁ DISPUESTO A BRINDAR SU VIDA EN EL DEBER?</p>
-                <div id="p-motivo5" class="border-bottom" style="min-height: 40px;"></div>
+                <p class="small fw-bold">5.- ¿ESTÁ DISPUESTO AL SACRIFICIO?</p>
+                <div id="p-motivo5" class="border-bottom pb-2"></div>
             </div>
 
             <div class="row mt-5 pt-5 text-center">
-                <div class="col-6">
-                    <div class="border-top border-dark mx-auto" style="width: 80%;"></div>
-                    <p class="fw-bold mt-2">FIRMA DEL POSTULANTE</p>
-                </div>
-                <div class="col-6">
-                    <div class="border-top border-dark mx-auto" style="width: 80%;"></div>
-                    <p class="fw-bold mt-2">FIRMA DEL RECLUTADOR</p>
-                </div>
+                <div class="col-6"><p class="border-top border-dark fw-bold pt-2">FIRMA DEL POSTULANTE</p></div>
+                <div class="col-6"><p class="border-top border-dark fw-bold pt-2">FIRMA DEL RECLUTADOR</p></div>
             </div>
         </div>
 
     </div>
 
-    <!-- SCRIPT PARA LLENAR LA FICHA AUTOMÁTICAMENTE -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const cedula = localStorage.getItem('print_cedula');
-            const URL_GOOGLE = "TU_URL_DE_APPS_SCRIPT_AQUI";
+            const cedulaBusqueda = localStorage.getItem('target_cedula');
+            const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbwq-ONLKB11XvgGPX6kOGWL7nRi8NCXXPXOC0Yz6KkxCXDc4BAF3QDuxiXlg3AkTXri/exec";
 
-            if (!cedula) {
-                alert("No se seleccionó ningún recluta.");
+            if (!cedulaBusqueda) {
+                alert("Seleccione un recluta en el Dashboard.");
                 return;
             }
 
-            fetch(URL_GOOGLE)
+            fetch(URL_APPS_SCRIPT)
                 .then(res => res.json())
                 .then(data => {
-                    const p = data.find(item => item.cedula == cedula);
+                    // Buscamos al postulante por cédula
+                    const p = data.find(item => item.cedula == cedulaBusqueda);
+                    
                     if (p) {
-                        // Llenar campos de texto e inputs
-                        document.getElementById('inputNombre').value = p.nombre1 || '';
-                        document.getElementById('apellido1').value = p.apellido1 || '';
-                        document.getElementById('inputCedula').value = p.cedula || '';
-                        document.getElementById('txtEdad').value = p.edad || '';
-                        
-                        // Llenar motivaciones en los DIVs
-                        document.getElementById('p-motivo1').innerText = p.motivo1 || 'N/A';
-                        document.getElementById('p-motivo5').innerText = p.motivo5 || 'N/A';
+                        // MAPEO MASIVO DE DATOS
+                        // Página 1
+                        if(document.getElementById('inputNombre')) document.getElementById('inputNombre').value = p.nombre1 || '';
+                        if(document.getElementById('apellido1')) document.getElementById('apellido1').value = p.apellido1 || '';
+                        if(document.getElementById('inputCedula')) document.getElementById('inputCedula').value = p.cedula || '';
+                        if(document.getElementById('txtEdad')) document.getElementById('txtEdad').value = p.edad || '';
+                        if(document.getElementById('fechaPostulacion')) document.getElementById('fechaPostulacion').value = p.fechaPostulacion || '';
+                        if(document.getElementById('resProvincia')) document.getElementById('resProvincia').value = p.provincia || '';
+                        if(document.getElementById('padreNombre')) document.getElementById('padreNombre').value = p.padreNombre || '';
+                        if(document.getElementById('madreNombre')) document.getElementById('madreNombre').value = p.madreNombre || '';
 
-                        // Cargar Foto
+                        // Página 2 (Físico y Estudios)
+                        if(document.getElementById('descEstatura')) document.getElementById('descEstatura').value = p.estatura || '';
+                        if(document.getElementById('descPeso')) document.getElementById('descPeso').value = p.peso || '';
+                        if(document.getElementById('estIniC')) document.getElementById('estIniC').value = p.estIniC || '';
+                        if(document.getElementById('estIniT')) document.getElementById('estIniT').value = p.estIniT || '';
+
+                        // Página 3 (Motivaciones)
+                        if(document.getElementById('p-motivo1')) document.getElementById('p-motivo1').innerText = p.motivo1 || '';
+                        if(document.getElementById('p-motivo5')) document.getElementById('p-motivo5').innerText = p.motivo5 || '';
+
+                        // Cargar Foto del Drive
                         if(p.foto && p.foto !== "Sin foto") {
                             document.getElementById('photo-preview').innerHTML = `<img src="${p.foto}" style="width:100%;height:100%;object-fit:cover;">`;
                         }
 
-                        // Lanzar impresión tras 2 segundos para dar tiempo a cargar la foto
+                        // Auto-imprimir tras cargar
                         setTimeout(() => { window.print(); }, 2000);
+                    } else {
+                        alert("No se encontraron datos para la cédula: " + cedulaBusqueda);
                     }
-                });
+                })
+                .catch(err => alert("Error conectando al Excel: " + err));
         });
     </script>
 </body>
