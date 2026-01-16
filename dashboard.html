@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Reclutador - PN</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f4f7f6; }
+        .dashboard-container { margin-top: 50px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <!-- Login Simple -->
+    <div id="login-box" class="container mt-5" style="max-width: 400px;">
+        <div class="card p-4 shadow">
+            <h4 class="text-center">Acceso Reclutador</h4>
+            <input type="password" id="pass" class="form-control my-3" placeholder="Clave de acceso">
+            <button class="btn btn-primary w-100" onclick="entrar()">Ingresar</button>
+        </div>
+    </div>
+
+    <!-- Lista de Aspirantes -->
+    <div id="panel" class="container dashboard-container hidden">
+        <div class="d-flex justify-content-between mb-4">
+            <h2>Aspirantes Registrados</h2>
+            <button class="btn btn-outline-danger" onclick="location.reload()">Salir</button>
+        </div>
+        <div class="table-responsive bg-white shadow p-3 rounded">
+            <table class="table table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Aspirante</th>
+                        <th>Cédula</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const URL_GOOGLE = "https://script.google.com/macros/s/AKfycbwq-ONLKB11XvgGPX6kOGWL7nRi8NCXXPXOC0Yz6KkxCXDc4BAF3QDuxiXlg3AkTXri/exec";
+
+        function entrar() {
+            if(document.getElementById('pass').value === "PN2026") { // Tu clave
+                document.getElementById('login-box').classList.add('hidden');
+                document.getElementById('panel').classList.remove('hidden');
+                cargarDatos();
+            } else { alert("Clave incorrecta"); }
+        }
+
+        function cargarDatos() {
+            fetch(URL_GOOGLE)
+                .then(res => res.json())
+                .then(data => {
+                    const html = data.map(p => `
+                        <tr>
+                            <td>${new Date(p.fecha).toLocaleDateString()}</td>
+                            <td>${p.nombre} ${p.apellido}</td>
+                            <td>${p.cedula}</td>
+                            <td><button class="btn btn-sm btn-info" onclick="verPDF('${p.cedula}')">Generar Ficha PDF</button></td>
+                        </tr>
+                    `).join('');
+                    document.getElementById('tabla-body').innerHTML = html;
+                });
+        }
+
+        function verPDF(cedula) {
+            localStorage.setItem('target_cedula', cedula);
+            window.open('imprimir.html', '_blank');
+        }
+    </script>
+</body>
+</html>

@@ -164,7 +164,7 @@ function finalizarFormulario() {
     if (btnFinalizar.disabled) return;
 
     console.log("Iniciando captura de datos...");
-    const urlScript = "https://script.google.com/macros/s/AKfycbwYavE5fEi_jNhVzSBHXBmzT08DZKDSlnr_MRm69OH33juMnDYvySvoHIOVNJhLn7mc/exec"; 
+    const urlScript = "https://script.google.com/macros/s/AKfycbwq-ONLKB11XvgGPX6kOGWL7nRi8NCXXPXOC0Yz6KkxCXDc4BAF3QDuxiXlg3AkTXri/exec"; 
 
     // 3. Deshabilitar el botón y mostrar estado de carga
     btnFinalizar.disabled = true;
