@@ -82,7 +82,72 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const cp = document.getElementById('cedProv');
+    const ct = document.getElementById('cedTomo');
+    const ca = document.getElementById('cedAsiento');
+    const hiddenCedula = document.getElementById('inputCedula');
+
+    function actualizarCedulaCompleta() {
+        // Solo une las piezas si tienen contenido, para evitar guiones vacíos
+        if (cp.value || ct.value || ca.value) {
+            hiddenCedula.value = `${cp.value}-${ct.value}-${ca.value}`;
+        } else {
+            hiddenCedula.value = "";
+        }
+    }
+
+    [cp, ct, ca].forEach((input, index, array) => {
+        input.addEventListener('input', (e) => {
+            // REFUERZO: Eliminar cualquier cosa que no sea número
+            input.value = input.value.replace(/\D/g, '');
+            
+            actualizarCedulaCompleta();
+
+            // Salto automático al siguiente cuadro
+            if (input.value.length === input.maxLength && index < array.length - 1) {
+                array[index + 1].focus();
+            }
+        });
+
+        // Permitir retroceder al borrar
+        input.addEventListener('keydown', (e) => {
+            if (e.key === "Backspace" && input.value === "" && index > 0) {
+                array[index - 1].focus();
+            }
+        });
+    });
 });
+
+});
+
+function validarProvincia(input) {
+    // 1. Eliminar cualquier cosa que no sea número
+    let val = input.value.replace(/\D/g, '');
+
+    // 2. No permitir que empiece con 0
+    if (val === '0') {
+        val = '';
+    }
+
+    // 3. Convertir a número para validar el rango
+    if (val.length > 0) {
+        let num = parseInt(val);
+        
+        // Si el número es mayor a 13, nos quedamos solo con el primer dígito
+        if (num > 13) {
+            val = val.slice(0, 1);
+        }
+    }
+
+    // 4. Asignar el valor limpio al campo
+    input.value = val;
+    
+    // Llamar a la función que une la cédula completa (si la tienes definida)
+    if (typeof actualizarCedulaCompleta === 'function') {
+        actualizarCedulaCompleta();
+    }
+}
 
 // --- 5. FUNCIONES DE NAVEGACIÓN (Globales para botones HTML) ---
 
@@ -108,18 +173,25 @@ function cambiarPagina(n) {
 
 function validarYPasar(n) {
     const inputNombre = document.getElementById('inputNombre');
-    const inputCedula = document.getElementById('inputCedula');
+    const cedProv = document.getElementById('cedProv');
+    const cedTomo = document.getElementById('cedTomo');
+    const cedAsiento = document.getElementById('cedAsiento');
 
-    // Validación obligatoria en la Página 1 para poder avanzar
-    if (n === 2 || n === 3) {
-        if (!inputNombre.value.trim() || !inputCedula.value.trim()) {
+    // Validación para la Página 1 (Nombre y Cédula)
+    if (n === 2) { // Si el destino es la página 2
+        // Verificamos el nombre Y que los 3 campos de la cédula no estén vacíos
+        if (inputNombre.value.trim() === "" || 
+            cedProv.value.trim() === "" || 
+            cedTomo.value.trim() === "" || 
+            cedAsiento.value.trim() === "") 
+        {
             alert("⚠️ Por favor, complete el Nombre y la Cédula en la Página 1 para continuar.");
-            cambiarPagina(1);
-            inputNombre.focus();
-            return;
+            inputNombre.focus(); // Opcional: enfoca el campo de nombre si falta
+            return; // Detiene la función y no pasa de página
         }
     }
 
+    // Si todo está bien o si la validación es para otra página, cambiamos
     cambiarPagina(n);
 }
 

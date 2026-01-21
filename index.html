@@ -69,11 +69,11 @@
                 <strong>LEA DETENIDAMENTE:</strong> toda la Información suministrada a la siguiente solicitud será considerada como prueba aclaratoria de su historial personal, en caso de descubrir falsedad será causal o motivo para solicitar su baja o el no ingreso a la Institución. Este documento será considerado de uso confidencial.
             </div>
             <div class="instruction-box border border-dark p-2 mb-4 bg-light" style="font-size: 0.8rem;">
-                <strong>INSTRUCCIONES:</strong> llene la siguiente solicitud con toda la Información que se le requiera, letra legible (imprenta). no borre ni tache este documento.
+                <strong>INSTRUCCIONES:</strong> llene la siguiente solicitud con toda la Información que se le requiera, no puede quedar ninguna pregunta sin responder.
             </div>
 
             <!-- SECCIÓN I: DATOS GENERALES -->
-            <div class="box-title bg-dark text-white p-1 px-3 fw-bold">I.- DATOS GENERALES</div>
+            <div class="box-title bg-dark text-white p-1 px-3 fw-bold">I. DATOS GENERALES</div>
             <div class="border-section border border-dark p-3 mb-4">
                 <div class="row g-2 mb-2">
                     <div class="col-md-3"><label class="label-sm">1er. Apellido</label><input type="text" id="apellido1" class="form-control border-black"></div>
@@ -82,17 +82,56 @@
                     <div class="col-md-3"><label class="label-sm">2do. Nombre</label><input type="text" id="nombre2" class="form-control border-black"></div>
                 </div>
                 <div class="row g-2 mb-2">
-                    <div class="col-md-4"><label class="label-sm">Cédula</label><input type="text" id="inputCedula" class="form-control border-black" placeholder="0-000-0000"></div>
+                    <div class="col-md-4">
+    <label class="label-sm">Cédula</label>
+    <!-- Usamos d-flex para poner todo en línea y align-items-center para centrar los guiones -->
+    <div class="d-flex align-items-center">
+        <!-- Parte 1: Provincia -->
+        <input type="text" id="cedProv" class="form-control border-black text-center" 
+               style="width: 40px;" placeholder="X" maxlength="2" inputmode="numeric"
+               oninput="validarProvincia(this)">
+        
+        <span class="fw-bold px-1">-</span> <!-- PRIMER GUION -->
+        
+        <!-- Parte 2: Tomo -->
+        <input type="text" id="cedTomo" class="form-control border-black text-center" 
+               style="width: 65px;" placeholder="XXX" maxlength="4" inputmode="numeric"
+               oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+        
+        <span class="fw-bold px-1">-</span> <!-- SEGUNDO GUION (Probablemente te faltaba este) -->
+        
+        <!-- Parte 3: Asiento -->
+        <input type="text" id="cedAsiento" class="form-control border-black text-center p-1" 
+               style="flex-grow: 1; min-width: 80px;" placeholder="XXXXX" maxlength="6" inputmode="numeric"
+               oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+    </div>
+    <!-- Input oculto para el Excel -->
+    <input type="hidden" id="inputCedula">
+</div>
                     <div class="col-md-4"><label class="label-sm">Apodo</label><input type="text" id="inputApodo" class="form-control border-black"></div>
                     <div class="col-md-4"><label class="label-sm">Religión</label><input type="text" id="inputReligion" class="form-control border-black"></div>
                 </div>
                 <div class="row g-2">
                     <div class="col-md-4"><label class="label-sm">Fecha de Nacimiento</label><input type="date" id="txtFechaNac" class="form-control border-black"></div>
                     <div class="col-md-2"><label class="label-sm">Edad</label><input type="number" id="txtEdad" class="form-control border-black" readonly></div>
-                    <div class="col-md-2"><label class="label-sm">Tipaje</label><input type="text" id="inputTipaje" class="form-control border-black"></div>
+                    <div class="col-md-2">
+                        <label class="label-sm">Tipaje</label>
+                        <select id="inputTipaje" class="form-select border-black">
+                            <option value="">Seleccione...</option>
+                            <option value="O+">(O+)</option>
+                            <option value="O-">(O-)</option>
+                            <option value="A+">(A+)</option>
+                            <option value="A-">(A-)</option>
+                            <option value="B+">(B+)</option>
+                            <option value="B-">(B-)</option>
+                            <option value="AB+">(AB+)</option>
+                            <option value="AB-">(AB-)</option>
+                        </select>
+                    </div>
                     <div class="col-md-2">
                         <label class="label-sm">Estado Civil</label>
                         <select id="selEstadoCivil" class="form-select border-black">
+                            <option value="">Seleccione...</option>
                             <option value="soltero">SOLTERO</option>
                             <option value="casado">CASADO</option>
                             <option value="divorciado">DIVORCIADO</option>
@@ -104,10 +143,30 @@
             </div>
 
             <!-- SECCIÓN II: DIRECCIÓN RESIDENCIAL -->
-            <div class="box-title bg-dark text-white p-1 px-3 fw-bold">II.- DIRECCIÓN RESIDENCIAL</div>
+            <div class="box-title bg-dark text-white p-1 px-3 fw-bold">II. DIRECCIÓN RESIDENCIAL</div>
             <div class="border-section border border-dark p-3 mb-4">
                 <div class="row g-2 mb-2">
-                    <div class="col-md-6"><label class="label-sm">A- Provincia</label><input type="text" id="resProvincia" class="form-control border-black"></div>
+                <div class="col-md-6">
+    <label class="label-sm">A- Provincia / Comarca</label>
+    <select id="resProvincia" class="form-select border-black">
+        <option value="">Seleccione...</option>
+        <option value="Bocas del Toro">Bocas del Toro</option>
+        <option value="Coclé">Coclé</option>
+        <option value="Colón">Colón</option>
+        <option value="Chiriquí">Chiriquí</option>
+        <option value="Darién">Darién</option>
+        <option value="Herrera">Herrera</option>
+        <option value="Los Santos">Los Santos</option>
+        <option value="Panamá">Panamá</option>
+        <option value="Veraguas">Veraguas</option>
+        <option value="Panamá Oeste">Panamá Oeste</option>
+        <option value="Guna Yala">Comarca Guna Yala</option>
+        <option value="Emberá-Wounaan">Comarca Emberá-Wounaan</option>
+        <option value="Ngäbe-Buglé">Comarca Ngäbe-Buglé</option>
+        <option value="Madugandí">Comarca Kuna de Madungandí</option>
+        <option value="Wargandí">Comarca Kuna de Wargandí</option>
+    </select>
+</div>
                     <div class="col-md-6"><label class="label-sm">Distrito</label><input type="text" id="resDistrito" class="form-control border-black"></div>
                 </div>
                 <div class="row g-2 mb-2">
@@ -119,12 +178,12 @@
                     <div class="col-md-4"><label class="label-sm">Teléfonos</label><input type="text" id="resTelefonos" class="form-control border-black"></div>
                 </div>
                 <div class="row g-2">
-                    <div class="col-12"><label class="label-sm">B- Anterior</label><input type="text" id="resDireccionAnterior" class="form-control border-black"></div>
+                    <div class="col-12"><label class="label-sm">Direccion Anterior</label><input type="text" id="resDireccionAnterior" class="form-control border-black"></div>
                 </div>
             </div>
 
             <!-- SECCIÓN III: DATOS FAMILIARES -->
-            <div class="box-title bg-dark text-white p-1 px-3 fw-bold">III.- DATOS FAMILIARES</div>
+            <div class="box-title bg-dark text-white p-1 px-3 fw-bold">III. DATOS FAMILIARES</div>
             <div class="border-section border border-dark p-3 mb-4">
                 <!-- Padre -->
                 <div class="row g-2 mb-2 border-bottom border-dark pb-2">
@@ -145,18 +204,19 @@
                     <div class="col-md-3">
                         <label class="label-sm">Vive con ambos padres</label>
                         <select id="selVivePadres" class="form-select border-black">
+                            <option value="">Seleccione...</option>
                             <option value="si">SÍ</option>
                             <option value="no">NO</option>
                         </select>
                     </div>
                     <div id="divConQuien" class="col-md-9 d-none">
-                        <label class="label-sm">Con quien indique</label>
+                        <label class="label-sm">¿Con que padre vive? Indique</label>
                         <input type="text" id="inputConQuien" class="form-control border-black">
                     </div>
                 </div>
                 <div class="row g-2 mb-2">
-                    <div class="col-md-6"><label class="label-sm">Nombre del Padrastro</label><input type="text" id="padrastroNombre" class="form-control border-black"></div>
-                    <div class="col-md-6"><label class="label-sm">Nombre de la Madrastra</label><input type="text" id="madrastraNombre" class="form-control border-black"></div>
+                    <div class="col-md-6"><label class="label-sm">Nombre del Padrastro (Si Aplica)</label><input type="text" id="padrastroNombre" class="form-control border-black"></div>
+                    <div class="col-md-6"><label class="label-sm">Nombre de la Madrastra (Si Aplica)</label><input type="text" id="madrastraNombre" class="form-control border-black"></div>
                 </div>
                 <div class="row g-2">
                     <div class="col-md-6"><label class="label-sm">En caso de emergencia llamar a</label><input type="text" id="emergenciaNombre" class="form-control border-black"></div>
@@ -175,7 +235,7 @@
         <div id="page-2" class="form-page shadow-lg bg-white p-4 mx-auto d-none" style="max-width: 950px;">
             
             <!-- SECCIÓN IV: DESCRIPCIÓN FÍSICA -->
-            <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">IV.- DESCRIPCIÓN FÍSICA</div>
+            <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">IV. DESCRIPCIÓN FÍSICA</div>
             <div class="border-section border border-dark p-3 mb-4">
                 <div class="row g-2 mb-2">
                     <div class="col-md-3"><label class="label-sm">Estatura</label><input type="text" id="descEstatura" class="form-control border-black"></div>
@@ -194,6 +254,7 @@
             </div>
 
             <!-- SECCIÓN V: ESTUDIOS (CORREGIDA ALINEACIÓN) -->
+            <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">V. ESTUDIOS</div>
             <div class="border-section border border-dark mb-4 p-0">
     <table class="table-oficial mb-0 border-dark">
         <thead>
@@ -215,7 +276,7 @@
 </div>
 
             <!-- SECCIÓN VI: REFERENCIAS PERSONALES -->
-          <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">VI.- REFERENCIAS PERSONALES</div>
+          <div class="box-title bg-dark text-white p-1 px-3 fw-bold mb-0">V. REFERENCIAS PERSONALES</div>
 <div class="border-section border border-dark mb-4 p-0">
     <table class="table-oficial mb-0">
         <thead>
@@ -235,7 +296,7 @@
             <!-- SECCIÓN VII, VIII, IX: DESCENDENCIA, HABILIDADES Y DEPORTES -->
 <div class="row g-0 mb-4">
     <div class="col-md-6">
-        <div class="box-title mt-0">VII.- DESCENDENCIA</div>
+        <div class="box-title mt-0">VI. DESCENDENCIA</div>
         <div class="border-section" style="min-height: 120px;">
             <div class="row g-2">
                 <div class="col-6">
@@ -257,16 +318,16 @@
         </div>
     </div>
     <div class="col-md-3">
-        <div class="box-title mt-0">VIII.- INSTRUMENTOS</div>
+        <div class="box-title mt-0">VI. INSTRUMENTOS QUE UTILIZA</div>
         <div class="border-section" style="min-height: 120px;">
-            <label class="label-sm">Habilidades</label>
+            <label class="label-sm"> ¿Qué habilidades posee?</label>
             <textarea id="extraInstru" class="form-control border-black" rows="3" placeholder="Instrumentos..."></textarea>
         </div>
     </div>
     <div class="col-md-3">
-        <div class="box-title mt-0">IX.- DEPORTES</div>
+        <div class="box-title mt-0">VII. DEPORTES QUE REALIZA</div>
         <div class="border-section" style="min-height: 120px;">
-            <label class="label-sm">¿Qué practica?</label>
+            <label class="label-sm">¿Qué deporte practica?</label>
             <textarea id="extraDeporte" class="form-control border-black" rows="3" placeholder="Deportes..."></textarea>
         </div>
     </div>
