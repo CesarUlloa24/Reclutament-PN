@@ -232,3 +232,9 @@ body {
     70% { transform: scale(0.9); }
     100% { transform: scale(1); }
 }
+
+#success-screen:not(.d-none) {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}

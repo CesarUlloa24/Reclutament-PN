@@ -59,8 +59,12 @@
                     <input type="date" id="fechaPostulacion" class="form-control border-black">
                 </div>
                 <div class="col-md-8">
-                    <label class="label-sm fw-bold">Postulará para:</label>
-                    <input type="text" id="postulacionCargo" class="form-control border-black">
+                      <label class="label-sm fw-bold">Postulará para:</label>
+                      <select id="postulacionCargo" class="form-select border-black">
+                         <option value="">Seleccione...</option>
+                         <option value="Agentes de Policía">Agentes de Policía (Técnico superior en seguridad pública)</option>
+                         <option value="Oficiales de Policía">Oficiales de Policía (Licenciatura en administración policial)</option>
+                      </select>
                 </div>
             </div>
 
@@ -136,6 +140,7 @@
                             <option value="casado">CASADO</option>
                             <option value="divorciado">DIVORCIADO</option>
                             <option value="otro">OTROS</option>
+                            <option value="otro">UNIDO</option>
                         </select>
                     </div>
                     <div class="col-md-2"><label class="label-sm">Idioma</label><input type="text" id="inputIdioma" class="form-control border-black"></div>
@@ -703,16 +708,16 @@
         </button>
     </div>
 </div> <!-- Aquí cierra el page-3 -->
-
-        <!-- PANTALLA DE ÉXITO -->
-        <div id="success-screen" class="form-page shadow-lg bg-white p-5 mx-auto d-none text-center" style="max-width: 700px; margin-top: 50px;">
-            <div class="success-icon">✓</div>
-            <h1 class="display-4 fw-bold text-success">¡Excelente!</h1>
-            <p class="lead">Información procesada para el sistema de la Policía Nacional.</p>
-            <button class="btn btn-outline-primary mt-4" onclick="location.reload()">Nuevo Registro</button>
-        </div>
-
+</div>
+    <!-- PANTALLA DE ÉXITO (PONLA AQUÍ, SOLA Y AL FINAL) -->
+    <div id="success-screen" class="shadow-lg bg-white p-5 text-center d-none" 
+         style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999; width: 90%; max-width: 600px; border: 5px solid #28a745; border-radius: 15px;">
+        <div style="font-size: 80px; color: #28a745;">✓</div>
+        <h1 class="display-4 fw-bold text-success">¡Excelente!</h1>
+        <p class="lead">Información procesada para el sistema de la Policía Nacional.</p>
+       <!--  <button class="btn btn-primary btn-lg mt-4" onclick="location.reload()">Nuevo Registro</button> --> 
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>

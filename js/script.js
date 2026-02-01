@@ -1,155 +1,53 @@
 /**
  * LÓGICA DEL FORMULARIO DE RECLUTAMIENTO - POLICÍA NACIONAL DE PANAMÁ
- * Versión Final con Conexión a Firebase
+ * Versión Corregida
  */
 
-let fotoBase64Global = ""; //variable global
+let fotoBase64Global = ""; 
 
-document.addEventListener('DOMContentLoaded', () => {
+// --- FUNCIONES GLOBALES (Deben estar fuera para que el HTML las vea) ---
 
-    // --- 1. CÁLCULO AUTOMÁTICO DE EDAD ---
-    const txtFechaNac = document.getElementById('txtFechaNac');
-    const txtEdad = document.getElementById('txtEdad');
-
-    if(txtFechaNac && txtEdad) {
-        txtFechaNac.addEventListener('change', () => {
-            const fechaValor = txtFechaNac.value;
-            if (!fechaValor) return;
-
-            const hoy = new Date();
-            const cumple = new Date(fechaValor);
-            let edad = hoy.getFullYear() - cumple.getFullYear();
-            const m = hoy.getMonth() - cumple.getMonth();
-            
-            if (m < 0 || (m === 0 && hoy.getDate() < cumple.getDate())) {
-                edad--;
-            }
-            txtEdad.value = edad >= 0 ? edad : 0;
-        });
-    }
-
-    // --- 2. LÓGICA VIVE CON PADRES (PÁGINA 1) ---
-    const selVivePadres = document.getElementById('selVivePadres');
-    const divConQuien = document.getElementById('divConQuien');
-
-    if(selVivePadres && divConQuien) {
-        selVivePadres.addEventListener('change', () => {
-            if (selVivePadres.value === "no") {
-                divConQuien.classList.remove('d-none');
-            } else {
-                divConQuien.classList.add('d-none');
-            }
-        });
-    }
-
-    // --- 3. LÓGICA SECCIÓN X (CHECKBOXES DE SALUD FAMILIAR) ---
-    const checksFamiliares = document.querySelectorAll('.check-salud-fam');
-    
-    checksFamiliares.forEach(check => {
-        check.addEventListener('change', function() {
-            const targetId = this.getAttribute('data-target');
-            const divOpciones = document.getElementById(targetId);
-            
-            if (divOpciones) {
-                if (this.checked) {
-                    divOpciones.classList.remove('d-none');
-                } else {
-                    divOpciones.classList.add('d-none');
-                    const select = divOpciones.querySelector('select');
-                    if(select) select.value = "";
-                }
-            }
-        });
-    });
-
-    // --- 4. LÓGICA DE SALUD DINÁMICA (SELECTS SÍ/NO - PÁGINA 2 Y 3) ---
-    const selectoresSalud = document.querySelectorAll('.sel-salud');
-    
-    selectoresSalud.forEach(selector => {
-        selector.addEventListener('change', function() {
-            const targetId = this.getAttribute('data-target');
-            const inputExplicacion = document.getElementById(targetId);
-            
-            if (inputExplicacion) {
-                if (this.value === "si") {
-                    inputExplicacion.classList.remove('d-none');
-                    inputExplicacion.focus();
-                } else {
-                    inputExplicacion.classList.add('d-none');
-                    inputExplicacion.value = ""; 
-                }
-            }
-        });
-    });
-
-document.addEventListener('DOMContentLoaded', () => {
+// Une las partes de la cédula en el input oculto
+function actualizarCedulaCompleta() {
     const cp = document.getElementById('cedProv');
     const ct = document.getElementById('cedTomo');
     const ca = document.getElementById('cedAsiento');
     const hiddenCedula = document.getElementById('inputCedula');
 
-    function actualizarCedulaCompleta() {
-        // Solo une las piezas si tienen contenido, para evitar guiones vacíos
+    if (cp && ct && ca && hiddenCedula) {
+        // Solo une las piezas si tienen contenido
         if (cp.value || ct.value || ca.value) {
             hiddenCedula.value = `${cp.value}-${ct.value}-${ca.value}`;
         } else {
             hiddenCedula.value = "";
         }
-    }
-
-    [cp, ct, ca].forEach((input, index, array) => {
-        input.addEventListener('input', (e) => {
-            // REFUERZO: Eliminar cualquier cosa que no sea número
-            input.value = input.value.replace(/\D/g, '');
-            
-            actualizarCedulaCompleta();
-
-            // Salto automático al siguiente cuadro
-            if (input.value.length === input.maxLength && index < array.length - 1) {
-                array[index + 1].focus();
-            }
-        });
-
-        // Permitir retroceder al borrar
-        input.addEventListener('keydown', (e) => {
-            if (e.key === "Backspace" && input.value === "" && index > 0) {
-                array[index - 1].focus();
-            }
-        });
-    });
-});
-
-});
-
-function validarProvincia(input) {
-    // 1. Eliminar cualquier cosa que no sea número
-    let val = input.value.replace(/\D/g, '');
-
-    // 2. No permitir que empiece con 0
-    if (val === '0') {
-        val = '';
-    }
-
-    // 3. Convertir a número para validar el rango
-    if (val.length > 0) {
-        let num = parseInt(val);
-        
-        // Si el número es mayor a 13, nos quedamos solo con el primer dígito
-        if (num > 13) {
-            val = val.slice(0, 1);
-        }
-    }
-
-    // 4. Asignar el valor limpio al campo
-    input.value = val;
-    
-    // Llamar a la función que une la cédula completa (si la tienes definida)
-    if (typeof actualizarCedulaCompleta === 'function') {
-        actualizarCedulaCompleta();
+        console.log("Cédula actualizada:", hiddenCedula.value); // Para depuración
     }
 }
 
-// --- 5. FUNCIONES DE NAVEGACIÓN (Globales para botones HTML) ---
+// Valida que la provincia sea correcta y salta al siguiente campo
+function validarProvincia(input) {
+    let val = input.value.replace(/\D/g, ''); // Solo números
+    if (val === '0') val = '';
+    if (val.length > 0) {
+        let num = parseInt(val);
+        if (num > 13) val = val.slice(0, 1);
+    }
+    input.value = val;
+    actualizarCedulaCompleta();
+}
+
+function previsualizarFoto(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            fotoBase64Global = e.target.result; 
+            const preview = document.getElementById('photo-preview');
+            preview.innerHTML = `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:cover;">`;
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
 
 function cambiarPagina(n) {
     const p1 = document.getElementById('page-1');
@@ -157,13 +55,11 @@ function cambiarPagina(n) {
     const p3 = document.getElementById('page-3');
     const success = document.getElementById('success-screen');
 
-    // Ocultamos todas las secciones
     if(p1) p1.classList.add('d-none');
     if(p2) p2.classList.add('d-none');
     if(p3) p3.classList.add('d-none');
     if(success) success.classList.add('d-none');
 
-    // Mostramos la página solicitada
     if (n === 1 && p1) p1.classList.remove('d-none');
     if (n === 2 && p2) p2.classList.remove('d-none');
     if (n === 3 && p3) p3.classList.remove('d-none');
@@ -172,85 +68,103 @@ function cambiarPagina(n) {
 }
 
 function validarYPasar(n) {
-    const inputNombre = document.getElementById('inputNombre');
-    const cedProv = document.getElementById('cedProv');
-    const cedTomo = document.getElementById('cedTomo');
-    const cedAsiento = document.getElementById('cedAsiento');
+    if (n === 2) { 
+        const inputNombre = document.getElementById('inputNombre');
+        const cp = document.getElementById('cedProv');
+        const ct = document.getElementById('cedTomo');
+        const ca = document.getElementById('cedAsiento');
 
-    // Validación para la Página 1 (Nombre y Cédula)
-    if (n === 2) { // Si el destino es la página 2
-        // Verificamos el nombre Y que los 3 campos de la cédula no estén vacíos
-        if (inputNombre.value.trim() === "" || 
-            cedProv.value.trim() === "" || 
-            cedTomo.value.trim() === "" || 
-            cedAsiento.value.trim() === "") 
-        {
-            alert("⚠️ Por favor, complete el Nombre y la Cédula en la Página 1 para continuar.");
-            inputNombre.focus(); // Opcional: enfoca el campo de nombre si falta
-            return; // Detiene la función y no pasa de página
+        if (inputNombre.value.trim() === "" || cp.value === "" || ct.value === "" || ca.value === "") {
+            alert("⚠️ Por favor, complete el Nombre y la Cédula completa para continuar.");
+            return;
         }
     }
-
-    // Si todo está bien o si la validación es para otra página, cambiamos
     cambiarPagina(n);
 }
 
-function previsualizarFoto(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        
-        reader.onload = function(e) {
-            const preview = document.getElementById('photo-preview');
-            // Reemplazamos el icono por la imagen real
-            preview.innerHTML = `<img src="${e.target.result}" alt="Foto Recluta">`;
-            
-            // Opcional: Si quieres guardar la imagen en el objeto 'datos' para mandarla al Excel (en formato Base64)
-            // Aunque recuerda que Excel tiene un límite de caracteres por celda.
-        }
-        
-        reader.readAsDataURL(input.files[0]);
-    }
-}
+// --- INICIALIZACIÓN DE EVENTOS ---
 
-function previsualizarFoto(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            fotoBase64Global = e.target.result; // Aquí llenamos la variable global
-            const preview = document.getElementById('photo-preview');
-            preview.innerHTML = `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:cover;">`;
-        }
-        reader.readAsDataURL(input.files[0]);
-    }
-}
+document.addEventListener('DOMContentLoaded', () => {
 
-// --- 6. FUNCIÓN FINALIZAR 
+    // 1. Edad Automática
+    const txtFechaNac = document.getElementById('txtFechaNac');
+    if(txtFechaNac) {
+        txtFechaNac.addEventListener('change', () => {
+            const hoy = new Date();
+            const cumple = new Date(txtFechaNac.value);
+            let edad = hoy.getFullYear() - cumple.getFullYear();
+            if (hoy.getMonth() < cumple.getMonth() || (hoy.getMonth() === cumple.getMonth() && hoy.getDate() < cumple.getDate())) {
+                edad--;
+            }
+            document.getElementById('txtEdad').value = edad >= 0 ? edad : 0;
+        });
+    }
+
+    // 2. Control de Cédula (Inputs individuales)
+    const cp = document.getElementById('cedProv');
+    const ct = document.getElementById('cedTomo');
+    const ca = document.getElementById('cedAsiento');
+
+    [cp, ct, ca].forEach((input, index, array) => {
+        if(!input) return;
+        input.addEventListener('input', () => {
+            input.value = input.value.replace(/\D/g, ''); // Solo números
+            actualizarCedulaCompleta();
+            if (input.value.length === input.maxLength && index < array.length - 1) {
+                array[index + 1].focus();
+            }
+        });
+        input.addEventListener('keydown', (e) => {
+            if (e.key === "Backspace" && input.value === "" && index > 0) {
+                array[index - 1].focus();
+            }
+        });
+    });
+
+    // 3. Salud Familiar (Checkboxes)
+    document.querySelectorAll('.check-salud-fam').forEach(check => {
+        check.addEventListener('change', function() {
+            const div = document.getElementById(this.getAttribute('data-target'));
+            if (div) div.classList.toggle('d-none', !this.checked);
+        });
+    });
+
+    // 4. Selectores SÍ/NO (Salud y otros)
+    document.querySelectorAll('.sel-salud').forEach(selector => {
+        selector.addEventListener('change', function() {
+            const input = document.getElementById(this.getAttribute('data-target'));
+            if (input) {
+                input.classList.toggle('d-none', this.value !== "si");
+                if (this.value === "si") input.focus();
+            }
+        });
+    });
+    
+    // 5. Vive con padres
+    const selVivePadres = document.getElementById('selVivePadres');
+    if(selVivePadres) {
+        selVivePadres.addEventListener('change', () => {
+            const div = document.getElementById('divConQuien');
+            if(div) div.classList.toggle('d-none', selVivePadres.value !== "no");
+        });
+    }
+});
+
+// --- FUNCIÓN FINALIZAR ---
 
 function finalizarFormulario() {
-
-        // 1. Identificar el botón que lanzó el evento
-    // Buscamos el botón de finalizar por su texto o clase para deshabilitarlo
     const btnFinalizar = document.querySelector('button[onclick="finalizarFormulario()"]');
-
-    // 2. Si el botón ya está deshabilitado, salimos de la función (evita el doble clic)
     if (btnFinalizar.disabled) return;
 
-    console.log("Iniciando captura de datos...");
-    const urlScript = "https://script.google.com/macros/s/AKfycbwq-ONLKB11XvgGPX6kOGWL7nRi8NCXXPXOC0Yz6KkxCXDc4BAF3QDuxiXlg3AkTXri/exec"; 
-
-    // 3. Deshabilitar el botón y mostrar estado de carga
     btnFinalizar.disabled = true;
-    btnFinalizar.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enviando datos...';
+    btnFinalizar.innerHTML = 'Enviando...';
 
-    // Función auxiliar para obtener valor sin errores
     const v = (id) => {
         const el = document.getElementById(id);
-        if (!el) {
-            console.warn("⚠️ No se encontró el ID: " + id);
-            return ""; 
-        }
-        return el.value;
+        return el ? el.value : "";
     };
+
+    const urlScript = "https://script.google.com/macros/s/AKfycbwq-ONLKB11XvgGPX6kOGWL7nRi8NCXXPXOC0Yz6KkxCXDc4BAF3QDuxiXlg3AkTXri/exec"; 
 
     const datos = {
         fechaPostulacion: v('fechaPostulacion'),
@@ -377,8 +291,6 @@ function finalizarFormulario() {
         fotoBase64: fotoBase64Global   // <--- LA FOTO AL FINAL
     };
 
-    console.log("Datos capturados listos para enviar:", datos);
-
     fetch(urlScript, {
         method: 'POST',
         mode: 'no-cors',
@@ -386,11 +298,34 @@ function finalizarFormulario() {
         body: JSON.stringify(datos)
     })
     .then(() => {
-        document.getElementById('page-3').classList.add('d-none');
-        document.getElementById('success-screen').classList.remove('d-none');
+        console.log("¡Datos enviados! Cambiando pantalla...");
+        
+        const p1 = document.getElementById('page-1');
+        const p2 = document.getElementById('page-2');
+        const p3 = document.getElementById('page-3');
+        const exito = document.getElementById('success-screen');
+
+        // Ocultar TODO con mazo (forzado)
+        if(p1) p1.style.display = 'none';
+        if(p2) p2.style.display = 'none';
+        if(p3) p3.style.display = 'none';
+
+        // Mostrar ÉXITO
+        if(exito) {
+            console.log("Elemento de éxito encontrado. Mostrando...");
+            exito.classList.remove('d-none');
+            exito.style.setProperty('display', 'block', 'important');
+        } else {
+            console.error("ERROR: No se encontró el ID 'success-screen'. Revisa tu HTML.");
+            alert("¡Registro Guardado con éxito! (Pero no encontré la pantalla final)");
+        }
+
         window.scrollTo(0, 0);
     })
-    .catch(error => console.error("Error al enviar:", error));
-
-    
- }
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Hubo un error al enviar. Intente de nuevo.");
+        btnFinalizar.disabled = false;
+        btnFinalizar.innerHTML = '¡Finalizar Registro! 🚀';
+    });
+}
