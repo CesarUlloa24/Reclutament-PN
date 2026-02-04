@@ -164,7 +164,7 @@ function finalizarFormulario() {
         return el ? el.value : "";
     };
 
-    const urlScript = "https://script.google.com/macros/s/AKfycbwq-ONLKB11XvgGPX6kOGWL7nRi8NCXXPXOC0Yz6KkxCXDc4BAF3QDuxiXlg3AkTXri/exec"; 
+    const urlScript = "https://script.google.com/macros/s/AKfycbxUNTZY84cqqBlulUaMMOmTf77woRgsOUVBvXsCwhILLmO59oZUPZGOX-e1pyxJZXo_/exec"; 
 
     const datos = {
         fechaPostulacion: v('fechaPostulacion'),
