@@ -1,38 +1,101 @@
-code
-Html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FICHA OFICIAL - POLICÍA NACIONAL</title>
+    <title>FICHA DE INSCRIPCIÓN OFICIAL - POLICÍA NACIONAL</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* ESTILO INSTITUCIONAL */
         body { background-color: #f4f7f6; font-family: 'Segoe UI', Arial, sans-serif; color: #000; }
+        
         .form-page {
-            width: 215.9mm; min-height: 279.4mm; padding: 15mm;
-            margin: 10px auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            width: 215.9mm;
+            min-height: 279.4mm;
+            padding: 15mm;
+            margin: 10px auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            border: 1px solid #000;
         }
-        /* CABECERA */
-        .header-institutional { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
-        .header-text { text-align: center; flex-grow: 1; font-weight: bold; line-height: 1.2; font-size: 13px; }
-        .photo-box { width: 95px; height: 115px; border: 1.5px solid #000; display: flex; align-items: center; justify-content: center; font-weight: bold; background: #fff; overflow: hidden; }
 
-        /* TÍTULOS AZULES */
-        .box-title { background-color: #34495e; color: white; padding: 6px 15px; font-weight: bold; font-size: 13px; text-transform: uppercase; border-radius: 5px 5px 0 0; margin-top: 15px; }
+        /* ENCABEZADO OFICIAL */
+        .header-institutional {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
 
-        /* CAMPOS REDONDEADOS (COMO EN TU FOTO) */
-        .label-sm { font-size: 10px; font-weight: bold; color: #333; margin-bottom: 2px; text-transform: uppercase; }
+        .header-text {
+            text-align: center;
+            flex-grow: 1;
+            font-weight: bold;
+            line-height: 1.3;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .photo-box {
+            width: 95px;
+            height: 115px;
+            border: 1.5px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 11px;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        /* SECCIONES AZUL POLICÍA */
+        .box-title {
+            background-color: #1a2a40; /* Azul oscuro institucional */
+            color: white;
+            padding: 6px 15px;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            border-radius: 6px 6px 0 0;
+            margin-top: 15px;
+            border: 1px solid #000;
+        }
+
+        /* CAMPOS REDONDEADOS (SEGÚN TU IMAGEN) */
+        .label-sm {
+            font-size: 10px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Cambiamos input por div para que el texto largo se vea completo y no se corte */
         .data-box {
-            border: 1px solid #ced4da; border-radius: 8px; padding: 8px 12px; font-size: 13px;
-            min-height: 38px; background-color: #fff; font-weight: bold;
-            word-wrap: break-word; overflow: visible; display: block; width: 100%;
+            border: 1px solid #000;
+            border-radius: 8px; /* Bordes redondeados de la foto */
+            padding: 8px 12px;
+            font-size: 12px;
+            min-height: 38px;
+            background-color: #fff;
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            word-wrap: break-word; /* Si el texto es largo, crece hacia abajo */
         }
-        .border-section { border: 1px solid #dee2e6; border-top: none; padding: 15px; border-radius: 0 0 8px 8px; }
+
+        .border-section {
+            border: 1px solid #000;
+            border-top: none;
+            padding: 15px;
+            border-radius: 0 0 8px 8px;
+            background-color: #fdfdfd;
+        }
 
         @media print {
             body { background: white; }
-            .form-page { margin: 0; border: none; box-shadow: none; width: 100%; }
+            .form-page { margin: 0; border: 1px solid #000; width: 100%; box-shadow: none; }
             .no-print { display: none !important; }
         }
     </style>
@@ -40,13 +103,15 @@ Html
 <body>
 
     <div class="no-print text-center py-3">
-        <button class="btn btn-dark btn-lg" onclick="window.print()">🖨️ IMPRIMIR FICHA</button>
+        <button class="btn btn-dark btn-lg shadow" onclick="window.print()">🖨️ IMPRIMIR FICHA OFICIAL</button>
     </div>
 
     <div class="form-page">
-        <!-- CABECERA -->
+        <!-- CABECERA INSTITUCIONAL -->
         <div class="header-institutional">
-            <img src="img/Logo_policia.png" style="width: 80px;" onerror="this.style.display='none'">
+            <!-- Logo izquierdo -->
+            <img src="img/Logo_policia.png" style="width: 85px;" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/d/d1/Logo_de_la_Polic%C3%ADa_Nacional_de_Panam%C3%A1.png'">
+            
             <div class="header-text">
                 REPÚBLICA DE PANAMÁ<br>
                 MINISTERIO DE SEGURIDAD PÚBLICA<br>
@@ -54,17 +119,19 @@ Html
                 DIRECCIÓN NACIONAL DE RECURSOS HUMANOS<br>
                 DEPARTAMENTO DE RECLUTAMIENTO Y SELECCIÓN
             </div>
-            <div id="foto-preview" class="photo-box">FOTO</div>
+
+            <!-- Recuadro Foto derecho -->
+            <div id="foto-container" class="photo-box">FOTO</div>
         </div>
 
         <!-- FECHA Y CARGO -->
-        <div class="row mb-3">
+        <div class="row mb-3 align-items-end">
             <div class="col-4">
                 <label class="label-sm">FECHA</label>
                 <div id="fechaPostulacion" class="data-box"></div>
             </div>
             <div class="col-8">
-                <label class="label-sm">POSTULARÁ PARA:</label>
+                <label class="label-sm">POSTULARÁ PARA EL CARGO DE:</label>
                 <div id="postulacionCargo" class="data-box"></div>
             </div>
         </div>
@@ -85,27 +152,24 @@ Html
             </div>
             <div class="row">
                 <div class="col-3"><label class="label-sm">Fecha Nac.</label><div id="fechaNac" class="data-box"></div></div>
-                <div class="col-1"><label class="label-sm">Edad</label><div id="edad" class="data-box"></div></div>
-                <div class="col-2"><label class="label-sm">Tipaje</label><div id="tipaje" class="data-box"></div></div>
+                <div class="col-1"><label class="label-sm">Edad</label><div id="edad" class="data-box text-center"></div></div>
+                <div class="col-2"><label class="label-sm">Tipaje</label><div id="tipaje" class="data-box text-center"></div></div>
                 <div class="col-3"><label class="label-sm">Edo. Civil</label><div id="estadoCivil" class="data-box"></div></div>
                 <div class="col-3"><label class="label-sm">Idioma</label><div id="idioma" class="data-box"></div></div>
             </div>
         </div>
 
-        <!-- SECCIÓN II: DIRECCIÓN -->
+        <!-- SECCIÓN II: DIRECCIÓN RESIDENCIAL -->
         <div class="box-title">II.- DIRECCIÓN RESIDENCIAL</div>
         <div class="border-section">
             <div class="row mb-3">
-                <div class="col-6"><label class="label-sm">Provincia</label><div id="provincia" class="data-box"></div></div>
-                <div class="col-6"><label class="label-sm">Distrito</label><div id="distrito" class="data-box"></div></div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-12"><label class="label-sm">Corregimiento y Sector</label><div id="corregimiento" class="data-box"></div></div>
+                <div class="col-4"><label class="label-sm">Provincia</label><div id="provincia" class="data-box"></div></div>
+                <div class="col-4"><label class="label-sm">Distrito</label><div id="distrito" class="data-box"></div></div>
+                <div class="col-4"><label class="label-sm">Corregimiento / Sector</label><div id="corregimiento" class="data-box"></div></div>
             </div>
             <div class="row">
-                <div class="col-4"><label class="label-sm">N° Casa / Color</label><div id="casaColor" class="data-box"></div></div>
-                <div class="col-4"><label class="label-sm">Tiempo (Años)</label><div id="tiempoResidencia" class="data-box"></div></div>
-                <div class="col-4"><label class="label-sm">Teléfonos</label><div id="telefonos" class="data-box"></div></div>
+                <div class="col-6"><label class="label-sm">N° Casa y Color</label><div id="casaColor" class="data-box"></div></div>
+                <div class="col-6"><label class="label-sm">Teléfonos de contacto</label><div id="telefonos" class="data-box"></div></div>
             </div>
         </div>
 
@@ -113,77 +177,72 @@ Html
         <div class="box-title">III.- DATOS FAMILIARES</div>
         <div class="border-section">
             <div class="row mb-2 border-bottom pb-2">
-                <div class="col-8"><label class="label-sm">Nombre del Padre</label><div id="padreNombre" class="data-box"></div></div>
-                <div class="col-4"><label class="label-sm">Profesión / Tel.</label><div id="padreProfesion" class="data-box"></div></div>
+                <div class="col-7"><label class="label-sm">Nombre del Padre</label><div id="padreNombre" class="data-box"></div></div>
+                <div class="col-5"><label class="label-sm">Profesión / Oficio</label><div id="padreProfesion" class="data-box"></div></div>
             </div>
-            <div class="row mb-2">
-                <div class="col-8"><label class="label-sm">Nombre de la Madre</label><div id="madreNombre" class="data-box"></div></div>
-                <div class="col-4"><label class="label-sm">Profesión / Tel.</label><div id="madreProfesion" class="data-box"></div></div>
-            </div>
-            <div class="row mt-2">
-                <div class="col-4"><label class="label-sm">¿Vive con ambos?</label><div id="viveConPadres" class="data-box"></div></div>
-                <div class="col-8"><label class="label-sm">¿Con quién vive? Indique</label><div id="viveConN" class="data-box"></div></div>
+            <div class="row">
+                <div class="col-7"><label class="label-sm">Nombre de la Madre</label><div id="madreNombre" class="data-box"></div></div>
+                <div class="col-5"><label class="label-sm">Profesión / Oficio</label><div id="madreProfesion" class="data-box"></div></div>
             </div>
         </div>
+
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const targetCedula = localStorage.getItem('target_cedula');
-            const URL_API = "https://script.google.com/macros/s/AKfycbzUlNo9ykI2lp6Mk76DXmZFn_tUmfmxeGXN0p76-1hnEmiT88akVJVKNACtMXgtOFJm/exec";
+            const URL_API = "https://script.google.com/macros/s/AKfycbzF2-dCVEdKFg728JlrA45ZM0TpCjcPKX9YZjfpbfY097RbiuWb7kKa8JUNW8DuHuak/exec";
 
             if (!targetCedula) return;
 
             fetch(URL_API)
                 .then(res => res.json())
                 .then(data => {
-                    // Buscador directo de cédula
+                    // Buscador de cédula sin guiones para evitar errores
                     const p = data.find(item => 
                         String(item.cedula).replace(/-/g, "").trim() === String(targetCedula).replace(/-/g, "").trim()
                     );
                     
                     if (p) {
-                        const llenar = (id, valor) => {
+                        const setT = (id, val) => {
                             const el = document.getElementById(id);
-                            if (el) el.innerText = valor || '';
+                            if (el) el.innerText = val || '';
                         };
 
-                        // MAPEADO DIRECTO (Usando exactamente los nombres del Excel/doPost)
-                        llenar('fechaPostulacion', p.fechaPostulacion);
-                        llenar('postulacionCargo', p.postulacionCargo);
-                        llenar('apellido1', p.apellido1 || p.apellido);
-                        llenar('apellido2', p.apellido2);
-                        llenar('nombre1', p.nombre1 || p.nombre);
-                        llenar('nombre2', p.nombre2);
-                        llenar('cedula', p.cedula);
-                        llenar('apodo', p.apodo);
-                        llenar('religion', p.religion);
-                        llenar('fechaNac', p.fechaNac);
-                        llenar('edad', p.edad);
-                        llenar('tipaje', p.tipaje);
-                        llenar('estadoCivil', p.estadoCivil);
-                        llenar('idioma', p.idioma);
+                        // MAPEADO DE DATOS (Asegúrate que los nombres coincidan con los encabezados de tu Excel)
+                        setT('fechaPostulacion', p.fechaPostulacion);
+                        setT('postulacionCargo', p.postulacionCargo);
+                        setT('apellido1', p.apellido1);
+                        setT('apellido2', p.apellido2);
+                        setT('nombre1', p.nombre1);
+                        setT('nombre2', p.nombre2);
+                        setT('cedula', p.cedula);
+                        setT('apodo', p.apodo);
+                        setT('religion', p.religion);
+                        setT('fechaNac', p.fechaNac);
+                        setT('edad', p.edad);
+                        setT('tipaje', p.tipaje);
+                        setT('estadoCivil', p.estadoCivil);
+                        setT('idioma', p.idioma);
 
-                        llenar('provincia', p.provincia);
-                        llenar('distrito', p.distrito);
-                        llenar('corregimiento', p.corregimiento);
-                        llenar('casaColor', p.casaColor);
-                        llenar('tiempoResidencia', p.tiempoResidencia);
-                        llenar('telefonos', p.telefonos);
+                        setT('provincia', p.provincia);
+                        setT('distrito', p.distrito);
+                        setT('corregimiento', p.corregimiento);
+                        setT('casaColor', p.casaColor);
+                        setT('telefonos', p.telefonos);
 
-                        llenar('padreNombre', p.padreNombre);
-                        llenar('padreProfesion', p.padreProfesion);
-                        llenar('madreNombre', p.madreNombre);
-                        llenar('madreProfesion', p.madreProfesion);
-                        llenar('viveConPadres', p.viveConPadres);
-                        llenar('viveConN', p.viveConN);
+                        setT('padreNombre', p.padreNombre);
+                        setT('padreProfesion', p.padreProfesion);
+                        setT('madreNombre', p.madreNombre);
+                        setT('madreProfesion', p.madreProfesion);
 
                         // Foto
                         if(p.fotoBase64 && p.fotoBase64 !== "Sin foto") {
-                            document.getElementById('foto-preview').innerHTML = `<img src="${p.fotoBase64}" style="width:100%; height:100%; object-fit:cover;">`;
+                            document.getElementById('foto-container').innerHTML = `<img src="${p.fotoBase64}" style="width:100%; height:100%; object-fit:cover;">`;
                         }
                     }
-                });
+                })
+                .catch(err => console.error("Error cargando datos:", err));
         });
     </script>
 </body>
