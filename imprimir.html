@@ -8,107 +8,49 @@ Html
     <title>FICHA DE INSCRIPCIÓN OFICIAL - PN</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* CONFIGURACIÓN BASE ESTILO IMAGEN */
-        body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; }
+        body { background-color: #f8f9fa; font-family: 'Segoe UI', sans-serif; color: #333; }
         
         .form-page {
-            width: 215.9mm;
-            min-height: 279.4mm;
-            padding: 15mm;
-            margin: 20px auto;
-            background: white;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            position: relative;
+            width: 215.9mm; min-height: 279.4mm; padding: 15mm;
+            margin: 20px auto; background: white; box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
 
-        /* CABECERA SEGÚN IMAGEN */
-        .header-institutional {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 30px;
+        /* CABECERA */
+        .header-institutional { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+        .header-text { text-align: center; flex-grow: 1; font-weight: bold; line-height: 1.2; font-size: 14px; color: #000; }
+        .photo-box { width: 95px; height: 115px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; background: #fff; overflow: hidden; }
+
+        /* TÍTULOS DE SECCIÓN */
+        .box-title { background-color: #34495e; color: white; padding: 6px 15px; font-weight: bold; font-size: 13px; text-transform: uppercase; border-radius: 4px 4px 0 0; margin-top: 15px; }
+
+        /* DISEÑO DE CAMPOS */
+        .label-sm { font-size: 10px; font-weight: bold; color: #2c3e50; margin-bottom: 2px; text-transform: uppercase; }
+        .form-data {
+            border: 1px solid #ced4da; border-radius: 8px; padding: 6px 12px; font-size: 13px;
+            background-color: #fff; min-height: 38px; display: flex; align-items: center;
+            font-weight: 600; color: #000; word-break: break-word; line-height: 1.2;
         }
 
-        .header-text {
-            text-align: center;
-            flex-grow: 1;
-            font-weight: bold;
-            line-height: 1.2;
-            font-size: 14px;
-            color: #000;
-        }
-
-        .photo-box {
-            width: 90px;
-            height: 110px;
-            border: 1px solid #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #666;
-            font-size: 12px;
-            background: #fff;
-        }
-
-        /* BARRA DE TÍTULO AZUL */
-        .box-title {
-            background-color: #34495e; /* Azul grisáceo institucional */
-            color: white;
-            padding: 6px 15px;
-            font-weight: bold;
-            font-size: 13px;
-            text-transform: uppercase;
-            border-radius: 4px 4px 0 0;
-            margin-top: 20px;
-        }
-
-        /* CAMPOS DE ENTRADA ESTILO REDONDEADO */
-        .label-sm {
-            font-size: 10px;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 3px;
-            text-transform: uppercase;
-        }
-
-        .form-control-custom {
-            border: 1px solid #ced4da;
-            border-radius: 8px; /* Redondeado como en la foto */
-            padding: 6px 10px;
-            font-size: 12px;
-            width: 100%;
-            background-color: #fff;
-            font-weight: 500;
-            min-height: 35px;
-            display: block;
-            /* IMPORTANTE: Para que texto largo se vea completo */
-            white-space: normal;
-            word-break: break-word;
-        }
-
-        /* AJUSTES PARA IMPRESIÓN */
+        .border-section { border: 1px solid #dee2e6; border-top: none; padding: 15px; border-radius: 0 0 8px 8px; margin-bottom: 10px; }
+        
         @media print {
-            body { background: white; margin: 0; padding: 0; }
+            body { background: white; margin: 0; }
             .form-page { margin: 0; border: none; box-shadow: none; width: 100%; }
             .no-print { display: none !important; }
-            .form-control-custom { border: 1px solid #ccc !important; }
         }
-
-        .row-gap { margin-bottom: 12px; }
     </style>
 </head>
 <body>
 
     <div class="no-print text-center py-3">
-        <button class="btn btn-dark" onclick="window.print()">🖨️ IMPRIMIR FICHA</button>
+        <button class="btn btn-dark btn-lg" onclick="window.print()">🖨️ GENERAR DOCUMENTO PDF</button>
     </div>
 
     <div class="form-page">
         
-        <!-- CABECERA INSTITUCIONAL -->
+        <!-- CABECERA -->
         <div class="header-institutional">
-            <img src="img/Logo_policia.png" alt="Logo" style="width: 80px;">
+            <img src="img/Logo_policia.png" style="width: 80px;" onerror="this.style.display='none'">
             <div class="header-text">
                 REPÚBLICA DE PANAMÁ<br>
                 MINISTERIO DE SEGURIDAD PÚBLICA<br>
@@ -116,128 +58,134 @@ Html
                 DIRECCIÓN NACIONAL DE RECURSOS HUMANOS<br>
                 DEPARTAMENTO DE RECLUTAMIENTO Y SELECCIÓN
             </div>
-            <div id="foto-container" class="photo-box">
-                FOTO
-            </div>
+            <div id="foto-container" class="photo-box">FOTO</div>
         </div>
 
-        <!-- FECHA Y POSTULACIÓN -->
-        <div class="row row-gap align-items-end">
+        <!-- FECHA Y CARGO -->
+        <div class="row mb-3 align-items-end">
             <div class="col-4">
                 <label class="label-sm">FECHA</label>
-                <div id="fechaPostulacion" class="form-control-custom"></div>
+                <div id="fechaPostulacion" class="form-data"></div>
             </div>
             <div class="col-8">
-                <label class="label-sm">POSTULARÁ PARA:</label>
-                <div id="postulacionCargo" class="form-control-custom"></div>
+                <label class="label-sm">POSTULARÁ PARA EL CARGO DE:</label>
+                <div id="postulacionCargo" class="form-data"></div>
             </div>
         </div>
 
         <!-- SECCIÓN I: DATOS GENERALES -->
         <div class="box-title">I.- DATOS GENERALES</div>
-        <div class="border p-3 rounded-bottom shadow-sm">
-            
-            <!-- Fila 1: Apellidos y Nombres -->
-            <div class="row row-gap">
-                <div class="col-3">
-                    <label class="label-sm">1er. Apellido</label>
-                    <div id="apellido1" class="form-control-custom"></div>
-                </div>
-                <div class="col-3">
-                    <label class="label-sm">2do. Apellido</label>
-                    <div id="apellido2" class="form-control-custom"></div>
-                </div>
-                <div class="col-3">
-                    <label class="label-sm">1er. Nombre</label>
-                    <div id="nombre1" class="form-control-custom"></div>
-                </div>
-                <div class="col-3">
-                    <label class="label-sm">2do. Nombre</label>
-                    <div id="nombre2" class="form-control-custom"></div>
-                </div>
+        <div class="border-section">
+            <div class="row mb-3">
+                <div class="col-3"><label class="label-sm">1er. Apellido</label><div id="apellido1" class="form-data"></div></div>
+                <div class="col-3"><label class="label-sm">2do. Apellido</label><div id="apellido2" class="form-data"></div></div>
+                <div class="col-3"><label class="label-sm">1er. Nombre</label><div id="nombre1" class="form-data"></div></div>
+                <div class="col-3"><label class="label-sm">2do. Nombre</label><div id="nombre2" class="form-data"></div></div>
             </div>
-
-            <!-- Fila 2: Cédula, Apodo, Religión -->
-            <div class="row row-gap">
-                <div class="col-4">
-                    <label class="label-sm">Cédula</label>
-                    <div id="cedula" class="form-control-custom"></div>
-                </div>
-                <div class="col-4">
-                    <label class="label-sm">Apodo</label>
-                    <div id="apodo" class="form-control-custom"></div>
-                </div>
-                <div class="col-4">
-                    <label class="label-sm">Religión</label>
-                    <div id="religion" class="form-control-custom"></div>
-                </div>
+            <div class="row mb-3">
+                <div class="col-4"><label class="label-sm">Cédula</label><div id="cedula" class="form-data"></div></div>
+                <div class="col-4"><label class="label-sm">Apodo</label><div id="apodo" class="form-data"></div></div>
+                <div class="col-4"><label class="label-sm">Religión</label><div id="religion" class="form-data"></div></div>
             </div>
-
-            <!-- Fila 3: Fecha Nac, Edad, Tipaje, Edo Civil, Idioma -->
             <div class="row">
-                <div class="col-3">
-                    <label class="label-sm">Fecha Nac.</label>
-                    <div id="fechaNac" class="form-control-custom"></div>
-                </div>
-                <div class="col-1">
-                    <label class="label-sm">Edad</label>
-                    <div id="edad" class="form-control-custom text-center"></div>
-                </div>
-                <div class="col-2">
-                    <label class="label-sm">Tipaje</label>
-                    <div id="tipaje" class="form-control-custom text-center"></div>
-                </div>
-                <div class="col-3">
-                    <label class="label-sm">Edo. Civil</label>
-                    <div id="estadoCivil" class="form-control-custom"></div>
-                </div>
-                <div class="col-3">
-                    <label class="label-sm">Idioma</label>
-                    <div id="idioma" class="form-control-custom"></div>
-                </div>
+                <div class="col-3"><label class="label-sm">Fecha Nac.</label><div id="fechaNac" class="form-data"></div></div>
+                <div class="col-2"><label class="label-sm">Edad</label><div id="edad" class="form-data"></div></div>
+                <div class="col-2"><label class="label-sm">Tipaje</label><div id="tipaje" class="form-data"></div></div>
+                <div class="col-3"><label class="label-sm">Edo. Civil</label><div id="estadoCivil" class="form-data"></div></div>
+                <div class="col-2"><label class="label-sm">Idioma</label><div id="idioma" class="form-data"></div></div>
             </div>
         </div>
 
-        <!-- PRÓXIMAS SECCIONES (Añadiremos aquí Dirección y Familia en el siguiente paso) -->
-        <div id="proximas-secciones"></div>
+        <!-- SECCIÓN II: DIRECCIÓN -->
+        <div class="box-title">II.- DIRECCIÓN RESIDENCIAL</div>
+        <div class="border-section">
+            <div class="row mb-3">
+                <div class="col-4"><label class="label-sm">Provincia</label><div id="provincia" class="form-data"></div></div>
+                <div class="col-4"><label class="label-sm">Distrito</label><div id="distrito" class="form-data"></div></div>
+                <div class="col-4"><label class="label-sm">Corregimiento / Sector</label><div id="corregimiento" class="form-data"></div></div>
+            </div>
+            <div class="row">
+                <div class="col-4"><label class="label-sm">N° Casa y Color</label><div id="casaColor" class="form-data"></div></div>
+                <div class="col-4"><label class="label-sm">Tiempo Residencia</label><div id="tiempoResidencia" class="form-data"></div></div>
+                <div class="col-4"><label class="label-sm">Teléfonos</label><div id="telefonos" class="form-data"></div></div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN III: DATOS FAMILIARES -->
+        <div class="box-title">III.- DATOS FAMILIARES</div>
+        <div class="border-section">
+            <div class="row mb-2 border-bottom pb-2">
+                <div class="col-7"><label class="label-sm">Nombre del Padre</label><div id="padreNombre" class="form-data"></div></div>
+                <div class="col-5"><label class="label-sm">Profesión / Teléfono</label><div id="padreProfesion" class="form-data"></div></div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-7"><label class="label-sm">Nombre de la Madre</label><div id="madreNombre" class="form-data"></div></div>
+                <div class="col-5"><label class="label-sm">Profesión / Teléfono</label><div id="madreProfesion" class="form-data"></div></div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-4"><label class="label-sm">¿Vive con ambos padres?</label><div id="viveConPadres" class="form-data"></div></div>
+                <div class="col-8"><label class="label-sm">¿Con quién vive? Indique</label><div id="viveConN" class="form-data"></div></div>
+            </div>
+        </div>
 
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const targetCedula = localStorage.getItem('target_cedula');
-            const URL_GOOGLE = "https://script.google.com/macros/s/AKfycbyioz415PtfFEFUTHgQeHr7TXPJTiZHsiRWQJdREGdOS6FjeDfCv-3TOB11YIgX0J8g/exec";
+            const URL_GOOGLE = "https://script.google.com/macros/s/AKfycbzUlNo9ykI2lp6Mk76DXmZFn_tUmfmxeGXN0p76-1hnEmiT88akVJVKNACtMXgtOFJm/exec";
 
             if (!targetCedula) return;
 
             fetch(URL_GOOGLE)
                 .then(res => res.json())
                 .then(data => {
-                    // Limpiamos la cédula para buscar
-                    const cleanC = (c) => String(c).replace(/-/g, "").trim();
-                    const p = data.find(item => cleanC(item.cedula) === cleanC(targetCedula));
+                    const clean = (c) => String(c).replace(/-/g, "").trim();
+                    const p = data.find(item => clean(item.cedula) === clean(targetCedula));
                     
                     if (p) {
-                        // Función para pintar texto en el DIV (permite que crezca si el texto es largo)
-                        const setT = (id, val) => { 
-                            const el = document.getElementById(id); 
-                            if(el) el.innerText = val || ''; 
+                        // Función que busca el dato con varios nombres posibles (por si cambia el Excel)
+                        const setT = (id, keys) => {
+                            const el = document.getElementById(id);
+                            if (!el) return;
+                            // Busca en el objeto 'p' cualquier coincidencia de los nombres enviados
+                            let valor = keys.map(k => p[k]).find(v => v !== undefined);
+                            el.innerText = valor || '';
                         };
 
-                        setT('fechaPostulacion', p.fechaPostulacion);
-                        setT('postulacionCargo', p.postulacionCargo);
-                        setT('apellido1', p.apellido1);
-                        setT('apellido2', p.apellido2);
-                        setT('nombre1', p.nombre1);
-                        setT('nombre2', p.nombre2);
-                        setV('cedula', p.cedula); // Nota: he usado setT (innerText) para que el texto largo se vea entero
-                        setT('apodo', p.apodo);
-                        setT('religion', p.religion);
-                        setT('fechaNac', p.fechaNac);
-                        setT('edad', p.edad);
-                        setT('tipaje', p.tipaje);
-                        setT('estadoCivil', p.estadoCivil);
-                        setT('idioma', p.idioma);
+                        // MAPEADO INTELIGENTE (Busca por nombre1, nombre o Nombre1)
+                        setT('fechaPostulacion', ['fechaPostulacion', 'fecha']);
+                        setT('postulacionCargo', ['postulacionCargo', 'cargo']);
+                        
+                        setT('apellido1', ['apellido1', 'apellido']);
+                        setT('apellido2', ['apellido2']);
+                        setT('nombre1', ['nombre1', 'nombre']);
+                        setT('nombre2', ['nombre2']);
+                        
+                        setT('cedula', ['cedula']);
+                        setT('apodo', ['apodo']);
+                        setT('religion', ['religion']);
+                        setT('fechaNac', ['fechaNac', 'fechaNacimiento']);
+                        setT('edad', ['edad']);
+                        setT('tipaje', ['tipaje']);
+                        setT('estadoCivil', ['estadoCivil']);
+                        setT('idioma', ['idioma']);
+
+                        // Dirección
+                        setT('provincia', ['provincia']);
+                        setT('distrito', ['distrito']);
+                        setT('corregimiento', ['corregimiento']);
+                        setT('casaColor', ['casaColor']);
+                        setT('tiempoResidencia', ['tiempoResidencia']);
+                        setT('telefonos', ['telefonos', 'telefono']);
+
+                        // Familia
+                        setT('padreNombre', ['padreNombre']);
+                        setT('padreProfesion', ['padreProfesion']);
+                        setT('madreNombre', ['madreNombre']);
+                        setT('madreProfesion', ['madreProfesion']);
+                        setT('viveConPadres', ['viveConPadres']);
+                        setT('viveConN', ['viveConN', 'conQuienVive']);
 
                         // Foto
                         if(p.fotoBase64 && p.fotoBase64 !== "Sin foto") {
@@ -246,12 +194,6 @@ Html
                     }
                 });
         });
-
-        // Función auxiliar por si prefieres innerText
-        function setV(id, val) {
-            const el = document.getElementById(id);
-            if(el) el.innerText = val || '';
-        }
     </script>
 </body>
 </html>
