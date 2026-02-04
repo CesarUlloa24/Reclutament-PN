@@ -1,96 +1,257 @@
+code
+Html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FICHA DE INSCRIPCIÓN OFICIAL - PN</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background-color: #f0f0f0; font-family: 'Arial', sans-serif; font-size: 11px; }
-        .form-page { width: 215.9mm; min-height: 279.4mm; padding: 12mm; margin: 10px auto; background: white; border: 1px solid #000; }
-        .box-title { background-color: #1a2a40; color: white; padding: 4px 15px; font-weight: bold; font-size: 12px; border: 1px solid #000; }
-        .border-section { border: 1px solid #000; padding: 10px; margin-bottom: 10px; }
-        label { font-weight: bold; font-size: 9px; text-transform: uppercase; display: block; }
-        .form-control-print { border: none; border-bottom: 1px solid #000; width: 100%; font-weight: bold; font-size: 11px; background: transparent; }
-        @media print { body { background: white; } .form-page { margin: 0; border: 1px solid black; page-break-after: always; } .no-print { display: none !important; } }
+        /* CONFIGURACIÓN BASE ESTILO IMAGEN */
+        body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; }
+        
+        .form-page {
+            width: 215.9mm;
+            min-height: 279.4mm;
+            padding: 15mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        /* CABECERA SEGÚN IMAGEN */
+        .header-institutional {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .header-text {
+            text-align: center;
+            flex-grow: 1;
+            font-weight: bold;
+            line-height: 1.2;
+            font-size: 14px;
+            color: #000;
+        }
+
+        .photo-box {
+            width: 90px;
+            height: 110px;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #666;
+            font-size: 12px;
+            background: #fff;
+        }
+
+        /* BARRA DE TÍTULO AZUL */
+        .box-title {
+            background-color: #34495e; /* Azul grisáceo institucional */
+            color: white;
+            padding: 6px 15px;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            border-radius: 4px 4px 0 0;
+            margin-top: 20px;
+        }
+
+        /* CAMPOS DE ENTRADA ESTILO REDONDEADO */
+        .label-sm {
+            font-size: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+        }
+
+        .form-control-custom {
+            border: 1px solid #ced4da;
+            border-radius: 8px; /* Redondeado como en la foto */
+            padding: 6px 10px;
+            font-size: 12px;
+            width: 100%;
+            background-color: #fff;
+            font-weight: 500;
+            min-height: 35px;
+            display: block;
+            /* IMPORTANTE: Para que texto largo se vea completo */
+            white-space: normal;
+            word-break: break-word;
+        }
+
+        /* AJUSTES PARA IMPRESIÓN */
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .form-page { margin: 0; border: none; box-shadow: none; width: 100%; }
+            .no-print { display: none !important; }
+            .form-control-custom { border: 1px solid #ccc !important; }
+        }
+
+        .row-gap { margin-bottom: 12px; }
     </style>
 </head>
 <body>
 
     <div class="no-print text-center py-3">
-        <button class="btn btn-primary btn-lg" onclick="window.print()">IMPRIMIR FICHA</button>
+        <button class="btn btn-dark" onclick="window.print()">🖨️ IMPRIMIR FICHA</button>
     </div>
 
     <div class="form-page">
-        <!-- ENCABEZADO -->
-        <div class="row align-items-center mb-3">
-            <div class="col-2"><img src="img/Logo_policia.png" style="width: 70px;"></div>
-            <div class="col-8 text-center">
-                <h6 class="fw-bold m-0">REPÚBLICA DE PANAMÁ<br>POLICÍA NACIONAL<br>FICHA DE RECLUTAMIENTO</h6>
+        
+        <!-- CABECERA INSTITUCIONAL -->
+        <div class="header-institutional">
+            <img src="img/Logo_policia.png" alt="Logo" style="width: 80px;">
+            <div class="header-text">
+                REPÚBLICA DE PANAMÁ<br>
+                MINISTERIO DE SEGURIDAD PÚBLICA<br>
+                POLICÍA NACIONAL<br>
+                DIRECCIÓN NACIONAL DE RECURSOS HUMANOS<br>
+                DEPARTAMENTO DE RECLUTAMIENTO Y SELECCIÓN
             </div>
-            <div id="foto-container" class="col-2 text-end" style="width: 90px; height: 110px; border: 1px solid #000; padding: 0; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+            <div id="foto-container" class="photo-box">
                 FOTO
             </div>
         </div>
 
-        <div class="box-title">I. DATOS GENERALES</div>
-        <div class="border-section">
-            <div class="row mb-2">
-                <div class="col-6"><label>Nombre Completo</label><input type="text" id="nombre-imprimir" class="form-control-print"></div>
-                <div class="col-6"><label>Apellido Completo</label><input type="text" id="apellido-imprimir" class="form-control-print"></div>
+        <!-- FECHA Y POSTULACIÓN -->
+        <div class="row row-gap align-items-end">
+            <div class="col-4">
+                <label class="label-sm">FECHA</label>
+                <div id="fechaPostulacion" class="form-control-custom"></div>
             </div>
-            <div class="row">
-                <div class="col-4"><label>Cédula</label><input type="text" id="cedula-imprimir" class="form-control-print"></div>
-                <div class="col-4"><label>Edad</label><input type="text" id="edad-imprimir" class="form-control-print"></div>
-                <div class="col-4"><label>Cargo</label><input type="text" id="cargo-imprimir" class="form-control-print"></div>
-            </div>
-        </div>
-
-        <div class="box-title">II. DATOS RESIDENCIALES</div>
-        <div class="border-section">
-            <div class="row">
-                <div class="col-4"><label>Provincia</label><input type="text" id="prov-imprimir" class="form-control-print"></div>
-                <div class="col-8"><label>Dirección Exacta</label><input type="text" id="dir-imprimir" class="form-control-print"></div>
+            <div class="col-8">
+                <label class="label-sm">POSTULARÁ PARA:</label>
+                <div id="postulacionCargo" class="form-control-custom"></div>
             </div>
         </div>
 
-        <div class="box-title">III. DATOS FAMILIARES</div>
-        <div class="border-section">
-            <label>Nombre del Padre</label><input type="text" id="padre-imprimir" class="form-control-print" style="margin-bottom: 5px;">
-            <label>Nombre de la Madre</label><input type="text" id="madre-imprimir" class="form-control-print">
+        <!-- SECCIÓN I: DATOS GENERALES -->
+        <div class="box-title">I.- DATOS GENERALES</div>
+        <div class="border p-3 rounded-bottom shadow-sm">
+            
+            <!-- Fila 1: Apellidos y Nombres -->
+            <div class="row row-gap">
+                <div class="col-3">
+                    <label class="label-sm">1er. Apellido</label>
+                    <div id="apellido1" class="form-control-custom"></div>
+                </div>
+                <div class="col-3">
+                    <label class="label-sm">2do. Apellido</label>
+                    <div id="apellido2" class="form-control-custom"></div>
+                </div>
+                <div class="col-3">
+                    <label class="label-sm">1er. Nombre</label>
+                    <div id="nombre1" class="form-control-custom"></div>
+                </div>
+                <div class="col-3">
+                    <label class="label-sm">2do. Nombre</label>
+                    <div id="nombre2" class="form-control-custom"></div>
+                </div>
+            </div>
+
+            <!-- Fila 2: Cédula, Apodo, Religión -->
+            <div class="row row-gap">
+                <div class="col-4">
+                    <label class="label-sm">Cédula</label>
+                    <div id="cedula" class="form-control-custom"></div>
+                </div>
+                <div class="col-4">
+                    <label class="label-sm">Apodo</label>
+                    <div id="apodo" class="form-control-custom"></div>
+                </div>
+                <div class="col-4">
+                    <label class="label-sm">Religión</label>
+                    <div id="religion" class="form-control-custom"></div>
+                </div>
+            </div>
+
+            <!-- Fila 3: Fecha Nac, Edad, Tipaje, Edo Civil, Idioma -->
+            <div class="row">
+                <div class="col-3">
+                    <label class="label-sm">Fecha Nac.</label>
+                    <div id="fechaNac" class="form-control-custom"></div>
+                </div>
+                <div class="col-1">
+                    <label class="label-sm">Edad</label>
+                    <div id="edad" class="form-control-custom text-center"></div>
+                </div>
+                <div class="col-2">
+                    <label class="label-sm">Tipaje</label>
+                    <div id="tipaje" class="form-control-custom text-center"></div>
+                </div>
+                <div class="col-3">
+                    <label class="label-sm">Edo. Civil</label>
+                    <div id="estadoCivil" class="form-control-custom"></div>
+                </div>
+                <div class="col-3">
+                    <label class="label-sm">Idioma</label>
+                    <div id="idioma" class="form-control-custom"></div>
+                </div>
+            </div>
         </div>
+
+        <!-- PRÓXIMAS SECCIONES (Añadiremos aquí Dirección y Familia en el siguiente paso) -->
+        <div id="proximas-secciones"></div>
+
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const targetCedula = localStorage.getItem('target_cedula');
-        const URL_GOOGLE = "https://script.google.com/macros/s/AKfycbyioz415PtfFEFUTHgQeHr7TXPJTiZHsiRWQJdREGdOS6FjeDfCv-3TOB11YIgX0J8g/exec";
+            const URL_GOOGLE = "https://script.google.com/macros/s/AKfycbyioz415PtfFEFUTHgQeHr7TXPJTiZHsiRWQJdREGdOS6FjeDfCv-3TOB11YIgX0J8g/exec";
 
             if (!targetCedula) return;
 
             fetch(URL_GOOGLE)
                 .then(res => res.json())
                 .then(data => {
-                    const p = data.find(item => String(item.cedula).replace(/-/g, "") === String(targetCedula).replace(/-/g, ""));
+                    // Limpiamos la cédula para buscar
+                    const cleanC = (c) => String(c).replace(/-/g, "").trim();
+                    const p = data.find(item => cleanC(item.cedula) === cleanC(targetCedula));
                     
                     if (p) {
-                        // Llenamos los campos usando los nombres que definimos en el doGet
-                        document.getElementById('nombre-imprimir').value = p.nombre1 || p.nombre || '';
-                        document.getElementById('apellido-imprimir').value = p.apellido1 || p.apellido || '';
-                        document.getElementById('cedula-imprimir').value = p.cedula || '';
-                        document.getElementById('edad-imprimir').value = p.edad || '';
-                        document.getElementById('cargo-imprimir').value = p.postulacionCargo || '';
-                        document.getElementById('prov-imprimir').value = p.provincia || '';
-                        document.getElementById('dir-imprimir').value = p.resCorregimiento || '';
-                        document.getElementById('padre-imprimir').value = p.padreNombre || '';
-                        document.getElementById('madre-imprimir').value = p.madreNombre || '';
+                        // Función para pintar texto en el DIV (permite que crezca si el texto es largo)
+                        const setT = (id, val) => { 
+                            const el = document.getElementById(id); 
+                            if(el) el.innerText = val || ''; 
+                        };
 
-                        // FOTO
+                        setT('fechaPostulacion', p.fechaPostulacion);
+                        setT('postulacionCargo', p.postulacionCargo);
+                        setT('apellido1', p.apellido1);
+                        setT('apellido2', p.apellido2);
+                        setT('nombre1', p.nombre1);
+                        setT('nombre2', p.nombre2);
+                        setV('cedula', p.cedula); // Nota: he usado setT (innerText) para que el texto largo se vea entero
+                        setT('apodo', p.apodo);
+                        setT('religion', p.religion);
+                        setT('fechaNac', p.fechaNac);
+                        setT('edad', p.edad);
+                        setT('tipaje', p.tipaje);
+                        setT('estadoCivil', p.estadoCivil);
+                        setT('idioma', p.idioma);
+
+                        // Foto
                         if(p.fotoBase64 && p.fotoBase64 !== "Sin foto") {
                             document.getElementById('foto-container').innerHTML = `<img src="${p.fotoBase64}" style="width:100%; height:100%; object-fit:cover;">`;
                         }
                     }
                 });
         });
+
+        // Función auxiliar por si prefieres innerText
+        function setV(id, val) {
+            const el = document.getElementById(id);
+            if(el) el.innerText = val || '';
+        }
     </script>
 </body>
 </html>
