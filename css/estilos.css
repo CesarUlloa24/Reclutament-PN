@@ -1,76 +1,30 @@
 /* ==========================================================================
-   ESTILOS PARA FORMULARIO DE RECLUTAMIENTO - POLICÍA NACIONAL
+   ESTILOS COMPARTIDOS - POLICÍA NACIONAL
    ========================================================================== */
 
-/* Configuraciones Generales */
 body {
-    background-color: #2c3e50; /* Fondo azul grisáceo oscuro */
+    background-color: #2c3e50; /* Fondo oscuro para pantalla */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 20px 10px;
     color: #000;
 }
 
-/* Contenedor tipo hoja de papel (A4 aprox) */
+/* Contenedor tipo hoja de papel */
 .form-page {
     background: #ffffff;
     width: 100%;
-    max-width: 900px; /* Limita el ancho en PC para que parezca una hoja */
-    margin: 0 auto 30px auto; /* Centra horizontalmente */
+    max-width: 950px; 
+    margin: 0 auto 30px auto; 
     padding: 40px;
-    border: 2px solid #000;
+    border: 1px solid #000;
     box-shadow: 0 15px 35px rgba(0,0,0,0.4);
     position: relative;
+    box-sizing: border-box;
 }
 
-/* Estilo para los inputs de texto limpios (dentro de tablas) */
-.form-control-clean {
-    width: 100%;
-    border: none;
-    outline: none;
-    padding: 8px;
-    font-size: 13px;
-    background: transparent;
-    display: block;
-}
-.form-control-clean:focus {
-    background-color: #e8f0fe;
-}
-
-/* Forzar que las tablas ocupen todo el ancho y sus celdas se repartan bien */
-.table-oficial {
-    width: 100% !important;
-    table-layout: fixed; 
-    border-collapse: collapse;
-}
-
-.table-oficial th, .table-oficial td {
-    border: 1px solid #000 !important;
-    vertical-align: middle;
-}
-
-.table-oficial thead th {
-    background-color: #f8f9fa;
-    padding: 10px 5px;
-}
-
-/* Texto institucional (Encabezado) */
-.institutional-text {
-    font-size: 0.85rem;
-    line-height: 1.4;
-}
-
-.header-text {
-    text-align: center;
-    font-weight: bold;
-    font-size: 13px;
-    text-transform: uppercase;
-    line-height: 1.3;
-    padding: 10px;
-}
-
-/* Títulos de Secciones */
+/* Títulos de Secciones (Azul Institucional) */
 .box-title {
-    background-color: #34495e !important; 
+    background-color: #1a2a40 !important; 
     color: #ffffff !important;
     font-weight: bold;
     border: 1px solid #000;
@@ -88,7 +42,40 @@ body {
     background-color: #fff;
 }
 
-/* Inputs estilo formulario impreso */
+.label-sm {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #222;
+    margin-bottom: 2px;
+    display: block;
+}
+
+/* ==========================================================================
+   ESTILOS ESPECÍFICOS PARA EL INDEX (FORMULARIO)
+   ========================================================================== */
+
+.form-control-clean {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 13px;
+    background: transparent;
+    display: block;
+}
+
+.table-oficial {
+    width: 100% !important;
+    table-layout: fixed; 
+    border-collapse: collapse;
+}
+
+.table-oficial th, .table-oficial td {
+    border: 1px solid #000 !important;
+    vertical-align: middle;
+}
+
 .border-black {
     border: 1px solid #000 !important;
     border-radius: 0 !important;
@@ -97,20 +84,6 @@ body {
     background-color: #fafafa !important;
 }
 
-.border-black:focus {
-    background-color: #fff !important;
-    border-color: #007bff !important;
-    box-shadow: none !important;
-}
-
-.label-sm {
-    font-size: 11px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #222;
-}
-
-/* Cuadros de salud interactivos */
 .health-item-row {
     display: flex;
     flex-wrap: wrap;
@@ -120,22 +93,6 @@ body {
     border-bottom: 1px dashed #999;
 }
 
-.health-item-row span {
-    font-size: 12px;
-    font-weight: 600;
-    flex: 1;
-}
-
-.sel-salud {
-    width: 75px !important;
-    height: 28px !important;
-    font-size: 11px !important;
-    border: 1px solid #000 !important;
-    border-radius: 0 !important;
-    padding: 0 5px !important;
-}
-
-/* Cuadros de advertencia */
 .instruction-box {
     border: 1px solid #000;
     padding: 10px 15px;
@@ -146,95 +103,102 @@ body {
     text-align: justify;
 }
 
-/* Contenedor de la foto del recluta */
+/* ==========================================================================
+   ESTILOS ESPECÍFICOS PARA IMPRIMIR.HTML (LA FICHA)
+   ========================================================================== */
+
+/* Cabecera controlada para que el logo no crezca */
+.header-official {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.header-official img {
+    max-width: 85px; /* Evita que el logo sea gigante */
+    height: auto;
+}
+
+.institutional-text {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 1.2;
+    flex: 1;
+}
+
+/* Filas horizontales para la ficha */
+.row-print {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.col-print {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Cajas redondeadas de la ficha */
+.field-print {
+    border: 1px solid #000;
+    height: 35px;
+    border-radius: 6px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    background-color: #fff;
+    font-weight: 500;
+}
+
+/* Contenedor de la foto */
 .photo-container {
-    width: 100px;
-    height: 125px;
-    border: 2px dashed #6c757d;
-    cursor: pointer;
+    width: 110px;
+    height: 130px;
+    border: 1.5px dashed #adb5bd;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #fff;
     overflow: hidden;
-    background-color: #f8f9fa;
-    transition: all 0.3s ease;
 }
-.photo-container:hover {
-    border-color: #0d6efd;
-    background-color: #e9ecef;
-}
-.photo-preview img {
+
+.photo-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* Utilidades */
+/* ==========================================================================
+   UTILIDADES Y PANTALLA DE ÉXITO
+   ========================================================================== */
+
 .d-none { display: none !important; }
 
-/* Ajustes para móviles (Responsividad) */
-@media (max-width: 768px) {
-    .form-page { 
-        padding: 15px;
-        margin: 5px auto;
-        width: 98%;
-    }
-    .institutional-text { 
-        font-size: 0.6rem; /* Texto más pequeño para que no se amontone */
-    }
-    .header-text { font-size: 10px; }
-    .photo-container {
-        width: 70px;
-        height: 90px;
-    }
-    .photo-container small {
-        font-size: 7px !important;
-    }
+.success-icon {
+    width: 100px; height: 100px;
+    background-color: #28a745; color: white;
+    font-size: 60px; line-height: 100px;
+    border-radius: 50%; display: inline-block;
 }
 
-/* Estilos de Impresión */
+@media (max-width: 768px) {
+    .form-page { padding: 15px; width: 98%; }
+    .header-official { flex-direction: column; }
+}
+
 @media print {
     body { background: white !important; padding: 0; }
     .form-page { 
-        box-shadow: none !important; 
-        border: none !important; 
-        margin: 0 !important; 
-        padding: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
+        box-shadow: none !important; border: 1px solid #000 !important; 
+        margin: 0 !important; width: 100% !important; max-width: 100% !important;
     }
     .no-print, .btn { display: none !important; }
-    .d-none { display: none !important; }
-    #page-1, #page-2, #page-3 { 
-        display: block !important; 
-        page-break-after: always; 
-    }
-}
-
-/* Estilo para la pantalla de éxito */
-.success-icon {
-    width: 100px;
-    height: 100px;
-    background-color: #28a745;
-    color: white;
-    font-size: 60px;
-    line-height: 100px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-bottom: 20px;
-    animation: bounceIn 0.8s ease;
-}
-
-@keyframes bounceIn {
-    0% { transform: scale(0.3); opacity: 0; }
-    50% { transform: scale(1.05); opacity: 1; }
-    70% { transform: scale(0.9); }
-    100% { transform: scale(1); }
-}
-
-#success-screen:not(.d-none) {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    #page-1, #page-2, #page-3 { page-break-after: always; }
 }

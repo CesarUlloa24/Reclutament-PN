@@ -2,198 +2,130 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Ficha Recluta</title>
-    <style>
-        body {
-            font-family: Arial;
-            margin: 20px;
-        }
-        .section-title {
-            background: #16283f;
-            color: white;
-            padding: 6px;
-            margin-top: 15px;
-        }
-        .row {
-            display: flex;
-            gap: 10px;
-            margin-top: 6px;
-        }
-        .box {
-            flex: 1;
-        }
-        label {
-            font-size: 12px;
-            font-weight: bold;
-        }
-        .field {
-            border: 1px solid black;
-            height: 28px;
-            border-radius: 6px;
-            padding-left: 5px;
-            display: flex;
-            align-items: center;
-        }
-        .small { flex: .3; }
-        .medium { flex: .6; }
-        .large { flex: 2; }
-        .foto {
-            width: 120px;
-            height: 150px;
-            border: 1px solid black;
-            overflow: hidden;
-        }
-        .pagebreak {
-            page-break-before: always;
-        }
-    </style>
+    <title>FICHA DE IMPRESIÓN OFICIAL - POLICÍA NACIONAL</title>
+    <!-- Importamos el CSS Externo (Verifica si es CSS o css según tu carpeta) -->
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
-    <center>
-        <b>REPÚBLICA DE PANAMÁ<br>
-        MINISTERIO DE SEGURIDAD PÚBLICA<br>
-        POLICÍA NACIONAL<br>
-        DIRECCIÓN NACIONAL DE RECURSOS HUMANOS<br>
-        DEPARTAMENTO DE RECLUTAMIENTO Y SELECCIÓN</b>
-    </center>
+    <!-- Botón para imprimir (no sale en el papel gracias a la clase no-print) -->
+    <div style="text-align: center; margin-bottom: 20px;" class="no-print">
+        <button onclick="window.print()" style="padding: 10px 20px; cursor: pointer; font-weight: bold; border-radius: 5px;">Imprimir Ficha Oficial</button>
+    </div>
 
-    <div class="row">
-        <div class="box large">
-            <label>FECHA</label>
-            <div id="fecha" class="field"></div>
+    <!-- CONTENEDOR TIPO HOJA DE PAPEL -->
+    <div class="form-page">
+
+        <!-- ENCABEZADO OFICIAL -->
+        <div class="header-official">
+            <img src="img/Logo_policia.png" alt="Logo PN">
+            
+            <div class="institutional-text">
+                REPÚBLICA DE PANAMÁ<br>
+                MINISTERIO DE SEGURIDAD PÚBLICA<br>
+                POLICÍA NACIONAL<br>
+                DIRECCIÓN NACIONAL DE RECURSOS HUMANOS<br>
+                DEPARTAMENTO DE RECLUTAMIENTO Y SELECCIÓN
+            </div>
+
+            <div class="photo-container" id="foto">
+                <svg width="30" height="30" viewBox="0 0 16 16" fill="#888"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+                <small style="font-size: 8px; margin-top: 5px;">TOMAR / SUBIR FOTO</small>
+            </div>
         </div>
-        <div class="box large">
-            <label>CARGO</label>
-            <div id="cargo" class="field"></div>
+
+        <!-- FECHA Y CARGO -->
+        <div class="row-print" style="margin-top: 20px;">
+            <div class="col-print" style="flex: 0.4;">
+                <label class="label-sm">FECHA</label>
+                <div id="fecha" class="field-print"></div>
+            </div>
+            <div class="col-print">
+                <label class="label-sm">POSTULARÁ PARA:</label>
+                <div id="cargo" class="field-print"></div>
+            </div>
         </div>
-        <div class="foto" id="foto"></div>
-    </div>
 
-    <!-- I -->
-    <div class="section-title">I – DATOS GENERALES</div>
-    <div class="row">
-        <div class="box"><label>1ER APELLIDO</label><div id="apellido1" class="field"></div></div>
-        <div class="box"><label>2DO APELLIDO</label><div id="apellido2" class="field"></div></div>
-        <div class="box"><label>1ER NOMBRE</label><div id="nombre1" class="field"></div></div>
-        <div class="box"><label>2DO NOMBRE</label><div id="nombre2" class="field"></div></div>
-    </div>
+        <!-- SECCIÓN I: DATOS GENERALES -->
+        <div class="box-title">I. DATOS GENERALES</div>
+        <div class="border-section">
+            <div class="row-print">
+                <div class="col-print"><label class="label-sm">1er. Apellido</label><div id="apellido1" class="field-print"></div></div>
+                <div class="col-print"><label class="label-sm">2do. Apellido</label><div id="apellido2" class="field-print"></div></div>
+                <div class="col-print"><label class="label-sm">1er. Nombre</label><div id="nombre1" class="field-print"></div></div>
+                <div class="col-print"><label class="label-sm">2do. Nombre</label><div id="nombre2" class="field-print"></div></div>
+            </div>
 
-    <div class="row">
-        <div class="box"><label>CÉDULA</label><div id="cedula" class="field"></div></div>
-        <div class="box"><label>APODO</label><div id="apodo" class="field"></div></div>
-        <div class="box"><label>RELIGIÓN</label><div id="religion" class="field"></div></div>
-    </div>
+            <div class="row-print" style="margin-top: 15px;">
+                <div class="col-print" style="flex: 1.5;">
+                    <label class="label-sm">CÉDULA</label>
+                    <div id="cedula" class="field-print"></div>
+                </div>
+                <div class="col-print"><label class="label-sm">APODO</label><div id="apodo" class="field-print"></div></div>
+                <div class="col-print" style="flex: 1.5;"><label class="label-sm">RELIGIÓN</label><div id="religion" class="field-print"></div></div>
+            </div>
 
-    <div class="row">
-        <div class="box"><label>FECHA NAC</label><div id="fechaNac" class="field"></div></div>
-        <div class="box small"><label>EDAD</label><div id="edad" class="field"></div></div>
-        <div class="box"><label>TIPAJE</label><div id="tipaje" class="field"></div></div>
-        <div class="box"><label>ESTADO CIVIL</label><div id="estadoCivil" class="field"></div></div>
-        <div class="box"><label>IDIOMA</label><div id="idioma" class="field"></div></div>
-    </div>
+            <div class="row-print" style="margin-top: 15px;">
+                <div class="col-print"><label class="label-sm">FECHA DE NACIMIENTO</label><div id="fechaNac" class="field-print"></div></div>
+                <div class="col-print" style="flex: 0.4;"><label class="label-sm">EDAD</label><div id="edad" class="field-print"></div></div>
+                <div class="col-print" style="flex: 0.6;"><label class="label-sm">TIPAJE</label><div id="tipaje" class="field-print"></div></div>
+                <div class="col-print"><label class="label-sm">ESTADO CIVIL</label><div id="estadoCivil" class="field-print"></div></div>
+                <div class="col-print"><label class="label-sm">IDIOMA</label><div id="idioma" class="field-print"></div></div>
+            </div>
+        </div>
 
-    <!-- DIRECCIÓN RESIDENCIAL -->
-    <div class="section-title">DIRECCIÓN RESIDENCIAL</div>
-    <div class="row"><div class="box"><label>PROVINCIA</label><div id="provincia" class="field"></div></div></div>
-    <div class="row"><div class="box"><label>DISTRITO</label><div id="distrito" class="field"></div></div></div>
-    <div class="row"><div class="box"><label>CORREGIMIENTO</label><div id="corregimiento" class="field"></div></div></div>
-    <div class="row"><div class="box"><label>N° CASA Y COLOR</label><div id="casaColor" class="field"></div></div></div>
-    <div class="row"><div class="box"><label>TIEMPO DE RESIDENCIA (/A años)</label><div id="tiempoResidencia" class="field"></div></div></div>
-    <div class="row"><div class="box"><label>TELÉFONO RESIDENCIA</label><div id="telefonoResidencia" class="field"></div></div></div>
-    <div class="row"><div class="box"><label>DIRECCIÓN ANTERIOR</label><div id="direccionAnterior" class="field"></div></div></div>
+        <!-- SECCIÓN II: DIRECCIÓN -->
+        <div class="box-title">II. DIRECCIÓN RESIDENCIAL</div>
+        <div class="border-section">
+            <div class="row-print">
+                <div class="col-print"><label class="label-sm">PROVINCIA</label><div id="provincia" class="field-print"></div></div>
+                <div class="col-print"><label class="label-sm">DISTRITO</label><div id="distrito" class="field-print"></div></div>
+            </div>
+            <div class="row-print" style="margin-top: 15px;">
+                <div class="col-print"><label class="label-sm">CORREGIMIENTO Y SECTOR</label><div id="corregimiento" class="field-print"></div></div>
+            </div>
+            <div class="row-print" style="margin-top: 15px;">
+                <div class="col-print"><label class="label-sm">N° CASA Y COLOR</label><div id="casaColor" class="field-print"></div></div>
+                <div class="col-print"><label class="label-sm">TIEMPO RESIDENCIA</label><div id="tiempoResidencia" class="field-print"></div></div>
+                <div class="col-print"><label class="label-sm">TELÉFONOS</label><div id="telefonoResidencia" class="field-print"></div></div>
+            </div>
+        </div>
 
-    <!-- III -->
-    <div class="section-title">III – DATOS FAMILIARES</div>
-    <div class="row">
-        <div class="box large"><label>PADRE</label><div id="padre" class="field"></div></div>
-        <div class="box"><label>PROFESIÓN</label><div id="padreProf" class="field"></div></div>
-    </div>
-    <div class="row">
-        <div class="box large"><label>MADRE</label><div id="madre" class="field"></div></div>
-        <div class="box"><label>PROFESIÓN</label><div id="madreProf" class="field"></div></div>
-    </div>
+        <!-- SECCIÓN III: DATOS FAMILIARES -->
+        <div class="box-title">III. DATOS FAMILIARES</div>
+        <div class="border-section">
+            <div class="row-print">
+                <div class="col-print"><label class="label-sm">NOMBRE DEL PADRE</label><div id="padre" class="field-print"></div></div>
+                <div class="col-print" style="flex: 0.6;"><label class="label-sm">PROFESIÓN / TEL</label><div id="padreProf" class="field-print"></div></div>
+            </div>
+            <div class="row-print" style="margin-top: 15px;">
+                <div class="col-print"><label class="label-sm">NOMBRE DE LA MADRE</label><div id="madre" class="field-print"></div></div>
+                <div class="col-print" style="flex: 0.6;"><label class="label-sm">PROFESIÓN / TEL</label><div id="madreProf" class="field-print"></div></div>
+            </div>
+        </div>
 
-    <div class="pagebreak"></div>
+        <!-- PÁGINA 2 (OPCIONAL) -->
+        <!-- <div class="pagebreak"></div> -->
 
-    <!-- IV -->
-    <div class="section-title">IV – DATOS FÍSICOS</div>
-    <div class="row">
-        <div class="box"><label>ESTATURA</label><div id="estatura" class="field"></div></div>
-        <div class="box"><label>PESO</label><div id="peso" class="field"></div></div>
-        <div class="box"><label>CAMISA</label><div id="camisa" class="field"></div></div>
-        <div class="box"><label>PANTALÓN</label><div id="pantalon" class="field"></div></div>
-        <div class="box"><label>ZAPATO</label><div id="zapato" class="field"></div></div>
-    </div>
-    <div class="row">
-        <div class="box"><label>CABELLO</label><div id="cabello" class="field"></div></div>
-        <div class="box"><label>OJOS</label><div id="ojos" class="field"></div></div>
-        <div class="box"><label>TEZ</label><div id="tez" class="field"></div></div>
-        <div class="box large"><label>SEÑAS</label><div id="senas" class="field"></div></div>
-    </div>
-
-    <!-- V -->
-    <div class="section-title">V – ESCOLARIDAD</div>
-    <div class="row"><div class="box large"><label>PRIMARIA</label><div id="primaria" class="field"></div></div></div>
-    <div class="row"><div class="box large"><label>PREMEDIA</label><div id="premedia" class="field"></div></div></div>
-    <div class="row"><div class="box large"><label>MEDIA</label><div id="media" class="field"></div></div></div>
-    <div class="row"><div class="box large"><label>SUPERIOR</label><div id="superior" class="field"></div></div></div>
-
-    <div class="pagebreak"></div>
-
-    <!-- VI -->
-    <div class="section-title">VI – REFERENCIAS</div>
-    <div class="row">
-        <div class="box"><label>NOMBRE</label><div id="ref1" class="field"></div></div>
-        <div class="box"><label>TEL</label><div id="ref1tel" class="field"></div></div>
-    </div>
-    <div class="row">
-        <div class="box"><label>NOMBRE</label><div id="ref2" class="field"></div></div>
-        <div class="box"><label>TEL</label><div id="ref2tel" class="field"></div></div>
-    </div>
-
-    <!-- VII -->
-    <div class="section-title">VII – GRUPO FAMILIAR</div>
-    <div class="row">
-        <div class="box"><label>HIJOS</label><div id="hijos" class="field"></div></div>
-        <div class="box"><label>HERMANOS</label><div id="hermanos" class="field"></div></div>
-        <div class="box"><label>INGRESO</label><div id="ingreso" class="field"></div></div>
-    </div>
-
-    <!-- VIII -->
-    <div class="section-title">VIII – HABILIDADES</div>
-    <div class="row"><div class="box large"><label>DEPORTES / INSTRUMENTOS</label><div id="habilidades" class="field"></div></div></div>
-
-    <!-- IX -->
-    <div class="section-title">IX – MOTIVACIÓN</div>
-    <div class="row"><div class="box large"><label>MOTIVO INGRESO</label><div id="motivo" class="field" style="height:60px"></div></div></div>
+    </div> <!-- FIN FORM-PAGE -->
 
     <script>
-        const URL_API = "https://script.google.com/macros/s/AKfycbxnM2CGWsEKq_Ygvy-d5kkU-PntI7M1BmibpHcKFB9hkWZXrIoDWK1QCJ64tVDU9VUf/exec";
+        const URL_API = "https://script.google.com/macros/s/AKfycbzEE0t9HvVEaTDFLuhRniUVDDFRH76NDywsoWWYBZUMPR48yi3-JJAzbi8cV4FXXwu3/exec";
 
         document.addEventListener("DOMContentLoaded", async () => {
             const cedula = localStorage.getItem("target_cedula");
-
-            if (!cedula) {
-                alert("No hay cédula seleccionada");
-                return;
-            }
+            if (!cedula) return;
 
             try {
                 const res = await fetch(`${URL_API}?cedula=${encodeURIComponent(cedula)}`);
                 const p = await res.json();
-
-                if (p.error) {
-                    alert(p.error);
-                    return;
-                }
 
                 const set = (id, val) => {
                     const el = document.getElementById(id);
                     if (el) el.innerText = val || "";
                 };
 
-                // Llenado de campos
+                // Llenado (Coincidiendo con tus nombres de Excel)
                 set("fecha", p["Fecha postulacion"]);
                 set("cargo", p["Cargo al que se postula"]);
                 set("apellido1", p["1er Apellido"]);
@@ -214,18 +146,18 @@
                 set("casaColor", p["N de casa y color"]);
                 set("tiempoResidencia", p["Tiempo de residencia (años)"]);
                 set("telefonoResidencia", p["Telefono residencia"]);
-                set("direccionAnterior", p["Direcciòn anterior"]);
+                set("padre", p["Nombre del padre"]);
+                set("padreProf", p["Padre profesion"]);
+                set("madre", p["Nombre de la madre"]);
+                set("madreProf", p["Madre profesion"]);
 
-                // Foto (Corregido el ID de 'foto-container' a 'foto')
+                // Foto
                 if (p["Link_recluta_foto"] && p["Link_recluta_foto"] !== "Sin foto") {
                     const fotoDiv = document.getElementById("foto");
-                    if (fotoDiv) {
-                        fotoDiv.innerHTML = `<img src="${p["Link_recluta_foto"]}" style="width:100%;height:100%;object-fit:cover;">`;
-                    }
+                    fotoDiv.innerHTML = `<img src="${p["Link_recluta_foto"]}" style="width:100%;height:100%;object-fit:cover;">`;
+                    fotoDiv.style.border = "none";
                 }
-            } catch (error) {
-                console.error("Error cargando datos:", error);
-            }
+            } catch (e) { console.error("Error al cargar datos:", e); }
         });
     </script>
 </body>
