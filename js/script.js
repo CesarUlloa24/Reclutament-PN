@@ -164,7 +164,7 @@ function finalizarFormulario() {
         return el ? el.value : "";
     };
 
-    const urlScript = "https://script.google.com/macros/s/AKfycbzF2-dCVEdKFg728JlrA45ZM0TpCjcPKX9YZjfpbfY097RbiuWb7kKa8JUNW8DuHuak/exec"; 
+    const urlScript = "https://script.google.com/macros/s/AKfycbxnM2CGWsEKq_Ygvy-d5kkU-PntI7M1BmibpHcKFB9hkWZXrIoDWK1QCJ64tVDU9VUf/exec"; 
 
     const datos = {
         fechaPostulacion: v('fechaPostulacion'),
@@ -290,6 +290,7 @@ function finalizarFormulario() {
 
         fotoBase64: fotoBase64Global   // <--- LA FOTO AL FINAL
     };
+
 
     fetch(urlScript, {
         method: 'POST',
