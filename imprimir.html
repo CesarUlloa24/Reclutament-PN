@@ -464,11 +464,337 @@
             </div>
         </div>
 
+    <!-- SECCIÓN XI: ¿HA TENIDO O TIENE? -->
+        <div class="box-title">XI. ¿HA TENIDO O TIENE? (MARQUE CON UNA X EN LA CASILLA RESPECTIVA)</div>
+        <div class="border-section">
+            
+            <div class="row-print" style="align-items: flex-start;">
+                
+                <!-- COLUMNA IZQUIERDA -->
+                <div class="col-print" style="border-right: 1px solid #ccc; padding-right: 10px;">
+                    
+                    <!-- Item 1 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Algún padecimiento crónico? : </span>
+                            <span class="med-status" id="st_cronico">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_cronico_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_cronico_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Dolor de cabeza frecuente? :</span>
+                            <span class="med-status" id="st_cabeza">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_cabeza_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_cabeza_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Bocio? :</span>
+                            <span class="med-status" id="st_bocio">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_bocio_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_bocio_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Asma? :</span>
+                            <span class="med-status" id="st_asma">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_asma_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_asma_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Presión sanguínea alta / baja? :</span>
+                            <span class="med-status" id="st_presion">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_presion_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_presion_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Reacción alérgica? :</span>
+                            <span class="med-status" id="st_alergia">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_alergia_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_alergia_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 7 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Tumor, quiste, cáncer? :</span>
+                            <span class="med-status" id="st_tumor">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_tumor_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_tumor_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 8 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Hernia? :</span>
+                            <span class="med-status" id="st_hernia">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_hernia_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_hernia_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 9 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Enfermedades venéreas? :</span>
+                            <span class="med-status" id="st_venereas">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_venereas_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_venereas_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 10 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Epilepsia u ataques? :</span>
+                            <span class="med-status" id="st_epilepsia">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_epilepsia_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_epilepsia_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 11 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Adicción a las drogas? :</span>
+                            <span class="med-status" id="st_drogas">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_drogas_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_drogas_txt"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- COLUMNA DERECHA -->
+                <div class="col-print" style="padding-left: 10px;">
+                    
+                    <!-- Item 12 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Trastornos nerviosos? :</span>
+                            <span class="med-status" id="st_nervios">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_nervios_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_nervios_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 13 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Dificultades para hablar? :</span>
+                            <span class="med-status" id="st_habla">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_habla_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_habla_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 14 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Intento autolítico (Suicidio)? :</span>
+                            <span class="med-status" id="st_suicidio">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_suicidio_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_suicidio_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 15 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Problemas neurológicos? :</span>
+                            <span class="med-status" id="st_neuro">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_neuro_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_neuro_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 16 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Incapacidad motora? :</span>
+                            <span class="med-status" id="st_motora">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_motora_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_motora_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 17 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Lesiones mayores por accidentes? :</span>
+                            <span class="med-status" id="st_lesiones">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_lesiones_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_lesiones_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 18 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Dificultad obtener trabajo por causa médica? :</span>
+                            <span class="med-status" id="st_trabajo">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_trabajo_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_trabajo_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 19 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Operación quirúrgica reciente o por realizar? :</span>
+                            <span class="med-status" id="st_operacion">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_operacion_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_operacion_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 20 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Dificultad con sus estudios escolares? :</span>
+                            <span class="med-status" id="st_estudios">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_estudios_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_estudios_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 21 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Otra lesión distinta a las ya mencionadas? :</span>
+                            <span class="med-status" id="st_otra">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_otra_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_otra_txt"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 22 -->
+                    <div class="med-item">
+                        <div class="med-header">
+                            <span class="med-label">¿Últimos 3 meses tristeza, depresión, p. dormir? :</span>
+                            <span class="med-status" id="st_tristeza">NO</span>
+                        </div>
+                        <div class="med-explain" id="ex_tristeza_div">
+                            <span class="med-ex-label">Explique:</span> <span id="ex_tristeza_txt"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    <!-- SECCIÓN XIII: HÁBITOS -->
+        <div class="box-title">XIII. HÁBITOS (GRADO APROXIMADO DE ACUERDO A LA PREGUNTA)</div>
+        <div class="border-section">
+            <div class="row-print" style="align-items: center;">
+                <div class="col-print" style="flex: 3;">
+                    <label class="label-sm" style="font-size: 11px;">¿HA CONSUMIDO DROGAS ALGUNA VEZ?</label>
+                </div>
+                <div class="col-print" style="flex: 1; text-align: right;">
+                    <div id="consumoDrogas" class="field-print" style="justify-content: center; font-weight: bold;">NO</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN XIV: ANTECEDENTES JUDICIALES -->
+        <div class="box-title">XIV. ANTECEDENTES JUDICIALES</div>
+        <div class="border-section">
+            <label class="label-sm" style="margin-bottom: 5px;">INDIQUE SI HA TENIDO ALGUNA SITUACIÓN JUDICIAL O DETENCIÓN:</label>
+            <!-- Caja de texto grande simulando textarea -->
+            <div id="situacionJudicial" class="field-print" style="min-height: 80px; align-items: flex-start; padding: 8px;">
+                <!-- Aquí se imprimirá el texto si existe -->
+            </div>
+        </div>
+
+        <!-- SECCIÓN XV: SITUACIÓN ACTUAL DEL ASPIRANTE -->
+        <div class="box-title">XV. SITUACIÓN ACTUAL DEL ASPIRANTE</div>
+        <div class="border-section">
+            
+            <!-- Fila 1: Labora y Estudia -->
+            <div class="row-print" style="border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 5px;">
+                <!-- Labora -->
+                <div class="col-print" style="flex: 1; border-right: 1px solid #ccc; padding-right: 10px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="label-sm">LABORA:</span>
+                        <span id="labora" style="font-weight: bold; border: 1px solid #ccc; padding: 2px 10px; border-radius: 4px;">NO</span>
+                    </div>
+                </div>
+                <!-- Estudia -->
+                <div class="col-print" style="flex: 1; padding-left: 10px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="label-sm">ESTUDIA:</span>
+                        <span id="estudia" style="font-weight: bold; border: 1px solid #ccc; padding: 2px 10px; border-radius: 4px;">NO</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fila 2: Partido Político -->
+            <div class="row-print" style="border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 5px;">
+                <div class="col-print">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="label-sm">PERTENECE O HA PERTENECIDO A ALGÚN PARTIDO POLÍTICO:</span>
+                        <span id="partidoPolitico" style="font-weight: bold; border: 1px solid #ccc; padding: 2px 10px; border-radius: 4px;">NO</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fila 3: Seguridad Pública -->
+            <div class="row-print">
+                <div class="col-print">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="label-sm">¿HA PERTENECIDO O APLICADO EN OTRO ESTAMENTO DE SEGURIDAD PÚBLICA?</span>
+                        <span id="estamentoSeguridad" style="font-weight: bold; border: 1px solid #ccc; padding: 2px 10px; border-radius: 4px;">NO</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div> 
 
 
     <script>
-        const URL_API = "https://script.google.com/macros/s/AKfycbzI-PZ352n3iiJp8QooPMO9FHSlxkE6g3JpeQLQ1rApDqBT2h2pIfCH2TUrLHhYM6AM/exec";
+        const URL_API = "https://script.google.com/macros/s/AKfycbyt0XVguQKrQxvlrCRLb4jELXgZUJqOJd7C-V6EtE_-OALEmv511OO4PLC3_qriCxaK/exec";
 
         document.addEventListener("DOMContentLoaded", async () => {
             const cedula = localStorage.getItem("target_cedula");
@@ -587,11 +913,86 @@
                 document.getElementById("ref2T").value = p["Ref2_Telefono"] || "";
 
                 // --- SECCIÓN VII, VIII, IX ---
-set("tieneHijos", p["Hijos"]);      // "SI" o "NO"
-set("numHermanos", p["N_Hermanos"]);
-set("personasViven", p["N_VivenConUsted"]);
-set("habilidades", p["Habilidades_Instrumentos"]);
-set("deportes", p["Deportes"]);
+                set("tieneHijos", p["Hijos"]);      // "SI" o "NO"
+                set("numHermanos", p["N_Hermanos"]);
+                set("personasViven", p["N_VivenConUsted"]);
+                set("habilidades", p["Habilidades_Instrumentos"]);
+                set("deportes", p["Deportes"]);
+
+// ==========================================
+                // Sección XI: HISTORIAL MÉDICO
+                // ==========================================
+
+                // Recibe: ID del status, ID del div explain, ID del texto explain, Valor SI/NO, Texto Explicación
+                function llenarMedico(idStatus, idDivEx, idTxtEx, valEstado, valExplicacion) {
+                    const statusEl = document.getElementById(idStatus);
+                    const divEx = document.getElementById(idDivEx);
+                    const txtEx = document.getElementById(idTxtEx);
+
+                    // Normalizamos a mayúsculas por si acaso viene "Si" o "si"
+                    const estado = (valEstado || "NO").toUpperCase();
+
+                    statusEl.innerText = estado;
+
+                    // Si es SÍ, mostramos el div de explicación y llenamos el texto
+                    if (estado === "SI" || estado === "SÍ") {
+                        divEx.style.display = "block";
+                        txtEx.innerText = valExplicacion || "Sin especificar";
+                        // Resaltamos visualmente el SI
+                        statusEl.style.color = "red"; 
+                    } else {
+                        // Si es NO, aseguramos que esté oculto
+                        divEx.style.display = "none";
+                        statusEl.style.color = "black";
+                    }
+                }
+
+                // AHORA LLAMAMOS A LA FUNCIÓN PARA CADA ITEM
+
+                // Columna Izquierda
+                llenarMedico("st_cronico", "ex_cronico_div", "ex_cronico_txt", p["Padecimiento Crónico (R)"], p["Padecimiento Crónico (E)"]);
+                llenarMedico("st_cabeza", "ex_cabeza_div", "ex_cabeza_txt", p["Dolor Cabeza (R)"], p["Dolor Cabeza (E)"]);
+                llenarMedico("st_bocio", "ex_bocio_div", "ex_bocio_txt", p["Bocio (R)"], p["Bocio (E)"]);
+                llenarMedico("st_asma", "ex_asma_div", "ex_asma_txt", p["Asma (R)"], p["Asma (E)"]);
+                llenarMedico("st_presion", "ex_presion_div", "ex_presion_txt", p["Presión Alta/Baja (R)"], p["Presión Alta/Baja (E)"]);
+                llenarMedico("st_alergia", "ex_alergia_div", "ex_alergia_txt", p["Reacción Alérgica (R)"], p["Reacción Alérgica (E)"]);
+                llenarMedico("st_tumor", "ex_tumor_div", "ex_tumor_txt", p["Tumor/Quiste/Cáncer (R)"], p["Tumor/Quiste/Cáncer (E)"]);
+                llenarMedico("st_hernia", "ex_hernia_div", "ex_hernia_txt", p["Hernia (R)"], p["Hernia (E)"]);
+                llenarMedico("st_venereas", "ex_venereas_div", "ex_venereas_txt", p["Enfermedades Venéreas (R)"], p["Enfermedades Venéreas (E)"]);
+                llenarMedico("st_epilepsia", "ex_epilepsia_div", "ex_epilepsia_txt", p["Epilepsia/Ataques (R)"], p["Epilepsia/Ataques (E)"]);
+                llenarMedico("st_drogas", "ex_drogas_div", "ex_drogas_txt", p["Adicción Drogas (R)"], p["Adicción Drogas (E)"]);
+
+                // Columna Derecha
+                llenarMedico("st_nervios", "ex_nervios_div", "ex_nervios_txt", p["Trastornos Nerviosos (R)"], p["Trastornos Nerviosos (E)"]);
+                llenarMedico("st_habla", "ex_habla_div", "ex_habla_txt", p["Dificultad Hablar (R)"], p["Dificultad Hablar (E)"]);
+                llenarMedico("st_suicidio", "ex_suicidio_div", "ex_suicidio_txt", p["Intento Suicidio (R)"], p["Intento Suicidio (E)"]);
+                llenarMedico("st_neuro", "ex_neuro_div", "ex_neuro_txt", p["Prob. Neurológicos (R)"], p["Prob. Neurológicos (E)"]);
+                llenarMedico("st_motora", "ex_motora_div", "ex_motora_txt", p["Incapacidad Motora (R)"], p["Incapacidad Motora (E)"]);
+                llenarMedico("st_lesiones", "ex_lesiones_div", "ex_lesiones_txt", p["Lesiones Accidentes (R)"], p["Lesiones Accidentes (E)"]);
+                llenarMedico("st_trabajo", "ex_trabajo_div", "ex_trabajo_txt", p["Dificultad Trabajo Médico (R)"], p["Dificultad Trabajo Médico (E)"]);
+                llenarMedico("st_operacion", "ex_operacion_div", "ex_operacion_txt", p["Cirugías (R)"], p["Cirugías (E)"]);
+                llenarMedico("st_estudios", "ex_estudios_div", "ex_estudios_txt", p["Dificultad Estudios (R)"], p["Dificultad Estudios (E)"]);
+                llenarMedico("st_otra", "ex_otra_div", "ex_otra_txt", p["Otras Lesiones (R)"], p["Otras Lesiones (E)"]);
+                llenarMedico("st_tristeza", "ex_tristeza_div", "ex_tristeza_txt", p["Depresión/Sueño (R)"], p["Depresión/Sueño (E)"]);
+
+                // ==========================================
+                // Sección XIII: HÁBITOS
+                // ==========================================
+                set("Consume Drogas (R)", p["Expl. Drogas"]);
+
+                // ==========================================
+                // Sección XIV: ANTECEDENTES JUDICIALES
+                // ==========================================
+                // Si el campo viene vacío, podemos dejarlo en blanco o poner "NINGUNA"
+                set("situacionJudicial", p["Ant. Judiciales"] || "NINGUNA");
+
+                // ==========================================
+                // Sección XV: SITUACIÓN ACTUAL
+                // ==========================================
+                set("labora", p["Labora (R)"]);
+                set("estudia", p["Estudia (R)"]);
+                set("partidoPolitico", p["Partido Político (R)"]);
+                set("estamentoSeguridad", p["Otro Estamento (R)"]);
 
 // --- SECCIÓN X: ANTECEDENTES (Lógica Checkbox + Input) ---
 

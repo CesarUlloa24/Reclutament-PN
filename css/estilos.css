@@ -333,3 +333,13 @@ body {
         color: transparent;
     }
 }
+
+.med-item {
+    margin-bottom: 5px;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 2px;
+    
+    /* ESTO ES LO NUEVO: */
+    page-break-inside: avoid; /* Evita que la impresora parta este ítem a la mitad */
+    break-inside: avoid;      /* Versión moderna */
+}
