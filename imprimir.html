@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>FICHA DE IMPRESIÓN OFICIAL - POLICÍA NACIONAL</title>
-    <!-- Importamos el CSS Externo (Verifica si es CSS o css según tu carpeta) -->
+    <!-- Importamos el CSS Externo -->
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
-    <!-- Botón para imprimir (no sale en el papel gracias a la clase no-print) -->
+    <!-- Botón para imprimir (no sale en el papel) -->
     <div style="text-align: center; margin-bottom: 20px;" class="no-print">
-        <button onclick="window.print()" style="padding: 10px 20px; cursor: pointer; font-weight: bold; border-radius: 5px;">Imprimir Ficha Oficial</button>
+        <button onclick="window.print()" style="padding: 10px 20px; cursor: pointer; font-weight: bold; border-radius: 5px; background-color: #16283f; color: white; border: none;">
+            🖨️ Imprimir Ficha Oficial
+        </button>
     </div>
 
-    <!-- CONTENEDOR TIPO HOJA DE PAPEL -->
+    <!-- PÁGINA 1: DATOS GENERALES Y RESIDENCIALES -->
     <div class="form-page">
 
         <!-- ENCABEZADO OFICIAL -->
@@ -74,43 +76,399 @@
             </div>
         </div>
 
-        <!-- SECCIÓN II: DIRECCIÓN -->
+        <!-- SECCIÓN II: DIRECCIÓN RESIDENCIAL -->
         <div class="box-title">II. DIRECCIÓN RESIDENCIAL</div>
         <div class="border-section">
             <div class="row-print">
-                <div class="col-print"><label class="label-sm">PROVINCIA</label><div id="provincia" class="field-print"></div></div>
-                <div class="col-print"><label class="label-sm">DISTRITO</label><div id="distrito" class="field-print"></div></div>
+                <div class="col-print" style="flex: 2;">
+                    <label class="label-sm">A- PROVINCIA / COMARCA</label>
+                    <div id="provincia" class="field-print"></div>
+                </div>
+                <div class="col-print" style="flex: 1;">
+                    <label class="label-sm">DISTRITO</label>
+                    <div id="distrito" class="field-print"></div>
+                </div>
             </div>
+
             <div class="row-print" style="margin-top: 15px;">
-                <div class="col-print"><label class="label-sm">CORREGIMIENTO Y SECTOR</label><div id="corregimiento" class="field-print"></div></div>
+                <div class="col-print">
+                    <label class="label-sm">CORREGIMIENTO Y SECTOR</label>
+                    <div id="corregimiento" class="field-print"></div>
+                </div>
             </div>
+
             <div class="row-print" style="margin-top: 15px;">
-                <div class="col-print"><label class="label-sm">N° CASA Y COLOR</label><div id="casaColor" class="field-print"></div></div>
-                <div class="col-print"><label class="label-sm">TIEMPO RESIDENCIA</label><div id="tiempoResidencia" class="field-print"></div></div>
-                <div class="col-print"><label class="label-sm">TELÉFONOS</label><div id="telefonoResidencia" class="field-print"></div></div>
+                <div class="col-print" style="flex: 1;">
+                    <label class="label-sm">N° CASA Y COLOR</label>
+                    <div id="casaColor" class="field-print"></div>
+                </div>
+                <div class="col-print" style="flex: 1;">
+                    <label class="label-sm">DESDE / A (AÑOS)</label>
+                    <div id="tiempoResidencia" class="field-print"></div>
+                </div>
+                <div class="col-print" style="flex: 1;">
+                    <label class="label-sm">TELÉFONOS</label>
+                    <div id="telefonoResidencia" class="field-print"></div>
+                </div>
+            </div>
+
+            <div class="row-print" style="margin-top: 15px;">
+                <div class="col-print">
+                    <label class="label-sm">DIRECCION ANTERIOR</label>
+                    <div id="direccionAnterior" class="field-print"></div>
+                </div>
             </div>
         </div>
+    </div> <!-- FIN PÁGINA 1 -->
 
-        <!-- SECCIÓN III: DATOS FAMILIARES -->
+    <!-- PÁGINA 2: DATOS FAMILIARES -->
+    <div class="form-page">
         <div class="box-title">III. DATOS FAMILIARES</div>
         <div class="border-section">
+            <!-- PADRE -->
             <div class="row-print">
-                <div class="col-print"><label class="label-sm">NOMBRE DEL PADRE</label><div id="padre" class="field-print"></div></div>
-                <div class="col-print" style="flex: 0.6;"><label class="label-sm">PROFESIÓN / TEL</label><div id="padreProf" class="field-print"></div></div>
+                <div class="col-print" style="flex: 2;">
+                    <label class="label-sm">NOMBRE DE PADRE</label>
+                    <div id="padre" class="field-print"></div>
+                </div>
+                <div class="col-print" style="flex: 1;">
+                    <label class="label-sm">PROFESIÓN</label>
+                    <div id="padreProf" class="field-print"></div>
+                </div>
             </div>
-            <div class="row-print" style="margin-top: 15px;">
-                <div class="col-print"><label class="label-sm">NOMBRE DE LA MADRE</label><div id="madre" class="field-print"></div></div>
-                <div class="col-print" style="flex: 0.6;"><label class="label-sm">PROFESIÓN / TEL</label><div id="madreProf" class="field-print"></div></div>
+            <div class="row-print" style="margin-top: 5px;">
+                <div class="col-print" style="flex: 2;">
+                    <label class="label-sm">DIRECCIÓN</label>
+                    <div id="padreDir" class="field-print"></div>
+                </div>
+                <div class="col-print" style="flex: 1;">
+                    <label class="label-sm">TELÉFONO</label>
+                    <div id="padreTel" class="field-print"></div>
+                </div>
+            </div>
+
+            <hr style="border: 0.5px solid #ccc; margin: 10px 0;">
+
+            <!-- MADRE -->
+            <div class="row-print">
+                <div class="col-print" style="flex: 2;">
+                    <label class="label-sm">NOMBRE DE LA MADRE</label>
+                    <div id="madre" class="field-print"></div>
+                </div>
+                <div class="col-print" style="flex: 1;">
+                    <label class="label-sm">PROFESIÓN</label>
+                    <div id="madreProf" class="field-print"></div>
+                </div>
+            </div>
+            <div class="row-print" style="margin-top: 5px;">
+                <div class="col-print" style="flex: 2;">
+                    <label class="label-sm">DIRECCIÓN</label>
+                    <div id="madreDir" class="field-print"></div>
+                </div>
+                <div class="col-print" style="flex: 1;">
+                    <label class="label-sm">TELÉFONO</label>
+                    <div id="madreTel" class="field-print"></div>
+                </div>
+            </div>
+
+            <hr style="border: 0.5px solid #ccc; margin: 10px 0;">
+
+            <!-- LÓGICA VIVE CON PADRES -->
+            <div class="row-print">
+                <div class="col-print" style="flex: 0.4;">
+                    <label class="label-sm">VIVE CON AMBOS PADRES</label>
+                    <div id="viveAmbos" class="field-print"></div>
+                </div>
+                <div class="col-print" style="flex: 1.2;">
+                    <label class="label-sm">¿CON QUE PADRE VIVE? INDIQUE</label>
+                    <div id="conQuien" class="field-print"></div>
+                </div>
+            </div>
+
+            <!-- PADRASTROS -->
+            <div class="row-print" style="margin-top: 10px;">
+                <div class="col-print">
+                    <label class="label-sm">NOMBRE DEL PADRASTRO (SI APLICA)</label>
+                    <div id="padrastro" class="field-print"></div>
+                </div>
+                <div class="col-print">
+                    <label class="label-sm">NOMBRE DE LA MADRASTRA (SI APLICA)</label>
+                    <div id="madrastra" class="field-print"></div>
+                </div>
+            </div>
+
+            <!-- EMERGENCIA E INGRESO -->
+            <div class="row-print" style="margin-top: 10px;">
+                <div class="col-print" style="flex: 1.5;">
+                    <label class="label-sm">EN CASO DE EMERGENCIA LLAMAR A</label>
+                    <div id="emergenciaNom" class="field-print"></div>
+                </div>
+                <div class="col-print">
+                    <label class="label-sm">TELÉFONO</label>
+                    <div id="emergenciaTel" class="field-print"></div>
+                </div>
+                <div class="col-print">
+                    <label class="label-sm">INGRESO FAMILIAR</label>
+                    <div id="ingresoFam" class="field-print"></div>
+                </div>
             </div>
         </div>
 
-        <!-- PÁGINA 2 (OPCIONAL) -->
-        <!-- <div class="pagebreak"></div> -->
+    <!-- SECCIÓN IV: DESCRIPCIÓN FÍSICA -->
+        <div class="box-title">IV. DESCRIPCIÓN FÍSICA</div>
+        <div class="border-section">
+            
+            <!-- FILA 1: Estatura, Camisa, Pantalón, Zapatos -->
+            <div class="row-print">
+                <div class="col-print">
+                    <label class="label-sm">ESTATURA (EN METROS)</label>
+                    <div id="estatura" class="field-print"></div>
+                </div>
+                <div class="col-print">
+                    <label class="label-sm">CAMISA</label>
+                    <div id="tallaCamisa" class="field-print"></div>
+                </div>
+                <div class="col-print">
+                    <label class="label-sm">PANTALÓN</label>
+                    <div id="tallaPantalon" class="field-print"></div>
+                </div>
+                <div class="col-print">
+                    <label class="label-sm">ZAPATOS</label>
+                    <div id="tallaZapatos" class="field-print"></div>
+                </div>
+            </div>
 
-    </div> <!-- FIN FORM-PAGE -->
+            <!-- FILA 2: Peso, Cabello, Ojos, Tez -->
+            <div class="row-print" style="margin-top: 10px;">
+                <div class="col-print">
+                    <label class="label-sm">PESO (LBS)</label>
+                    <div id="peso" class="field-print"></div>
+                </div>
+                <div class="col-print">
+                    <label class="label-sm">CLASE CABELLO</label>
+                    <div id="tipoCabello" class="field-print"></div>
+                </div>
+                <div class="col-print">
+                    <label class="label-sm">COLOR CABELLO</label>
+                    <div id="colorCabello" class="field-print"></div>
+                </div>
+                <div class="col-print">
+                    <label class="label-sm">COLOR OJOS</label>
+                    <div id="colorOjos" class="field-print"></div>
+                </div>
+                <div class="col-print">
+                    <label class="label-sm">TEZ DE LA PIEL</label>
+                    <div id="tez" class="field-print"></div>
+                </div>
+            </div>
+
+            <!-- FILA 3: Señas Particulares -->
+            <div class="row-print" style="margin-top: 10px;">
+                <div class="col-print">
+                    <label class="label-sm">SEÑAS PARTICULARES (PIE PLANO, CICATRIZ Y/O CUALQUIER CARACTERÍSTICA IDENTIFICATIVA) EXPLIQUE:</label>
+                    <div id="senasParticulares" class="field-print"></div>
+                </div>
+            </div>
+        </div> <!-- FIN DE LA SECCIÓN IV -->    
+
+    <!-- SECCIÓN V: ESTUDIOS -->
+        <div class="box-title">V. ESTUDIOS</div>
+        <!-- El estilo inline quita el borde externo para que solo quede la tabla -->
+        <div class="border-section" style="border: none !important; padding: 0 !important;">
+            <table class="table-oficial">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">NIVEL</th>
+                        <th style="width: 40%;">CENTRO DE ESTUDIO / NOMBRE</th>
+                        <th style="width: 40%;">TÍTULO OBTENIDO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight: bold;">INICIAL</td>
+                        <td><input type="text" id="estIniC" class="form-control-clean"></td>
+                        <td><input type="text" id="estIniT" class="form-control-clean"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">PRE-MEDIA</td>
+                        <td><input type="text" id="estPreC" class="form-control-clean"></td>
+                        <td><input type="text" id="estPreT" class="form-control-clean"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">MEDIA</td>
+                        <td><input type="text" id="estMedC" class="form-control-clean"></td>
+                        <td><input type="text" id="estMedT" class="form-control-clean"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">SUPERIOR</td>
+                        <td><input type="text" id="estSupC" class="form-control-clean"></td>
+                        <td><input type="text" id="estSupT" class="form-control-clean"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">POST-SUPERIOR</td>
+                        <td><input type="text" id="estPosC" class="form-control-clean"></td>
+                        <td><input type="text" id="estPosT" class="form-control-clean"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">OTROS</td>
+                        <td><input type="text" id="estOtrC" class="form-control-clean"></td>
+                        <td><input type="text" id="estOtrT" class="form-control-clean"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECCIÓN VI: REFERENCIAS PERSONALES -->
+        <div class="box-title">VI. REFERENCIAS PERSONALES</div>
+        <div class="border-section" style="border: none !important; padding: 0 !important;">
+            <table class="table-oficial">
+                <thead>
+                    <tr>
+                        <th style="width: 33.33%;">NOMBRE</th>
+                        <th style="width: 33.33%;">LUGAR DE TRABAJO</th>
+                        <th style="width: 33.33%;">TELÉFONO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Referencia 1 -->
+                    <tr>
+                        <td><input type="text" id="ref1N" class="form-control-clean"></td>
+                        <td><input type="text" id="ref1L" class="form-control-clean"></td>
+                        <td><input type="text" id="ref1T" class="form-control-clean"></td>
+                    </tr>
+                    <!-- Referencia 2 -->
+                    <tr>
+                        <td><input type="text" id="ref2N" class="form-control-clean"></td>
+                        <td><input type="text" id="ref2L" class="form-control-clean"></td>
+                        <td><input type="text" id="ref2T" class="form-control-clean"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ======================================================================
+             FILA DE 3 COLUMNAS: SECCIONES VII, VIII Y IX
+             ====================================================================== -->
+        <div class="row-print" style="align-items: stretch; margin-top: 20px;">
+            
+            <!-- SECCIÓN VII: DESCENDENCIA (Mitad de ancho) -->
+            <div class="col-print" style="flex: 2;">
+                <div class="box-title" style="margin-top: 0;">VII. DESCENDENCIA</div>
+                <div class="border-section" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                    
+                    <div class="row-print">
+                        <div class="col-print" style="flex: 1;">
+                            <label class="label-sm">¿TIENE HIJOS?</label>
+                            <!-- Usamos un div simulando input para que se vea limpio -->
+                            <div id="tieneHijos" class="field-print"></div>
+                        </div>
+                        <div class="col-print" style="flex: 2;">
+                            <label class="label-sm">N° HERMANOS</label>
+                            <div id="numHermanos" class="field-print"></div>
+                        </div>
+                    </div>
+
+                    <div class="row-print">
+                        <div class="col-print">
+                            <label class="label-sm">N° PERSONAS QUE VIVEN CON USTED</label>
+                            <div id="personasViven" class="field-print"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN VIII: INSTRUMENTOS (Cuarto de ancho) -->
+            <div class="col-print" style="flex: 1.2;">
+                <div class="box-title" style="margin-top: 0;">VIII. INSTRUMENTOS QUE UTILIZA</div>
+                <div class="border-section" style="height: 100%;">
+                    <label class="label-sm">¿QUÉ HABILIDADES POSEE?</label>
+                    <!-- Altura forzada para parecer textarea -->
+                    <div id="habilidades" class="field-print" style="height: 65px; align-items: flex-start;"></div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN IX: DEPORTES (Cuarto de ancho) -->
+            <div class="col-print" style="flex: 1.2;">
+                <div class="box-title" style="margin-top: 0;">IX. DEPORTES QUE REALIZA</div>
+                <div class="border-section" style="height: 100%;">
+                    <label class="label-sm">¿QUÉ DEPORTE PRACTICA?</label>
+                    <div id="deportes" class="field-print" style="height: 65px; align-items: flex-start;"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ======================================================================
+             SECCIÓN X: ANTECEDENTES CLÍNICOS (FAMILIARES)
+             ====================================================================== -->
+        <div class="box-title">X. ANTECEDENTES CLÍNICOS (FAMILIARES)</div>
+        <div class="border-section">
+            <p style="font-size: 11px; margin: 0 0 10px 0;">Marque la enfermedad e indique el parentesco del familiar:</p>
+
+            <div class="row-print" style="align-items: flex-start;">
+                
+                <!-- COLUMNA 1 -->
+                <div class="col-print">
+                    <div class="check-item">
+                        <input type="checkbox" id="chk_tb" disabled> 
+                        <span class="label-check">Tuberculosis</span>
+                        <input type="text" id="rel_tb" class="line-input" placeholder="Parentesco...">
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox" id="chk_sifilis" disabled> 
+                        <span class="label-check">Sífilis</span>
+                        <input type="text" id="rel_sifilis" class="line-input" placeholder="Parentesco...">
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox" id="chk_diabetes" disabled> 
+                        <span class="label-check">Diabetes</span>
+                        <input type="text" id="rel_diabetes" class="line-input" placeholder="Parentesco...">
+                    </div>
+                </div>
+
+                <!-- COLUMNA 2 -->
+                <div class="col-print">
+                    <div class="check-item">
+                        <input type="checkbox" id="chk_cancer" disabled> 
+                        <span class="label-check">Cáncer</span>
+                        <input type="text" id="rel_cancer" class="line-input" placeholder="Parentesco...">
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox" id="chk_rinon" disabled> 
+                        <span class="label-check">Enf. Riñón / Corazón</span>
+                        <input type="text" id="rel_rinon" class="line-input" placeholder="Parentesco...">
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox" id="chk_asma" disabled> 
+                        <span class="label-check">Asma / Alergias</span>
+                        <input type="text" id="rel_asma" class="line-input" placeholder="Parentesco...">
+                    </div>
+                </div>
+
+                <!-- COLUMNA 3 -->
+                <div class="col-print">
+                    <div class="check-item">
+                        <input type="checkbox" id="chk_epilepsia" disabled> 
+                        <span class="label-check">Epilepsia</span>
+                        <input type="text" id="rel_epilepsia" class="line-input" placeholder="Parentesco...">
+                    </div>
+                    <div class="check-item">
+                        <input type="checkbox" id="chk_mental" disabled> 
+                        <span class="label-check">Enf. Mental / Depresión</span>
+                        <input type="text" id="rel_mental" class="line-input" placeholder="Parentesco...">
+                    </div>
+                    <!-- Espacio vacío para equilibrar -->
+                    <div class="check-item"> &nbsp; </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div> 
+
 
     <script>
-        const URL_API = "https://script.google.com/macros/s/AKfycbzEE0t9HvVEaTDFLuhRniUVDDFRH76NDywsoWWYBZUMPR48yi3-JJAzbi8cV4FXXwu3/exec";
+        const URL_API = "https://script.google.com/macros/s/AKfycbzI-PZ352n3iiJp8QooPMO9FHSlxkE6g3JpeQLQ1rApDqBT2h2pIfCH2TUrLHhYM6AM/exec";
 
         document.addEventListener("DOMContentLoaded", async () => {
             const cedula = localStorage.getItem("target_cedula");
@@ -125,7 +483,7 @@
                     if (el) el.innerText = val || "";
                 };
 
-                // Llenado (Coincidiendo con tus nombres de Excel)
+// Llenado (Coincidiendo con tus nombres de Excel)
                 set("fecha", p["Fecha postulacion"]);
                 set("cargo", p["Cargo al que se postula"]);
                 set("apellido1", p["1er Apellido"]);
@@ -140,16 +498,131 @@
                 set("tipaje", p["Tipaje"]);
                 set("estadoCivil", p["Estado civil"]);
                 set("idioma", p["Idioma"]);
+                
+                // Sección II
                 set("provincia", p["Provincia"]);
                 set("distrito", p["Distrito"]);
                 set("corregimiento", p["Corregimiento"]);
                 set("casaColor", p["N de casa y color"]);
                 set("tiempoResidencia", p["Tiempo de residencia (años)"]);
                 set("telefonoResidencia", p["Telefono residencia"]);
+                set("direccionAnterior", p["Direcciòn anterior"]); // Asegúrate que el nombre en Excel coincida con este
+
+     
+                // Sección III: DATOS FAMILIARES
                 set("padre", p["Nombre del padre"]);
-                set("padreProf", p["Padre profesion"]);
+                set("padreProf", p["Profesion del padre"]);
+                set("padreDir", p["Direccion del padre"]);
+                set("padreTel", p["Telefono del padre"]);
+
                 set("madre", p["Nombre de la madre"]);
-                set("madreProf", p["Madre profesion"]);
+                set("madreProf", p["Profesion de la madre"]);
+                set("madreDir", p["Direccion de la madre"]);
+                set("madreTel", p["Telefono de la madre"]);
+
+                set("viveAmbos", p["Vive ambos padres?"]);
+                set("conQuien", p["Con quien vive?"]);
+
+                set("padrastro", p["Nombre del Padrastro"]);
+                set("madrastra", p["Nombre de la madrastra"]);
+
+                set("emergenciaNom", p["Contacto de emergencia"]);
+                set("emergenciaTel", p["Telefono de emergencia"]);
+                set("ingresoFam", p["Ingreso familiar"]);
+
+                // Sección IV: DESCRIPCIÓN FÍSICA
+                set("estatura", p["Estatura"]);        // Revisa si se llama "Estatura" en tu BD
+                set("tallaCamisa", p["N° de camisa"]);
+                set("tallaPantalon", p["N° de pantalon"]);
+                set("tallaZapatos", p["Zapatos"]);
+
+                set("peso", p["Peso"]);
+                set("tipoCabello", p["Clase Cabello"]); // O "Clase Cabello"
+                set("colorCabello", p["Color Cabello"]);
+                set("colorOjos", p["Color Ojos"]);
+                set("tez", p["Tez de piel"]);
+                set("senasParticulares", p["Señas Particulares"]);
+
+                 // Sección V: ESTUDIOS
+                // ==========================================
+                
+                // Nivel Inicial
+                document.getElementById("estIniC").value = p["Inicial_Centro"] || "";
+                document.getElementById("estIniT").value = p["Inicial_Titulo"] || "";
+
+                // Nivel Pre-Media
+                document.getElementById("estPreC").value = p["PreMedia_Centro"] || "";
+                document.getElementById("estPreT").value = p["PreMedia_Titulo"] || "";
+
+                // Nivel Media
+                document.getElementById("estMedC").value = p["Media_Centro"] || "";
+                document.getElementById("estMedT").value = p["Media_Titulo"] || "";
+
+                // Nivel Superior
+                document.getElementById("estSupC").value = p["Superior_Centro"] || "";
+                document.getElementById("estSupT").value = p["Superior_Titulo"] || "";
+
+                // Nivel Post-Superior
+                document.getElementById("estPosC").value = p["PostSep_Centro"] || "";
+                document.getElementById("estPosT").value = p["PostSup_Titulo"] || "";
+
+                // Otros Estudios
+                document.getElementById("estOtrC").value = p["Otros_Centro"] || "";
+                document.getElementById("estOtrT").value = p["Otros_Titulo"] || "";
+                
+
+
+                // ==========================================
+                // Sección VI: REFERENCIAS PERSONALES
+                // ==========================================
+
+                // Referencia 1
+                document.getElementById("ref1N").value = p["Ref1_Nombre"] || "";
+                document.getElementById("ref1L").value = p["Ref1_Lugar"] || "";
+                document.getElementById("ref1T").value = p["Ref1_Telefono"] || "";
+
+                // Referencia 2
+                document.getElementById("ref2N").value = p["Ref2_Nombre"] || "";
+                document.getElementById("ref2L").value = p["Ref2_Lugar"] || "";
+                document.getElementById("ref2T").value = p["Ref2_Telefono"] || "";
+
+                // --- SECCIÓN VII, VIII, IX ---
+set("tieneHijos", p["Hijos"]);      // "SI" o "NO"
+set("numHermanos", p["N_Hermanos"]);
+set("personasViven", p["N_VivenConUsted"]);
+set("habilidades", p["Habilidades_Instrumentos"]);
+set("deportes", p["Deportes"]);
+
+// --- SECCIÓN X: ANTECEDENTES (Lógica Checkbox + Input) ---
+
+// Función auxiliar para llenar enfermedades
+function llenarAntecedente(idCheck, idInput, valorParentesco) {
+    const chk = document.getElementById(idCheck);
+    const txt = document.getElementById(idInput);
+    
+    // Si hay texto en el parentesco (ej: "Tío"), marcamos la casilla y llenamos
+    if (valorParentesco && valorParentesco.trim() !== "") {
+        chk.checked = true;
+        txt.value = valorParentesco;
+    } else {
+        chk.checked = false;
+        txt.value = ""; // O lo dejamos vacío
+    }
+}
+
+// Llamamos a la función para cada enfermedad
+// Asegúrate de usar los nombres de tu base de datos en p["..."]
+
+llenarAntecedente("chk_tb", "rel_tb", p["Fam_Tuberculosis"]);
+llenarAntecedente("chk_sifilis", "rel_sifilis", p["Fam_Sifilis"]);
+llenarAntecedente("chk_diabetes", "rel_diabetes", p["Fam_Diabetes"]);
+
+llenarAntecedente("chk_cancer", "rel_cancer", p["Fam_Cancer"]);
+llenarAntecedente("chk_rinon", "rel_rinon", p["Fam_Riñon_Corazon"]);
+llenarAntecedente("chk_asma", "rel_asma", p["Fam_Asma_Alergia"]);
+
+llenarAntecedente("chk_epilepsia", "rel_epilepsia", p["Fam_Epilepsia"]);
+llenarAntecedente("chk_mental", "rel_mental", p["Fam_Mental_Depresion"]);
 
                 // Foto
                 if (p["Link_recluta_foto"] && p["Link_recluta_foto"] !== "Sin foto") {

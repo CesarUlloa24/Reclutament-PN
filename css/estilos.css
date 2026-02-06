@@ -1,204 +1,335 @@
 /* ==========================================================================
-   ESTILOS COMPARTIDOS - POLICÍA NACIONAL
+   ESTILOS COMPARTIDOS - POLICÍA NACIONAL (VERSIÓN FINAL LIMPIA)
    ========================================================================== */
 
+/* Configuración global para evitar desbordamientos */
+* {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact; /* Para navegadores basados en Chromium */
+    print-color-adjust: exact;         /* Estándar */
+}
+
 body {
-    background-color: #2c3e50; /* Fondo oscuro para pantalla */
+    background-color: #2c3e50; /* Fondo oscuro en pantalla */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 20px 10px;
+    padding: 20px;
+    margin: 0;
     color: #000;
 }
 
-/* Contenedor tipo hoja de papel */
+/* --- CONTENEDOR PRINCIPAL (HOJA) --- */
 .form-page {
     background: #ffffff;
     width: 100%;
-    max-width: 950px; 
+    /* Ancho optimizado para vista previa de carta */
+    max-width: 816px; 
     margin: 0 auto 30px auto; 
-    padding: 40px;
+    padding: 30px; 
     border: 1px solid #000;
     box-shadow: 0 15px 35px rgba(0,0,0,0.4);
     position: relative;
-    box-sizing: border-box;
 }
 
-/* Títulos de Secciones (Azul Institucional) */
+/* --- TÍTULOS DE SECCIONES (Barra Azul) --- */
 .box-title {
     background-color: #1a2a40 !important; 
     color: #ffffff !important;
     font-weight: bold;
     border: 1px solid #000;
-    padding: 8px 15px;
-    margin-top: 20px;
-    font-size: 14px;
+    padding: 5px 10px;
+    margin-top: 15px;
+    font-size: 12px;
     text-transform: uppercase;
 }
 
-/* Bordes de secciones */
+/* --- CONTENEDOR DE SECCIÓN (El cuadro que rodea los datos) --- */
 .border-section {
-    border: 1px solid #000;
-    padding: 15px;
-    border-top: none;
+    border: 1px solid #000; /* En pantalla SÍ se ve el borde */
+    padding: 10px;
+    border-top: none; 
     background-color: #fff;
 }
 
+/* --- ETIQUETAS (LABELS) --- */
 .label-sm {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: bold;
     text-transform: uppercase;
-    color: #222;
+    color: #000;
     margin-bottom: 2px;
     display: block;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* ==========================================================================
-   ESTILOS ESPECÍFICOS PARA EL INDEX (FORMULARIO)
+   CABECERA
    ========================================================================== */
-
-.form-control-clean {
-    width: 100%;
-    border: none;
-    outline: none;
-    padding: 8px;
-    font-size: 13px;
-    background: transparent;
-    display: block;
-}
-
-.table-oficial {
-    width: 100% !important;
-    table-layout: fixed; 
-    border-collapse: collapse;
-}
-
-.table-oficial th, .table-oficial td {
-    border: 1px solid #000 !important;
-    vertical-align: middle;
-}
-
-.border-black {
-    border: 1px solid #000 !important;
-    border-radius: 0 !important;
-    font-size: 13px;
-    height: 32px;
-    background-color: #fafafa !important;
-}
-
-.health-item-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px 0;
-    border-bottom: 1px dashed #999;
-}
-
-.instruction-box {
-    border: 1px solid #000;
-    padding: 10px 15px;
-    font-size: 11px;
-    background-color: #fffde7;
-    margin-bottom: 8px;
-    line-height: 1.4;
-    text-align: justify;
-}
-
-/* ==========================================================================
-   ESTILOS ESPECÍFICOS PARA IMPRIMIR.HTML (LA FICHA)
-   ========================================================================== */
-
-/* Cabecera controlada para que el logo no crezca */
 .header-official {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
 }
 
 .header-official img {
-    max-width: 85px; /* Evita que el logo sea gigante */
+    width: 85px;
     height: auto;
 }
 
 .institutional-text {
+    flex: 1;
     text-align: center;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 11px;
+    line-height: 1.3;
     text-transform: uppercase;
-    line-height: 1.2;
-    flex: 1;
+    padding: 0 15px;
+    color: #000;
 }
 
-/* Filas horizontales para la ficha */
+.photo-container {
+    width: 100px;
+    height: 125px;
+    border: 1px dashed #888;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: #666;
+    background-color: #f9f9f9;
+}
+
+/* ==========================================================================
+   SISTEMA DE GRILLA (FILAS Y COLUMNAS)
+   ========================================================================== */
 .row-print {
     display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
     width: 100%;
+    gap: 10px;
+    margin-bottom: 8px;
+    align-items: flex-end;
+    flex-wrap: nowrap; /* CRUCIAL: Evita que las cajas bajen de línea */
 }
 
 .col-print {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: 1; 
+    min-width: 0; 
 }
 
-/* Cajas redondeadas de la ficha */
+/* --- CAJAS DE TEXTO (INPUTS) --- */
 .field-print {
     border: 1px solid #000;
-    height: 35px;
-    border-radius: 6px;
-    padding: 0 10px;
+    min-height: 28px;
+    padding: 2px 5px;
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 12px;
     background-color: #fff;
     font-weight: 500;
-}
-
-/* Contenedor de la foto */
-.photo-container {
-    width: 110px;
-    height: 130px;
-    border: 1.5px dashed #adb5bd;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    overflow: hidden;
-}
-
-.photo-container img {
+    border-radius: 0;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.no-print {
+    padding: 20px;
 }
 
 /* ==========================================================================
-   UTILIDADES Y PANTALLA DE ÉXITO
+   CONFIGURACIÓN DE IMPRESIÓN (PDF)
    ========================================================================== */
+@media print {
+    
+    @page {
+        size: letter; /* Hoja Carta */
+        margin: 0.5cm; /* Margen físico */
+    }
 
-.d-none { display: none !important; }
+    body {
+        background: white !important;
+        margin: 0;
+        padding: 0;
+        font-size: 12pt;
+    }
 
-.success-icon {
-    width: 100px; height: 100px;
-    background-color: #28a745; color: white;
-    font-size: 60px; line-height: 100px;
-    border-radius: 50%; display: inline-block;
+    /* Ocultar elementos de interfaz */
+    .no-print { display: none !important; }
+
+    /* Resetear contenedor principal */
+    .form-page {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important; 
+        box-shadow: none !important;
+    }
+
+    /* --- AQUÍ ESTÁ EL CAMBIO QUE PEDISTE --- */
+    /* Elimina el borde negro que encapsula la información */
+    .border-section {
+        border: none !important; 
+        padding: 5px 0 !important; /* Quitamos padding lateral para aprovechar espacio */
+    }
+
+    /* Asegurar alineación perfecta */
+    .row-print {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        gap: 5px !important;
+        page-break-inside: avoid;
+    }
+
+    /* Estilos de la barra de título */
+    .box-title {
+        background-color: #1a2a40 !important;
+        color: white !important;
+        border: 1px solid #000 !important; /* Mantiene el borde de la barra azul */
+    }
+
+    /* Estilos de los campos */
+    .field-print {
+        border: 1px solid #000 !important;
+        min-height: 25px !important;
+    }
+
+    /* Ajustes visuales de cabecera */
+    .header-official img { max-width: 80px !important; }
+    .photo-container { border: 1px solid #000 !important; }
 }
 
-@media (max-width: 768px) {
-    .form-page { padding: 15px; width: 98%; }
-    .header-official { flex-direction: column; }
+/* ==========================================================================
+   ESTILOS ESPECÍFICOS PARA LAS TABLAS (ESTUDIOS Y REFERENCIAS)
+   ========================================================================== */
+
+/* Configuración de la tabla para que parezca rejilla antigua */
+.table-oficial {
+    width: 100%;
+    border-collapse: collapse !important; /* CRUCIAL: Une las líneas */
+    margin-bottom: 0;
+    table-layout: fixed; /* Mantiene el ancho de columnas fijo */
+}
+
+/* Bordes de las celdas y cabeceras */
+.table-oficial th, 
+.table-oficial td {
+    border: 1px solid #000 !important; /* Borde negro sólido */
+    padding: 4px 6px; /* Espacio interno pequeño */
+    vertical-align: middle; /* Texto centrado verticalmente */
+    font-size: 11px; /* Tamaño de letra legible */
+    color: #000;
+}
+
+/* Estilo para los encabezados (NIVEL, CENTRO DE ESTUDIO...) */
+.table-oficial th {
+    background-color: #fff !important; /* Fondo blanco siempre */
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Estilo de los inputs dentro de la tabla */
+.table-oficial .form-control-clean {
+    width: 100%;
+    border: none !important; /* Quita el borde del input */
+    outline: none !important;
+    background: transparent !important;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: 11px; /* Misma letra que la tabla */
+    height: 100%;
+    color: #000;
+}
+
+/* Ajuste específico para cuando se imprime */
+@media print {
+    .table-oficial th, 
+    .table-oficial td {
+        border: 1px solid #000 !important; /* Asegura que la impresora saque las líneas */
+    }
+    
+    /* Si usas clases de Bootstrap como bg-dark, esto asegura que el título salga oscuro */
+    .bg-dark {
+        background-color: #1a2a40 !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+    }
+}
+
+/* ==========================================================================
+   CORRECCIÓN DE TÍTULOS DE TABLA (SOLUCIÓN CABECERAS)
+   ========================================================================== */
+
+.table-oficial {
+    table-layout: fixed !important; /* Fuerza a que las columnas respeten los anchos % */
+    width: 100% !important;
+}
+
+.table-oficial th {
+    display: table-cell !important; /* CRUCIAL: Fuerza a que sea celda, no bloque */
+    vertical-align: middle !important;
+    text-align: center !important;
+    background-color: #fff !important;
+    
+    /* Estilos visuales del texto (reemplazando a label-sm) */
+    font-size: 10px !important; 
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    color: #000 !important;
+    
+    /* Aseguramos que el borde sea correcto */
+    border: 1px solid #000 !important;
+    padding: 5px !important;
+    white-space: normal !important; /* Permite que el texto se acomode si es largo */
+}
+
+/* Estilos para la lista de enfermedades */
+.check-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 11px;
+}
+
+.check-item input[type="checkbox"] {
+    margin-right: 5px;
+    transform: scale(1.1); /* Hace el checkbox un poco más grande */
+}
+
+.label-check {
+    font-weight: bold;
+    min-width: 80px; /* Ancho fijo para que las líneas empiecen alineadas */
+    margin-right: 5px;
+}
+
+/* Línea para escribir el parentesco */
+.line-input {
+    border: none;
+    border-bottom: 1px solid #000; /* Solo línea abajo */
+    background: transparent;
+    font-size: 11px;
+    padding: 2px;
+    flex: 1; /* Ocupa el resto del espacio */
+    outline: none;
 }
 
 @media print {
-    body { background: white !important; padding: 0; }
-    .form-page { 
-        box-shadow: none !important; border: 1px solid #000 !important; 
-        margin: 0 !important; width: 100% !important; max-width: 100% !important;
+    /* Asegura que los checkboxes marcados se vean en papel */
+    input[type="checkbox"] {
+        -webkit-appearance: checkbox; 
     }
-    .no-print, .btn { display: none !important; }
-    #page-1, #page-2, #page-3 { page-break-after: always; }
+    
+    /* Ocultar el placeholder al imprimir */
+    .line-input::placeholder {
+        color: transparent;
+    }
 }
