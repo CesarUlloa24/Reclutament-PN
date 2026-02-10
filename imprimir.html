@@ -723,17 +723,26 @@
                 </div>
             </div>
         </div>
-    <!-- SECCIÓN XIII: HÁBITOS -->
+<!-- SECCIÓN XIII: HÁBITOS -->
         <div class="box-title">XIII. HÁBITOS (GRADO APROXIMADO DE ACUERDO A LA PREGUNTA)</div>
         <div class="border-section">
-            <div class="row-print" style="align-items: center;">
-                <div class="col-print" style="flex: 3;">
-                    <label class="label-sm" style="font-size: 11px;">¿HA CONSUMIDO DROGAS ALGUNA VEZ?</label>
-                </div>
-                <div class="col-print" style="flex: 1; text-align: right;">
-                    <div id="consumoDrogas" class="field-print" style="justify-content: center; font-weight: bold;">NO</div>
-                </div>
+            
+            <!-- CAMBIO AQUÍ: Quitamos 'justify-content: space-between' para que no se separen -->
+            <div style="display: flex; align-items: center;">
+                
+                <!-- La pregunta -->
+                <label class="label-sm" style="margin: 0; font-size: 11px;">¿HA CONSUMIDO DROGAS ALGUNA VEZ?</label>
+                
+                <!-- La respuesta: Le agregamos 'margin-left: 15px' para separarla un poco de la pregunta -->
+                <span id="consumeD" style="border: 1px solid #000; padding: 3px 15px; font-weight: bold; min-width: 50px; text-align: center; margin-left: 15px;">NO</span>
             </div>
+
+            <!-- FILA INFERIOR: Explicación -->
+            <div id="div_expl_drogas" class="med-explain" style="margin-top: 10px; border-top: 1px dashed #ccc; padding-top: 5px; width: 100%;">
+                <span class="med-ex-label">Especifique (Tipo / Frecuencia):</span> 
+                <span id="txt_expl_drogas" style="border-bottom: 1px solid #000; padding: 0 5px; width: 70%;"></span>
+            </div>
+
         </div>
 
         <!-- SECCIÓN XIV: ANTECEDENTES JUDICIALES -->
@@ -790,9 +799,121 @@
 
         </div>
 
+        <!-- SECCIÓN XVI: MOTIVACIONES -->
+        <div class="box-title">XVI. MOTIVACIONES</div>
+        <div class="border-section">
+            
+            <!-- Pregunta 1 -->
+            <div style="margin-bottom: 10px;">
+                <label class="label-sm">1.- ¿QUÉ LO MOTIVÓ INGRESAR A LA POLICÍA NACIONAL? EXPLIQUE:</label>
+                <div id="motivoIngreso" class="field-print" style="min-height: 50px; align-items: flex-start; padding: 5px;"></div>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div style="margin-bottom: 10px;">
+                <label class="label-sm">2.- ¿CÓMO SE ENTERÓ DEL PROCESO DE RECLUTAMIENTO Y SELECCIÓN DE LA POLICÍA?</label>
+                <div id="comoEntero" class="field-print" style="min-height: 50px; align-items: flex-start; padding: 5px;"></div>
+            </div>
+
+            <!-- Pregunta 3 -->
+            <div style="margin-bottom: 10px;">
+                <label class="label-sm">3.- ¿CONOCE SOBRE LAS ACTIVIDADES DEL CENTRO DE FORMACIÓN DE LA POLICÍA NACIONAL?</label>
+                <div id="conoceActividades" class="field-print" style="min-height: 50px; align-items: flex-start; padding: 5px;"></div>
+            </div>
+
+            <!-- Pregunta 4 -->
+            <div style="margin-bottom: 10px;">
+                <label class="label-sm">4.- ¿QUÉ ES LO QUE MÁS LE GUSTA DE LA CARRERA POLICIAL Y CUÁNTOS AÑOS PIENSA SERVIR?</label>
+                <div id="queGusta" class="field-print" style="min-height: 50px; align-items: flex-start; padding: 5px;"></div>
+            </div>
+
+            <!-- Pregunta 5 -->
+            <div style="margin-bottom: 10px;">
+                <label class="label-sm">5.- ¿ESTÁ DISPUESTO(A) A BRINDAR SU VIDA EN EL CUMPLIMIENTO DEL DEBER?</label>
+                <div id="dispuestoVida" class="field-print" style="min-height: 50px; align-items: flex-start; padding: 5px;"></div>
+            </div>
+
+            <!-- Pregunta 6 -->
+            <div style="margin-bottom: 15px;">
+                <label class="label-sm">6.- ¿DISPUESTO A LABORAR EN CUALQUIER PARTE DE LA REPÚBLICA DE PANAMÁ?</label>
+                <div id="dispuestoLaborar" class="field-print" style="min-height: 50px; align-items: flex-start; padding: 5px;"></div>
+            </div>
+
+            <!-- Pregunta 7 (Tipo Si/No a la derecha) -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 10px;">
+                <label class="label-sm" style="margin: 0; font-size: 11px;">7.- ¿HA TENIDO ALGÚN INCIDENTE NO MENCIONADO QUE REQUIERA EXPLICACIÓN?</label>
+                <!-- Usamos el estilo de caja cuadrada -->
+                <span id="incidente" style="border: 1px solid #000; padding: 4px 20px; font-weight: bold; min-width: 60px; text-align: center;">NO</span>
+            </div>
+
+            <!-- Explicación Oculta para la pregunta 7 -->
+            <div id="div_expl_incidente" class="med-explain" style="margin-top: 5px; width: 100%;">
+                <span class="med-ex-label">Explique:</span> 
+                <span id="txt_expl_incidente" style="border-bottom: 1px solid #000; width: 80%; display: inline-block;"></span>
+            </div>
+
+        </div>
+
+        <!-- ======================================================================
+         SECCIÓN DE FIRMAS (POSTULANTE Y RECLUTADOR)
+         ====================================================================== -->
+    
+    <!-- Margen superior grande para separar del contenido anterior -->
+    <div style="margin-top: 60px; margin-bottom: 30px; padding: 0 20px;">
+        
+        <div class="row-print" style="justify-content: space-between;">
+            
+            <!-- COLUMNA IZQUIERDA: POSTULANTE -->
+            <div class="col-print" style="flex: 0 0 45%; max-width: 45%;">
+                
+                <div style="text-align: center; font-weight: bold; margin-bottom: 25px; font-size: 12px;">POSTULANTE</div>
+                
+                <!-- Línea Nombre -->
+                <div style="display: flex; align-items: flex-end; margin-bottom: 10px;">
+                    <span style="font-weight: bold; font-size: 11px; margin-right: 5px;">NOMBRE:</span>
+                    <div id="firmaNombre" style="flex: 1; border-bottom: 1px solid #000; font-size: 12px; padding-left: 5px;"></div>
+                </div>
+
+                <!-- Línea Cédula -->
+                <div style="display: flex; align-items: flex-end; margin-bottom: 30px;">
+                    <span style="font-weight: bold; font-size: 11px; margin-right: 5px;">CÉDULA:</span>
+                    <div id="firmaCedula" style="flex: 1; border-bottom: 1px solid #000; font-size: 12px; padding-left: 5px;"></div>
+                </div>
+
+                <!-- Línea de Firma -->
+                <div style="border-bottom: 1px solid #000; width: 100%; margin-bottom: 5px;"></div>
+                <div style="text-align: center; font-weight: bold; font-size: 11px;">Firma del Postulante</div>
+
+            </div>
+
+            <!-- COLUMNA DERECHA: RECLUTADOR -->
+            <div class="col-print" style="flex: 0 0 45%; max-width: 45%;">
+                
+                <div style="text-align: center; font-weight: bold; margin-bottom: 25px; font-size: 12px;">RECLUTADOR</div>
+                
+                <!-- Línea Nombre -->
+                <div style="display: flex; align-items: flex-end; margin-bottom: 10px;">
+                    <span style="font-weight: bold; font-size: 11px; margin-right: 5px;">NOMBRE:</span>
+                    <div style="flex: 1; border-bottom: 1px solid #000; height: 18px;"></div>
+                </div>
+
+                <!-- Línea Rango/Placa -->
+                <div style="display: flex; align-items: flex-end; margin-bottom: 30px;">
+                    <span style="font-weight: bold; font-size: 11px; margin-right: 5px;">RANGO, PLACA:</span>
+                    <div style="flex: 1; border-bottom: 1px solid #000; height: 18px;"></div>
+                </div>
+
+                <!-- Línea de Firma -->
+                <div style="border-bottom: 1px solid #000; width: 100%; margin-bottom: 5px;"></div>
+                <div style="text-align: center; font-weight: bold; font-size: 11px;">Firma del Supervisado por</div>
+
+            </div>
+
+        </div>
+    </div>
+
     </div> 
-
-
+    
     <script>
         const URL_API = "https://script.google.com/macros/s/AKfycbyt0XVguQKrQxvlrCRLb4jELXgZUJqOJd7C-V6EtE_-OALEmv511OO4PLC3_qriCxaK/exec";
 
@@ -919,7 +1040,7 @@
                 set("habilidades", p["Habilidades_Instrumentos"]);
                 set("deportes", p["Deportes"]);
 
-// ==========================================
+                // ==========================================
                 // Sección XI: HISTORIAL MÉDICO
                 // ==========================================
 
@@ -978,13 +1099,21 @@
                 // ==========================================
                 // Sección XIII: HÁBITOS
                 // ==========================================
-                set("Consume Drogas (R)", p["Expl. Drogas"]);
+                
+                // Usamos llenarMedico( ID_Estado, ID_DivOculto, ID_Texto, Valor_SiNo, Valor_Explicacion )
+                llenarMedico(
+                    "consumeD",           // ID del Si/No en el HTML
+                    "div_expl_drogas",    // ID del contenedor oculto
+                    "txt_expl_drogas",    // ID donde va el texto de la droga
+                    p["Consume Drogas (R)"], // Tu dato de Excel para SI/NO
+                    p["Expl. Drogas"]       // Tu dato de Excel para la explicación
+                );
 
                 // ==========================================
                 // Sección XIV: ANTECEDENTES JUDICIALES
                 // ==========================================
                 // Si el campo viene vacío, podemos dejarlo en blanco o poner "NINGUNA"
-                set("situacionJudicial", p["Ant. Judiciales"] || "NINGUNA");
+                set("situacionJudicial", p["Ant. Judiciales"]);
 
                 // ==========================================
                 // Sección XV: SITUACIÓN ACTUAL
@@ -994,45 +1123,97 @@
                 set("partidoPolitico", p["Partido Político (R)"]);
                 set("estamentoSeguridad", p["Otro Estamento (R)"]);
 
-// --- SECCIÓN X: ANTECEDENTES (Lógica Checkbox + Input) ---
+                // ==========================================
+                // Sección XVI: MOTIVACIONES
+                // ==========================================
+                
+                // Preguntas abiertas (1-6)
+                set("motivoIngreso", p["Motivo Ingreso"]);
+                set("comoEntero", p["Como se entero"]);
+                set("conoceActividades", p["Actividades Formación"]);
+                set("queGusta", p["Gusto/Años Servir"]);
+                set("dispuestoVida", p["Dispuesto Dar Vida"]);
+                set("dispuestoLaborar", p["Laborar País"]);
 
-// Función auxiliar para llenar enfermedades
-function llenarAntecedente(idCheck, idInput, valorParentesco) {
-    const chk = document.getElementById(idCheck);
-    const txt = document.getElementById(idInput);
+                // Pregunta 7 (Lógica inteligente con explicación)
+                llenarMedico(
+                    "incidente",            // ID del cuadro NO/SI
+                    "div_expl_incidente",   // ID del div oculto
+                    "txt_expl_incidente",   // ID del texto
+                    p["Incidente Adic. (R)"],   // Dato de Excel (SI/NO)
+                    p["Incidente Adic. (E)"]     // Dato de Excel (Explicación)
+                     );
+
+              // --- SECCIÓN X: ANTECEDENTES (Lógica Checkbox + Input) ---
+
+             // Función auxiliar para llenar enfermedades
+               function llenarAntecedente(idCheck, idInput, valorParentesco) {
+               const chk = document.getElementById(idCheck);
+               const txt = document.getElementById(idInput);
     
-    // Si hay texto en el parentesco (ej: "Tío"), marcamos la casilla y llenamos
-    if (valorParentesco && valorParentesco.trim() !== "") {
-        chk.checked = true;
-        txt.value = valorParentesco;
-    } else {
-        chk.checked = false;
-        txt.value = ""; // O lo dejamos vacío
-    }
-}
+             // Si hay texto en el parentesco (ej: "Tío"), marcamos la casilla y llenamos
+               if (valorParentesco && valorParentesco.trim() !== "") {
+                 chk.checked = true;
+                 txt.value = valorParentesco;
+               } else {
+                 chk.checked = false;
+                 txt.value = ""; // O lo dejamos vacío
+                 }
+               }
 
-// Llamamos a la función para cada enfermedad
-// Asegúrate de usar los nombres de tu base de datos en p["..."]
+                // Llamamos a la función para cada enfermedad
+                // Asegúrate de usar los nombres de tu base de datos en p["..."]
 
-llenarAntecedente("chk_tb", "rel_tb", p["Fam_Tuberculosis"]);
-llenarAntecedente("chk_sifilis", "rel_sifilis", p["Fam_Sifilis"]);
-llenarAntecedente("chk_diabetes", "rel_diabetes", p["Fam_Diabetes"]);
+                 llenarAntecedente("chk_tb", "rel_tb", p["Fam_Tuberculosis"]);
+                 llenarAntecedente("chk_sifilis", "rel_sifilis", p["Fam_Sifilis"]);
+                 llenarAntecedente("chk_diabetes", "rel_diabetes", p["Fam_Diabetes"]);
 
-llenarAntecedente("chk_cancer", "rel_cancer", p["Fam_Cancer"]);
-llenarAntecedente("chk_rinon", "rel_rinon", p["Fam_Riñon_Corazon"]);
-llenarAntecedente("chk_asma", "rel_asma", p["Fam_Asma_Alergia"]);
+                 llenarAntecedente("chk_cancer", "rel_cancer", p["Fam_Cancer"]);
+                 llenarAntecedente("chk_rinon", "rel_rinon", p["Fam_Riñon_Corazon"]);
+                 llenarAntecedente("chk_asma", "rel_asma", p["Fam_Asma_Alergia"]);
 
-llenarAntecedente("chk_epilepsia", "rel_epilepsia", p["Fam_Epilepsia"]);
-llenarAntecedente("chk_mental", "rel_mental", p["Fam_Mental_Depresion"]);
+                 llenarAntecedente("chk_epilepsia", "rel_epilepsia", p["Fam_Epilepsia"]);
+                 llenarAntecedente("chk_mental", "rel_mental", p["Fam_Mental_Depresion"]);
 
-                // Foto
-                if (p["Link_recluta_foto"] && p["Link_recluta_foto"] !== "Sin foto") {
+                // ==========================================
+                // FOTO (CON SOLUCIÓN ANTI-BLOQUEO CORS)
+                // ==========================================
+                let linkOriginal = p["Link_recluta_foto"];
+
+                if (linkOriginal && linkOriginal !== "Sin foto" && linkOriginal.trim() !== "") {
                     const fotoDiv = document.getElementById("foto");
-                    fotoDiv.innerHTML = `<img src="${p["Link_recluta_foto"]}" style="width:100%;height:100%;object-fit:cover;">`;
-                    fotoDiv.style.border = "none";
+                    
+                    if (fotoDiv) {
+                        try {
+                            if (linkOriginal.includes("drive.google.com")) {
+                                // 1. Extraemos el ID del enlace de Drive
+                                let fileId = linkOriginal.split('/d/')[1].split('/')[0];
+                                
+                                // 2. Usamos el Proxy wsrv.nl para saltar el bloqueo de Google
+                                // Esto convierte el link en una imagen real que el HTML puede leer
+                                let driveUrl = `https://drive.google.com/uc?id=${fileId}`;
+                                let linkFinal = `https://wsrv.nl/?url=${encodeURIComponent(driveUrl)}&output=webp`;
+
+                                fotoDiv.innerHTML = `<img src="${linkFinal}" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Foto Recluta">`;
+                                fotoDiv.style.border = "1px solid #000";
+                            } else {
+                                // Si por alguna razón no es de Drive, intentamos carga normal
+                                fotoDiv.innerHTML = `<img src="${linkOriginal}" style="width:100%; height:100%; object-fit:cover; display:block;">`;
+                                fotoDiv.style.border = "1px solid #000";
+                            }
+                        } catch (errFoto) {
+                            console.error("Error al procesar el enlace de la foto:", errFoto);
+                        }
+                    }
+                } else {
+                    console.log("No hay foto disponible para este registro.");
                 }
-            } catch (e) { console.error("Error al cargar datos:", e); }
+
+            } catch (e) { 
+                console.error("Error general al cargar datos del API:", e); 
+            }
         });
+
     </script>
 </body>
 </html>
